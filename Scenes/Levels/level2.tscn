@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkr3umd81cq1l"]
+[gd_scene load_steps=16 format=3 uid="uid://dkr3umd81cq1l"]
 
 [ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="1_liuie"]
 [ext_resource type="Texture2D" uid="uid://cpw2n8ewrt68g" path="res://Assets/Tilesets/red_plant_16x16.png" id="2_66ec0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnskxuoxa3mh4" path="res://Scenes/Objects/platform.tscn" id="4_nearv"]
 [ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="5_vmsn7"]
 [ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="6_h2hp7"]
+[ext_resource type="PackedScene" uid="uid://c5jl03e6ro4yp" path="res://Scenes/UI/ui.tscn" id="8_75h0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtbit"]
 texture = ExtResource("1_liuie")
@@ -536,7 +537,7 @@ position = Vector2(203, 3)
 position = Vector2(349, -33)
 
 [node name="Cherry" parent="Cherries" instance=ExtResource("3_cuebu")]
-position = Vector2(77, -14)
+position = Vector2(89, -14)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -567,3 +568,5 @@ limit_right = 3600
 limit_bottom = 245
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Ui" parent="." instance=ExtResource("8_75h0r")]

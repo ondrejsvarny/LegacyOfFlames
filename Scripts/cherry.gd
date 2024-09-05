@@ -4,7 +4,7 @@ extends Area2D
 @onready var timer = $Timer
 
 func _on_body_entered(body):
-	Global.add_cherries(1)
+	Global.cherries += 1
 	print("cherries collected: ", Global.cherries)
 	set_collision_mask_value(2,0)
 	body.collect(self)

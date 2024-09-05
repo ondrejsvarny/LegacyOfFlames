@@ -4,3 +4,10 @@ res://Scenes/Levels/level2.tscn
 res://Scenes/UI/ui.tscn
 res://Scenes/UI/Menu.tscn
 res://Scenes/UI/LevelMenu.tscn
+res://Scripts/Global.gd
+res://Scenes/Objects/cherry.tscn
+res://Scenes/Objects/platform.tscn
+res://Scripts/ui.gd
+res://Scripts/player.gd
+res://Scripts/cherry.gd
+res://Scripts/Score.gd
