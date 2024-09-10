@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/cherry.tscn" id="3_cuebu"]
 [ext_resource type="PackedScene" uid="uid://cnskxuoxa3mh4" path="res://Scenes/Objects/platform.tscn" id="4_nearv"]
 [ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="5_vmsn7"]
-[ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="6_h2hp7"]
+[ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/player_node.tscn" id="8_6k3oy"]
 [ext_resource type="PackedScene" uid="uid://c5jl03e6ro4yp" path="res://Scenes/UI/ui.tscn" id="8_75h0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtbit"]
@@ -555,18 +555,6 @@ autoplay = "move"
 
 [node name="Background" parent="." instance=ExtResource("5_vmsn7")]
 
-[node name="Player" parent="." instance=ExtResource("6_h2hp7")]
-unique_name_in_owner = true
-position = Vector2(32, 1)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(1.25, -5)
-zoom = Vector2(4, 4)
-limit_left = -300
-limit_top = -300
-limit_right = 3600
-limit_bottom = 245
-limit_smoothed = true
-position_smoothing_enabled = true
-
 [node name="Ui" parent="." instance=ExtResource("8_75h0r")]
+
+[node name="PlayerNode" parent="." instance=ExtResource("8_6k3oy")]

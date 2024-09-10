@@ -222,7 +222,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85ep7"]
-size = Vector2(16.8333, 20.5556)
+size = Vector2(19.6667, 20.4167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3it4f"]
 size = Vector2(16.6667, 12.2222)
@@ -237,11 +237,11 @@ script = ExtResource("1_lvcu4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22.5)
 sprite_frames = SubResource("SpriteFrames_sld4c")
-animation = &"crouch_shoot"
+animation = &"second_jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11.1111)
+position = Vector2(0.166675, -11.0416)
 shape = SubResource("RectangleShape2D_85ep7")
 
 [node name="CrouchShape2D" type="CollisionShape2D" parent="."]

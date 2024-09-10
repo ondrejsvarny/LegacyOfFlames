@@ -19,6 +19,15 @@ config/openai_api="sk-proj-85tzciadLCEnJ7pHHSeL8dKJVXMT6vmiXGnakGujeU4w0mIvvljaQ
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

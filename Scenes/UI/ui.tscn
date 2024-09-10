@@ -1,20 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5jl03e6ro4yp"]
+[gd_scene load_steps=2 format=3 uid="uid://c5jl03e6ro4yp"]
 
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="1_tlhqj"]
 
-[sub_resource type="GDScript" id="GDScript_j6os4"]
-script/source = "extends CanvasLayer
-class_name UI
-
-@onready var score_label = $Score
-
-
-
-
-"
-
 [node name="Ui" type="CanvasLayer"]
-script = SubResource("GDScript_j6os4")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

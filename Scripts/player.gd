@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var bullet = preload("res://Scenes/Shooting/bullet.tscn")
 @onready var bullet_left = preload("res://Scenes/Shooting/bullet_left.tscn")
 
-signal collected(collectable)
+#signal collected(collectable)
 
 var b # bullet instance
 var b_l
@@ -98,5 +98,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func collect(collectable):
-	collected.emit(collectable)
+#func collect(collectable):
+	#collected.emit(collectable)

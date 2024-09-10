@@ -15,3 +15,16 @@ func _on_area_2d_body_entered(body):
 
 func _on_timer_timeout():
 	queue_free()
+	
+func _on_area_2d_area_entered(area):
+	if area.name == "Enemy":
+		area.get_parent().queue_free()
+		hit = true
+		animated_sprite.play("hit")
+		timer.start()
+		
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	print("del")
+	queue_free()
+
+
