@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=4 uid="uid://bfu3p1nb50rcr"]
+
+[ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_b2fl5"]
+[ext_resource type="PackedScene" uid="uid://ox3lkgvyrihy" path="res://Scenes/Basic/playerBasic.tscn" id="2_wpymv"]
+[ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/cherry.tscn" id="3_4pog1"]
+[ext_resource type="PackedScene" uid="uid://cnskxuoxa3mh4" path="res://Scenes/Objects/platform.tscn" id="4_e13n7"]
+[ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="5_gkuyb"]
+[ext_resource type="PackedScene" uid="uid://cx4efkoqce571" path="res://Scenes/Enemies/yeti.tscn" id="6_lp7dp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsg0m"]
+distance = -56.0
+
+[sub_resource type="Animation" id="Animation_cw73t"]
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(493, -26), Vector2(656, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_hfi7h"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(301, 24), Vector2(465, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kijxy"]
+_data = {
+"RESET": SubResource("Animation_cw73t"),
+"move": SubResource("Animation_hfi7h")
+}
+
+[node name="Level1" instance=ExtResource("1_b2fl5")]
+
+[node name="Layer1" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAIAAAADAAMAAAAAAAMAAAADAAMAAAABAAAAAAABAAEAAAABAAEAAAADAAMAAAABAAIAAAADAAMAAAABAAMAAAADAAMAAAACAAAAAAABAAEAABACAAEAAAADAAMAAAACAAIAAAAFAAcAAAACAAMAAAADAAMAAAADAAAAAAADAAEAABADAAEAAAADAAMAAAADAAIAAAADAAMAAAADAAMAAAADAAMAAAAEAAAAAAABAAEAABAEAAEAAAADAAMAAAAEAAIAAAADAAMAAAAEAAMAAAADAAMAAAAFAAAAAAADAAEAAAAFAAEAAAADAAMAAAAFAAIAAAAFAAcAABAFAAMAAAAHAAcAAAAGAAAAAAAFAAEAAAAGAAEAAAAHAAcAABAGAAIAAAAHAAcAAAAGAAMAAAADAAMAAAAHAAAAAAAHAAEAAAAHAAEAAAADAAMAAAAHAAIAAAADAAMAAAAHAAMAAAADAAMAAAAIAAAAAAAWAAEAAAAIAAEAAAAWAAIAAAAIAAIAAAADAAMAAAAIAAMAAAADAAMAAAAJAAAAAAAXAAEAAAAJAAEAAAAXAAIAAAAJAAIAAAADAAMAAAAJAAMAAAADAAMAAAAKAAEAAAAWAAEAAAAKAAIAAAAWAAIAAAAKAAMAAAADAAMAAAAKAAQAAAADAAUAAAALAAEAAAAXAAEAAAALAAIAAAAXAAIAAAALAAMAAAADAAMAAAALAAQAAAADAAUAAAAMAAIAAAAWAAEAAAAMAAMAAAAHAAUAAAAMAAQAAAAFAAoAAAANAAMAAAAIAAUAAAAOAAMAAAAJAAUAAAASAAIAAAATAAEAAAASAAMAAAABAAMAAAASAAQAAAABAAoAAAATAAIAAAAUAAEAAAATAAMAAAAHAAEAAAATAAQAAAACAAoAAAATAAUAAAACAAsAAAAUAAMAAAAFAAEAAAAUAAQAAAADAAMAAAAUAAUAAAADAAUAABAVAAMAAAADAAEAABAVAAQAAAADAAMAAAAVAAUAAAADAAUAAAAWAAMAAAADAAEAABAWAAQAAAAHAAcAAAAWAAUAAAAFAAUAAAAXAAMAAAABAAEAABAXAAQAAAADAAMAAAAXAAUAAAADAAUAABAYAAMAAAABAAEAAAAYAAQAAAADAAMAAAAYAAUAAAADAAUAAAAZAAMAAAAFAAEAABAZAAQAAAADAAMAAAAZAAUAAAAFAAUAAAAaAAMAAAADAAEAAAAaAAQAAAAHAAcAABAaAAUAAAADAAUAAAAbAAMAAAADAAEAAAAbAAQAAAADAAMAAAAbAAUAAAADAAUAAAAcAAMAAAAFAAEAAAAcAAQAAAADAAMAAAAcAAUAAAAFAAUAAAAdAAMAAAABAAEAABAdAAQAAAAFAAcAAAAdAAUAAAADAAUAAAAeAAIAAAAWAAEAAAAeAAMAAAAHAAEAABAeAAQAAAAEAAoAAAAeAAUAAAAEAAsAAAAfAAIAAAAXAAEAAAAfAAMAAAAFAAMAAAAfAAQAAAAFAAoAAAAgAAMAAAAFAAEAAAAhAAMAAAAFAAEAAAAiAAMAAAAFAAEAAAAjAAMAAAAFAAEAAAA=")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" index="1"]
+shape = SubResource("WorldBoundaryShape2D_wsg0m")
+
+[node name="PlayerBasic" parent="." index="3" instance=ExtResource("2_wpymv")]
+position = Vector2(32, -1)
+
+[node name="Cherries" type="Node" parent="." index="4"]
+
+[node name="Cherry3" parent="Cherries" index="0" instance=ExtResource("3_4pog1")]
+position = Vector2(223, -63)
+
+[node name="Cherry2" parent="Cherries" index="1" instance=ExtResource("3_4pog1")]
+position = Vector2(114, -80)
+
+[node name="Cherry" parent="Cherries" index="2" instance=ExtResource("3_4pog1")]
+position = Vector2(354, -80)
+
+[node name="Platform" parent="." index="5" instance=ExtResource("4_e13n7")]
+position = Vector2(119, -47)
+
+[node name="Platform2" parent="." index="6" instance=ExtResource("4_e13n7")]
+position = Vector2(493, -26)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2" index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_kijxy")
+}
+autoplay = "RESET"
+
+[node name="Background" parent="." index="7" instance=ExtResource("5_gkuyb")]
+
+[node name="Yeti" parent="." index="8" instance=ExtResource("6_lp7dp")]
+position = Vector2(345, 49)

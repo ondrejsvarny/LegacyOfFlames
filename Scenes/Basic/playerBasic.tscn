@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ox3lkgvyrihy"]
+
+[ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="1_ahm3k"]
+
+[node name="PlayerBasic" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ahm3k")]
+unique_name_in_owner = true
+position = Vector2(1.90735e-06, 5.96046e-08)
+
+[node name="Cam" type="Camera2D" parent="Player"]
+physics_interpolation_mode = 1
+zoom = Vector2(4, 4)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0

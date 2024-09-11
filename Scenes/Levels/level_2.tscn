@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=4 uid="uid://dftxpeubk0msq"]
+
+[ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_p41sw"]
+[ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="2_n1p00"]
+[ext_resource type="PackedScene" uid="uid://ox3lkgvyrihy" path="res://Scenes/Basic/playerBasic.tscn" id="3_rbopx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tdokw"]
+
+[node name="level2" instance=ExtResource("1_p41sw")]
+
+[node name="Layer1" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAARAA4AAAABAAAAAAARAA4AAAACAAAAAAARAA4AAAADAAAAAAARAA4AAAAEAAAAAAARAA4AAAAFAAAAAAARAA4AAAAGAAAAAAARAA4AAAAHAAAAAAARAA4AAAAIAAAAAAARAA4AAAAJAAAAAAARAA4AAAA=")
+
+[node name="Background" parent="." index="2" instance=ExtResource("2_n1p00")]
+physics_interpolation_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" index="1"]
+shape = SubResource("WorldBoundaryShape2D_tdokw")
+
+[node name="PlayerBasic" parent="." index="4" instance=ExtResource("3_rbopx")]
+position = Vector2(16, 0)
