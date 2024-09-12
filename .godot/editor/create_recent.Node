@@ -1,10 +1,9 @@
+CollisionShape2D
+Sprite2D
 ParallaxLayer
 Parallax2D
-CollisionShape2D
 TileMap
 Player
-PhantomCameraHost
-PhantomCamera2D
 VisibleOnScreenEnabler2D
 VisibleOnScreenNotifier2D
 Area2D
