@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn2f1h6ultc6o"]
+[gd_scene load_steps=8 format=3 uid="uid://cn2f1h6ultc6o"]
 
 [ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="1_3yspg"]
 [ext_resource type="Texture2D" uid="uid://cpw2n8ewrt68g" path="res://Assets/Tilesets/red_plant_16x16.png" id="2_4nle2"]
 [ext_resource type="PackedScene" uid="uid://c5jl03e6ro4yp" path="res://Scenes/UI/ui.tscn" id="3_0f846"]
 [ext_resource type="PackedScene" uid="uid://plxmx8c4kid2" path="res://Scenes/Basic/killzone.tscn" id="4_cvkpn"]
-[ext_resource type="PackedScene" uid="uid://owei72vs5yo4" path="res://Scenes/Basic/MobileControls/MobileControls.tscn" id="5_bu4p6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtbit"]
 texture = ExtResource("1_3yspg")
@@ -223,5 +222,3 @@ tile_set = SubResource("TileSet_g6tn4")
 
 [node name="Killzone" parent="." instance=ExtResource("4_cvkpn")]
 position = Vector2(-1, 93)
-
-[node name="MobileControls" parent="." instance=ExtResource("5_bu4p6")]
