@@ -1,9 +1,7 @@
-res://Scenes/Levels/level_1.tscn
-res://Scenes/Levels/level1.tscn
-res://Scenes/Levels/level2.tscn
+res://Scenes/Basic/playerBasic.tscn
 res://Scenes/Basic/levelBasic.tscn
 res://Scenes/UI/ui.tscn
-res://Scenes/Basic/playerBasic.tscn
+res://Scenes/Levels/level_1.tscn
 res://Scenes/Levels/level_2.tscn
 res://Scenes/Basic/background.tscn
 res://Scenes/Basic/MobileControls/MobileControls.tscn

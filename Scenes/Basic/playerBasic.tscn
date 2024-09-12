@@ -9,9 +9,9 @@ unique_name_in_owner = true
 position = Vector2(1.90735e-06, 5.96046e-08)
 
 [node name="Cam" type="Camera2D" parent="Player"]
+unique_name_in_owner = true
 physics_interpolation_mode = 1
 zoom = Vector2(4, 4)
-process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
