@@ -9,10 +9,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var bullet = preload("res://Scenes/Shooting/bullet.tscn")
 @onready var bullet_left = preload("res://Scenes/Shooting/bullet_left.tscn")
 
-#@onready var camera: Camera2D = %Cam
-
-#signal collected(collectable)
-
 var b # bullet instance
 var b_l
 var anm = false # shoot animation is ongoing
@@ -24,17 +20,15 @@ var is_facing_right = true # keeps track of the direction the character is facin
 @onready var timer = $Timer
 @onready var animated_sprite = $AnimatedSprite2D
 
+var health = 100
+var hurt = false
+
 func _on_timer_timeout():
 	anm = false
 
 func _physics_process(delta):
 	
-	#if is_on_floor():
-		#camera.position_smoothing_enabled = false  
-	#else:
-		#camera.position_smoothing_enabled = true
-	
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -42,7 +36,7 @@ func _physics_process(delta):
 	if is_on_floor() and jump_count != 0:
 		jump_count = 0
 
-	# Handle jump.
+	# Handle jump
 	if Input.is_action_just_pressed("jump") and jump_count < jump_max:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
@@ -74,10 +68,15 @@ func _physics_process(delta):
 			b = bullet.instantiate()
 			get_parent().add_child(b)
 			b.global_position = $BulletSpawn.global_position
+		
+			
 		else:
 			b_l = bullet_left.instantiate()
 			get_parent().add_child(b_l)
 			b_l.global_position = $BulletSpawnLeft.global_position
+			
+			
+			
 			
 		timer.start()
 		anm = true
@@ -85,6 +84,7 @@ func _physics_process(delta):
 	# Play other animations
 	if not anm:
 		if is_on_floor():
+			hurt = false
 			if direction == 0 and not Input.is_action_pressed("crouch"):
 				animated_sprite.play("idle")
 			elif Input.is_action_pressed("crouch"):
@@ -93,17 +93,26 @@ func _physics_process(delta):
 				animated_sprite.play("run")
 		else:
 			if jump_count == 1:
-				animated_sprite.play("jump")
+				if hurt == true:
+					animated_sprite.play("hurt")
+				else:
+					animated_sprite.play("jump")
 			else:
 				animated_sprite.play("second_jump")
 		
 	# Apply movement
-	if direction and not Input.is_action_pressed("crouch"):
+	if direction and not Input.is_action_pressed("crouch") and anm == false:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		
+	if health != Global.player_health:
+		health = Global.player_health
+		velocity.y = JUMP_VELOCITY
+		jump_count = 1
+		hurt = true
+	
 
 	move_and_slide()
 	
-#func collect(collectable):
-	#collected.emit(collectable)

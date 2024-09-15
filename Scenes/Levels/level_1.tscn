@@ -86,7 +86,7 @@ autoplay = "RESET"
 [node name="Background" parent="." index="7" instance=ExtResource("5_gkuyb")]
 
 [node name="Yeti" parent="." index="8" instance=ExtResource("6_lp7dp")]
-position = Vector2(345, 49)
+position = Vector2(341, 48)
 
 [node name="Spike" parent="." index="9" instance=ExtResource("7_d8u70")]
 position = Vector2(256, 81)

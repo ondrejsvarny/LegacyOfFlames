@@ -18,11 +18,21 @@ func _on_timer_timeout():
 	
 func _on_area_2d_area_entered(area):
 	if area.name == "Enemy":
-		area.get_parent().queue_free()
+		#area.get_parent().animated_sprite.play("death")
+		#await get_tree().create_timer(0.5).timeout
+		
+		area.get_parent().health -= 20
+		
+		if area.get_parent().health <= 0:
+			area.get_parent().queue_free()
+		
 		hit = true
 		animated_sprite.play("hit")
 		timer.start()
 		
-func _on_visible_on_screen_enabler_2d_screen_exited():
-	print("del")
+#func _on_visible_on_screen_notifier_2d_screen_exited():
+	
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()

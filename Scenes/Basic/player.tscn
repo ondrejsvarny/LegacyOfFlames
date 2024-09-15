@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cy8twpo3m34fd"]
+[gd_scene load_steps=38 format=3 uid="uid://cy8twpo3m34fd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_lvcu4"]
 [ext_resource type="Texture2D" uid="uid://c2ejk5porlvrn" path="res://Assets/Player/idle-preview.png" id="1_um81c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4jsv70s1j5bm" path="res://Assets/Player/run-preview.png" id="2_e24ry"]
 [ext_resource type="Texture2D" uid="uid://hqxngctfjve" path="res://Assets/Player/jump-preview.png" id="3_lq02r"]
 [ext_resource type="Texture2D" uid="uid://vxqyqpbhid4s" path="res://Assets/Player/crouch-shot-sheet.png" id="3_ohtqi"]
+[ext_resource type="Texture2D" uid="uid://b1xifudg7t2ve" path="res://Assets/Player/hurt-sheet.png" id="4_a4a0v"]
 [ext_resource type="Texture2D" uid="uid://bhljmyj6smahq" path="res://Assets/Player/shot-preview.png" id="7_skm01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfn2o"]
@@ -35,6 +36,10 @@ region = Rect2(102, 0, 51, 45)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8p1j"]
 atlas = ExtResource("3_ohtqi")
 region = Rect2(153, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okgxv"]
+atlas = ExtResource("4_a4a0v")
+region = Rect2(51, 0, 51, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xltc"]
 atlas = ExtResource("1_um81c")
@@ -143,6 +148,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_okgxv")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 100.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6xltc")
 }, {
 "duration": 1.0,
@@ -239,8 +252,9 @@ script = ExtResource("1_lvcu4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22.5)
 sprite_frames = SubResource("SpriteFrames_sld4c")
-animation = &"second_jump"
+animation = &"hurt"
 autoplay = "idle"
+frame_progress = 0.208517
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.166675, -11.0416)
@@ -248,15 +262,17 @@ shape = SubResource("RectangleShape2D_85ep7")
 
 [node name="CrouchShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0.870588, 0, 0.333333, 1)
-position = Vector2(0, -6.66667)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_3it4f")
 disabled = true
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(15, -12.5)
+gizmo_extents = 3.0
 
 [node name="BulletSpawnLeft" type="Marker2D" parent="."]
 position = Vector2(-15, -12.5)
+gizmo_extents = 3.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.29
