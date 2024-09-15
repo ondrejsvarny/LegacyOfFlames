@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cx4efkoqce571"]
 
-[ext_resource type="Texture2D" uid="uid://iq8uaoffs3a0" path="res://Assets/Enemies/yeti/yeti-preview.png" id="1_b57q4"]
+[ext_resource type="Texture2D" uid="uid://dv5c8xbciluko" path="res://Assets/Enemies/yeti/yeti-preview.png" id="1_b57q4"]
 [ext_resource type="Script" path="res://Scripts/yeti.gd" id="1_v1or0"]
 [ext_resource type="Texture2D" uid="uid://dhu4uofc1tgpb" path="res://Assets/Tilesets/enemy-death/enemy-deadth.png" id="2_wr1l0"]
 [ext_resource type="PackedScene" uid="uid://b4cp1v4g4bcj3" path="res://Scenes/Basic/enemy_healthbar.tscn" id="4_vcx2p"]
