@@ -109,7 +109,7 @@ func _physics_process(delta):
 		
 	if health != Global.player_health:
 		health = Global.player_health
-		velocity.y = JUMP_VELOCITY
+		velocity.y = -300
 		jump_count = 1
 		hurt = true
 	

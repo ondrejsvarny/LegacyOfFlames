@@ -11,10 +11,10 @@
 [node name="Layer1" parent="." index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAARAA4AAAABAAAAAAARAA4AAAACAAAAAAARAA4AAAADAAAAAAARAA4AAAAEAAAAAAARAA4AAAAFAAAAAAARAA4AAAAGAAAAAAARAA4AAAAHAAAAAAARAA4AAAAIAAAAAAARAA4AAAAJAAAAAAARAA4AAAA=")
 
-[node name="Background" parent="." index="2" instance=ExtResource("2_n1p00")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" index="1"]
 shape = SubResource("WorldBoundaryShape2D_tdokw")
+
+[node name="Background" parent="." index="2" instance=ExtResource("2_n1p00")]
 
 [node name="PlayerBasic" parent="." index="4" instance=ExtResource("3_rbopx")]
 position = Vector2(16, 0)
