@@ -1,11 +1,4 @@
-res://Scenes/Basic/levelBasic.tscn
-res://Scenes/Basic/playerBasic.tscn
 res://Scenes/Levels/level_1.tscn
-res://Scenes/Levels/level_2.tscn
-res://Scenes/UI/ui.tscn
-res://Scenes/Basic/killzone.tscn
+res://Scripts/slime.gd
+res://Assets/NPC/witch.tscn
 res://Scenes/Enemies/yeti.tscn
-res://Scenes/Objects/spike.tscn
-res://Scenes/Basic/background.tscn
-res://Scenes/UI/LevelMenu.tscn
-res://Scenes/UI/Menu.tscn

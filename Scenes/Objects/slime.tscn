@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://chlgn1apciujc"]
+
+[ext_resource type="Script" path="res://Scripts/slime.gd" id="1_6v0c2"]
+[ext_resource type="Texture2D" uid="uid://cs6ee5oiubuxv" path="res://Scenes/Objects/pixilart-drawing (8).png" id="1_dxcpb"]
+[ext_resource type="Texture2D" uid="uid://d3brm1h3mmbus" path="res://Scenes/Objects/pixilart-drawing (7).png" id="2_lnumu"]
+[ext_resource type="Texture2D" uid="uid://6fxvksknejlc" path="res://Scenes/Objects/pixilart-drawing (6).png" id="3_xj70h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jb53r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dxcpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lnumu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xj70h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lnumu")
+}],
+"loop": false,
+"name": &"slime",
+"speed": 12.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6v0c2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -23)
+sprite_frames = SubResource("SpriteFrames_jb53r")
+animation = &"slime"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(3, -24)
+polygon = PackedVector2Array(13, 23, -25, 23, -35, 15, -38, 7, -36, -3, -25, -10, -15, -13, 4, -13, 15, -12, 24, -4, 30, 4, 28, 11, 27, 14, 22, 20)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cx4efkoqce571"]
 
-[ext_resource type="Texture2D" uid="uid://iq8uaoffs3a0" path="res://Assets/Enemies/yeti/yeti-preview.png" id="1_b57q4"]
+[ext_resource type="Texture2D" uid="uid://dv5c8xbciluko" path="res://Assets/Enemies/yeti/yeti-preview.png" id="1_b57q4"]
 [ext_resource type="Script" path="res://Scripts/yeti.gd" id="1_v1or0"]
 [ext_resource type="PackedScene" uid="uid://plxmx8c4kid2" path="res://Scenes/Basic/killzone.tscn" id="2_fuc3n"]
 

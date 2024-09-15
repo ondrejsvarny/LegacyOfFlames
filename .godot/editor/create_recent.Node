@@ -1,4 +1,9 @@
+Area2D
 CollisionShape2D
+AnimationPlayer
+Label
+AnimatedSprite2D
+CollisionPolygon2D
 Sprite2D
 ParallaxLayer
 Parallax2D
@@ -6,9 +11,4 @@ TileMap
 Player
 VisibleOnScreenEnabler2D
 VisibleOnScreenNotifier2D
-Area2D
 RayCast2D
-AnimatedSprite2D
-Marker2D
-Node
-GridContainer
