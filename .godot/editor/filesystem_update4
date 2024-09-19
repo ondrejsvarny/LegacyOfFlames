@@ -1,7 +1,0 @@
-res://Scenes/UI/Menu.tscn
-res://Scenes/Levels/level_1.tscn
-res://Scenes/Levels/level_2.tscn
-res://Scenes/Shooting/bullet.tscn
-res://Scenes/Shooting/bullet_left.tscn
-res://Scripts/player.gd
-res://Scenes/Basic/player.tscn
