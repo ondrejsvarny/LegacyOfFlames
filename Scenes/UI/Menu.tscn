@@ -30,6 +30,12 @@ layout_mode = 2
 size_flags_vertical = 0
 text = "Play"
 
+[node name="Character" type="Button" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 0.568627, 0.113725, 1)
+layout_mode = 2
+text = "Character
+"
+
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 modulate = Color(1, 0.568627, 0.113725, 1)
 layout_mode = 2
@@ -41,5 +47,7 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

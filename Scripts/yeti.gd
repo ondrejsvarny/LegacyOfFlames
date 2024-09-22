@@ -4,12 +4,13 @@ const SPEED = 40
 const DAMAGE = 20
 var health = 50
 
-var direction = 1
+
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var healthbar: ProgressBar = $HealthBar
 
+var direction = 1
 var health_changed = 50
 
 func _ready():

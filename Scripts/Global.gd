@@ -1,4 +1,4 @@
 extends Node
 
-var cherries = 0
+var cherries = 50
 var player_health = 100

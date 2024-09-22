@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="1_tlhqj"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_wyl8w"]
-[ext_resource type="PackedScene" uid="uid://d0xt4i1vh7oan" path="res://Scenes/Basic/healthbar.tscn" id="2_kx834"]
+[ext_resource type="PackedScene" path="res://Scenes/Basic/healthbar.tscn" id="2_kx834"]
 [ext_resource type="Texture2D" uid="uid://bnwuwvab6jn4m" path="res://Assets/Tilesets/heart/pixil-frame-0.png" id="4_rb0sg"]
 
 [node name="Ui" type="CanvasLayer"]
