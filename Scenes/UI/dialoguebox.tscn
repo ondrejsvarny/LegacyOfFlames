@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://wdc3f7bvqqs5"]
+
+[ext_resource type="Script" path="res://Scripts/dialoguebox.gd" id="1_7vefy"]
+
+[node name="Dialoguebox" type="Control"]
+layout_mode = 3
+anchor_left = 0.036
+anchor_top = 0.025
+anchor_right = 0.382
+anchor_bottom = 0.256
+offset_left = -0.472004
+offset_top = -0.200001
+offset_right = -0.0640259
+offset_bottom = 0.112
+script = ExtResource("1_7vefy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 396.0
+offset_bottom = 151.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99
+anchor_bottom = 0.987
+offset_left = 4.0
+offset_right = 3.98996
+offset_bottom = -0.0500031
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = 0.636
+anchor_right = 0.593
+anchor_bottom = 0.868
+offset_left = 0.0039978
+offset_top = -0.0360031
+offset_right = 0.171982
+offset_bottom = -0.0680084
+
+[connection signal="ready" from="Panel/Label" to="." method="_on_label_ready"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

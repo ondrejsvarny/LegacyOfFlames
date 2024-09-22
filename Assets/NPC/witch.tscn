@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://xyiivt1wo6xj"]
+[gd_scene load_steps=24 format=3 uid="uid://c6dnqotp483ey"]
 
 [ext_resource type="Texture2D" uid="uid://vkfkvlkww54o" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle1.png" id="1_m22ks"]
 [ext_resource type="Script" path="res://Scripts/witch.gd" id="1_omiib"]
@@ -92,17 +92,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ulb"]
-size = Vector2(32, 46)
+size = Vector2(72, 54.5)
 
 [node name="Witch" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+monitorable = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 position = Vector2(3, -24)
 scale = Vector2(0.8125, 0.84375)
 sprite_frames = SubResource("SpriteFrames_ufbb2")
 animation = &"witch"
+frame_progress = 0.181244
 script = ExtResource("1_omiib")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Area2D"]
@@ -111,9 +115,10 @@ sprite_frames = SubResource("SpriteFrames_67n38")
 animation = &"shadow"
 script = ExtResource("20_inesk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -21)
+[node name="Interaction_area" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-23, -24.75)
 shape = SubResource("RectangleShape2D_x5ulb")
 
+[connection signal="body_entered" from="Area2D" to="Area2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
 [connection signal="ready" from="Area2D/AnimatedSprite2D" to="Area2D/AnimatedSprite2D" method="_on_ready"]
 [connection signal="ready" from="Area2D/AnimatedSprite2D2" to="Area2D/AnimatedSprite2D2" method="_on_ready"]

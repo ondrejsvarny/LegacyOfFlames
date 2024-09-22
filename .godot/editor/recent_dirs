@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 res://
 res://Scenes/UI
 res://Scripts
@@ -8,6 +9,17 @@ res://Scenes/Objects
 res://Assets/Tilesets/enemy-death
 res://Assets/Player
 res://Scenes/Basic
+=======
+res://Assets/NPC
+res://
+C:/Users/HP/Desktop/veci 5/projekt/godot
+res://Scripts
+res://Scenes/Basic
+res://Scenes/UI
+res://Assets/Tilesets/enemy-death
+res://Assets/Player
+res://Scenes/Objects
+>>>>>>> ja
 res://Scenes/Levels
 res://Scenes/Enemies
 res://Assets/Enemies/yeti
