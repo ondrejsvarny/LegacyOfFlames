@@ -102,13 +102,9 @@ func _physics_process(delta):
 				animated_sprite.play("second_jump")
 		
 	# Apply movement
-<<<<<<< HEAD
-	if direction and not Input.is_action_pressed("crouch") and anm == false:
-		velocity.x = direction * speed
-=======
 	if direction and not Input.is_action_pressed("crouch") and anm == false and Global.can_move:
-		velocity.x = direction * SPEED
->>>>>>> ja
+		velocity.x = direction * speed
+
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
