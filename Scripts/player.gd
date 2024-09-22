@@ -27,8 +27,9 @@ func _on_timer_timeout():
 	anm = false
 
 func _physics_process(delta):
-	
 	# Add the gravity
+	if not Global.can_move:
+		velocity.x = 0
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -37,7 +38,7 @@ func _physics_process(delta):
 		jump_count = 0
 
 	# Handle jump
-	if Input.is_action_just_pressed("jump") and jump_count < jump_max:
+	if Input.is_action_just_pressed("jump") and jump_count < jump_max and Global.can_move:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 		
@@ -61,7 +62,7 @@ func _physics_process(delta):
 		is_facing_right = false
 		
 	# SHOOTING
-	if Input.is_action_just_pressed("attack") and not anm:
+	if Input.is_action_just_pressed("attack") and not anm and Global.can_move:
 		animated_sprite.play("shoot")
 			
 		if is_facing_right:
@@ -85,7 +86,7 @@ func _physics_process(delta):
 	if not anm:
 		if is_on_floor():
 			hurt = false
-			if direction == 0 and not Input.is_action_pressed("crouch"):
+			if direction == 0 and not Input.is_action_pressed("crouch") and Global.can_move:
 				animated_sprite.play("idle")
 			elif Input.is_action_pressed("crouch"):
 				animated_sprite.play("crouch")
@@ -101,7 +102,7 @@ func _physics_process(delta):
 				animated_sprite.play("second_jump")
 		
 	# Apply movement
-	if direction and not Input.is_action_pressed("crouch") and anm == false:
+	if direction and not Input.is_action_pressed("crouch") and anm == false and Global.can_move:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -113,6 +114,5 @@ func _physics_process(delta):
 		jump_count = 1
 		hurt = true
 	
-
 	move_and_slide()
 	

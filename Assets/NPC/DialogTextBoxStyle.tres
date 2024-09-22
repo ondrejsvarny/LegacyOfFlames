@@ -19,7 +19,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_actvc"]
 script = ExtResource("1_cd6jj")
 scene = ExtResource("3_kfkdk")
-overrides = {}
+overrides = {
+"disabled": "true"
+}
 
 [sub_resource type="Resource" id="Resource_50ri1"]
 script = ExtResource("1_cd6jj")
@@ -29,17 +31,41 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_qmta5"]
 script = ExtResource("1_cd6jj")
 scene = ExtResource("5_0op26")
-overrides = {}
+overrides = {
+"bold_font": "\"res://monogram.ttf\"",
+"bold_italics_font": "\"res://monogram.ttf\"",
+"box_animation_in": "1",
+"box_animation_new_text": "1",
+"box_animation_out": "1",
+"box_color_use_global": "false",
+"box_size": "Vector2(550.007, 150)",
+"italics_font": "\"res://monogram.ttf\"",
+"name_label_custom_font_size": "35.0",
+"name_label_font": "\"res://monogram.ttf\"",
+"name_label_use_global_font_size": "false",
+"next_indicator_enabled": "false",
+"next_indicator_size": "Vector2(30, 30)",
+"normal_font": "\"res://monogram.ttf\"",
+"text_size": "27.0",
+"text_use_global_size": "false"
+}
 
 [sub_resource type="Resource" id="Resource_ryyie"]
 script = ExtResource("1_cd6jj")
 scene = ExtResource("6_2v3ky")
-overrides = {}
+overrides = {
+"font_extra_size": "30.0",
+"font_text_size": "30.0",
+"font_title_size": "30.0"
+}
 
 [sub_resource type="Resource" id="Resource_somo5"]
 script = ExtResource("1_cd6jj")
 scene = ExtResource("7_n67h6")
-overrides = {}
+overrides = {
+"font_custom": "\"res://monogram.ttf\"",
+"font_size_custom": "23.0"
+}
 
 [sub_resource type="Resource" id="Resource_mrh4h"]
 script = ExtResource("1_cd6jj")
@@ -49,11 +75,16 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_oilpc"]
 script = ExtResource("1_cd6jj")
 scene = ExtResource("9_tgthb")
-overrides = {}
+overrides = {
+"font_custom_bold": "\"res://monogram.ttf\"",
+"font_custom_italics": "\"res://monogram.ttf\"",
+"font_custom_normal": "\"res://monogram.ttf\"",
+"font_custom_size": "23.0"
+}
 
 [resource]
 script = ExtResource("10_knpn6")
 name = "DialogTextBoxStyle"
 base_overrides = {}
 layers = Array[ExtResource("1_cd6jj")]([SubResource("Resource_adra1"), SubResource("Resource_actvc"), SubResource("Resource_50ri1"), SubResource("Resource_qmta5"), SubResource("Resource_ryyie"), SubResource("Resource_somo5"), SubResource("Resource_mrh4h"), SubResource("Resource_oilpc")])
-metadata/_latest_layer = -1
+metadata/_latest_layer = 3

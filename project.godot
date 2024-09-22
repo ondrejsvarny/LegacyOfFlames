@@ -29,7 +29,8 @@ directories/dch_directory={
 "witch": "res://Assets/NPC/witch.dch"
 }
 directories/dtl_directory={
-"witch_1": "res://Assets/NPC/witch_1.dtl"
+"witch_1": "res://Assets/NPC/witch_1.dtl",
+"zahrievanie": "res://Assets/NPC/zahrievanie.dtl"
 }
 variables={
 "response": ""

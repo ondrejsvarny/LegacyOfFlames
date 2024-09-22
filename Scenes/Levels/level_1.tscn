@@ -62,7 +62,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAIAAAADAAM
 shape = SubResource("WorldBoundaryShape2D_wsg0m")
 
 [node name="PlayerBasic" parent="." index="3" instance=ExtResource("2_wpymv")]
-position = Vector2(32, -1)
+position = Vector2(35, -1)
 
 [node name="Cherries" type="Node" parent="." index="4"]
 
@@ -108,7 +108,7 @@ position = Vector2(271, 60)
 position = Vector2(262, 60)
 
 [node name="Node2D" parent="." index="14" instance=ExtResource("8_bgdvo")]
-position = Vector2(88, 1)
+position = Vector2(541, 49)
 
 [node name="Witch" parent="." index="15" instance=ExtResource("9_pn6xr")]
 position = Vector2(136, -55)

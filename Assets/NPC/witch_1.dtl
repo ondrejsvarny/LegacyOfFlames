@@ -1,10 +1,2 @@
 witch: Ahoj Ondrej
 witch: Ono sa mi to podarilo
-witch: Som najlepsi programator na svete
-witch: OU JEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-witch: som najlepsi programator?
-- ANO
-	witch: jeeeee
-- Nie
-	[signal arg="signal"]
-	witch: Klames OU JEEEEEEEEEEEEEEEE

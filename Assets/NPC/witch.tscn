@@ -92,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ulb"]
-size = Vector2(71, 55.5)
+size = Vector2(72, 54.5)
 
 [node name="Witch" type="Node2D"]
 
@@ -116,7 +116,7 @@ animation = &"shadow"
 script = ExtResource("20_inesk")
 
 [node name="Interaction_area" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-18.5, -25.25)
+position = Vector2(-23, -24.75)
 shape = SubResource("RectangleShape2D_x5ulb")
 
 [connection signal="body_entered" from="Area2D" to="Area2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
