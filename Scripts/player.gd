@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 110.0
-const JUMP_VELOCITY = -250.0
+var speed = 110.0
+const JUMP_VELOCITY = -300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -66,14 +66,14 @@ func _physics_process(delta):
 			
 		if is_facing_right:
 			b = bullet.instantiate()
+			b.global_position = $BulletSpawn.global_position + Vector2(-35, 0)
 			get_parent().add_child(b)
-			b.global_position = $BulletSpawn.global_position
 		
 			
 		else:
 			b_l = bullet_left.instantiate()
+			b_l.global_position = $BulletSpawnLeft.global_position + Vector2(-35, 0)
 			get_parent().add_child(b_l)
-			b_l.global_position = $BulletSpawnLeft.global_position
 			
 			
 			
@@ -102,9 +102,9 @@ func _physics_process(delta):
 		
 	# Apply movement
 	if direction and not Input.is_action_pressed("crouch") and anm == false:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		
 		
 	if health != Global.player_health:

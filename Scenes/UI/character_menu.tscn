@@ -1,0 +1,237 @@
+[gd_scene load_steps=14 format=3 uid="uid://ditremhsiglhy"]
+
+[ext_resource type="Script" path="res://Scripts/character_menu.gd" id="1_ehmi0"]
+[ext_resource type="FontFile" uid="uid://d1tsrta7bti2m" path="res://Assets/UI/fonts/Minecraftia-Regular.ttf" id="1_hcmo3"]
+[ext_resource type="FontFile" uid="uid://jg8xdqwe2jb1" path="res://Assets/UI/fonts/monogram.ttf" id="1_rxwj8"]
+[ext_resource type="Texture2D" uid="uid://dredvudpufvxl" path="res://Assets/Tilesets/Cherry/cherry-1.png" id="2_enwcd"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="5_quefu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq4h5"]
+bg_color = Color(0.332881, 0.332881, 0.332881, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjef0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c60bn"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 50.0
+content_margin_bottom = 2.0
+bg_color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8e3n"]
+content_margin_left = 49.0
+content_margin_top = 0.0
+content_margin_right = 50.0
+content_margin_bottom = 1.0
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gwap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fphj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5kyh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snkbl"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+bg_color = Color(0.129412, 0.615686, 0.215686, 1)
+
+[node name="Character_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehmi0")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -129.0
+offset_right = 150.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hq4h5")
+
+[node name="AllContent" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MainButtons" type="HBoxContainer" parent="PanelContainer/AllContent"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 3
+
+[node name="CharacterButton" type="Button" parent="PanelContainer/AllContent/MainButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rjef0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c60bn")
+text = "CHARACTER"
+
+[node name="AbilitiesButton" type="Button" parent="PanelContainer/AllContent/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rjef0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y8e3n")
+text = "ABILITIES"
+
+[node name="AbilitiesContent" type="PanelContainer" parent="PanelContainer/AllContent"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/AllContent/AbilitiesContent"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/AllContent/AbilitiesContent/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 64
+text = "  ABILITIES CONTENT"
+
+[node name="CharacterContent" type="PanelContainer" parent="PanelContainer/AllContent"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3gwap")
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/AllContent/CharacterContent"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 13
+
+[node name="Speed" type="HBoxContainer" parent="PanelContainer/AllContent/CharacterContent/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="SpeedLabel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 32
+text = "Speed:"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="SpeedLevel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 2"
+
+[node name="SpeedMax" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 32
+text = " / MAX 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeSpeed" type="Button" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_hcmo3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w5kyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_snkbl")
+text = "x30  Upgrade"
+icon = ExtResource("2_enwcd")
+
+[node name="Speed2" type="HBoxContainer" parent="PanelContainer/AllContent/CharacterContent/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hcmo3")
+theme_override_font_sizes/font_size = 16
+text = "Health:"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+layout_mode = 2
+theme_override_constants/separation = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="Label2" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hcmo3")
+theme_override_font_sizes/font_size = 16
+text = "LEVEL 1"
+
+[node name="Label3" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 32
+text = " / MAX 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="Upgrade" type="Button" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_hcmo3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w5kyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_snkbl")
+text = "x15  Upgrade"
+icon = ExtResource("2_enwcd")
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 66.0
+offset_bottom = 42.0
+theme_override_constants/separation = 80
+
+[node name="Back" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 32
+text = "  Back  "
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(70, 25)
+scale = Vector2(1.88492, 1.88492)
+texture = ExtResource("2_enwcd")
+offset = Vector2(50, 0)
+
+[node name="Score" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+script = ExtResource("5_quefu")
+
+[connection signal="pressed" from="PanelContainer/AllContent/MainButtons/CharacterButton" to="." method="_on_character_button_pressed"]
+[connection signal="pressed" from="PanelContainer/AllContent/MainButtons/AbilitiesButton" to="." method="_on_abilities_button_pressed"]
+[connection signal="pressed" from="PanelContainer/AllContent/CharacterContent/VBox/Speed/UpgradeSpeed" to="." method="_on_upgrade_speed_pressed"]
+[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]

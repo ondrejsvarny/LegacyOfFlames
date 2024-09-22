@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn2f1h6ultc6o"]
+[gd_scene load_steps=7 format=3 uid="uid://cn2f1h6ultc6o"]
 
 [ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="1_3yspg"]
-[ext_resource type="Texture2D" uid="uid://cpw2n8ewrt68g" path="res://Assets/Tilesets/red_plant_16x16.png" id="2_4nle2"]
 [ext_resource type="PackedScene" uid="uid://c5jl03e6ro4yp" path="res://Scenes/UI/ui.tscn" id="3_0f846"]
 [ext_resource type="PackedScene" uid="uid://plxmx8c4kid2" path="res://Scenes/Basic/killzone.tscn" id="4_cvkpn"]
+[ext_resource type="PackedScene" uid="uid://qhpmxeh61stg" path="res://Scenes/UI/pause_menu.tscn" id="4_yw8kv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtbit"]
 texture = ExtResource("1_3yspg")
@@ -201,15 +201,9 @@ texture = ExtResource("1_3yspg")
 22:2/0 = 0
 22:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1ous"]
-texture = ExtResource("2_4nle2")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.98874, -2.91682, 2.05503, -2.18761, 1.17115, 1.30373, 1.03856, 8, 0.0662918, 8, -0.198874, 1.39212, -0.99437, -2.05503, -1.01647, -2.91682, 0.0220966, -2.93891, -0.0441942, -4.97185, 1.01647, -4.99394, 0.994369, -2.98311)
-
 [sub_resource type="TileSet" id="TileSet_g6tn4"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vtbit")
-sources/2 = SubResource("TileSetAtlasSource_r1ous")
 
 [node name="LevelBasic" type="Node2D"]
 
@@ -222,3 +216,7 @@ tile_set = SubResource("TileSet_g6tn4")
 position = Vector2(-1, 93)
 
 [node name="UI" parent="." instance=ExtResource("3_0f846")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_yw8kv")]
