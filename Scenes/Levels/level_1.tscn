@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="5_gkuyb"]
 [ext_resource type="PackedScene" uid="uid://cx4efkoqce571" path="res://Scenes/Enemies/yeti.tscn" id="6_lp7dp"]
 [ext_resource type="PackedScene" uid="uid://st4be7a8pe7m" path="res://Scenes/Objects/spike.tscn" id="7_d8u70"]
-[ext_resource type="PackedScene" uid="uid://chlgn1apciujc" path="res://Scenes/Objects/slime.tscn" id="8_bgdvo"]
-[ext_resource type="PackedScene" uid="uid://c6dnqotp483ey" path="res://Assets/NPC/witch.tscn" id="9_pn6xr"]
+[ext_resource type="PackedScene" uid="uid://h6vwrkf1n28q" path="res://Scenes/Objects/slime.tscn" id="8_bgdvo"]
+[ext_resource type="PackedScene" path="res://Assets/NPC/witch.tscn" id="9_pn6xr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsg0m"]
 distance = -56.0
