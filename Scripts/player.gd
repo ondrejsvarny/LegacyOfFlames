@@ -20,11 +20,14 @@ var is_facing_right = true # keeps track of the direction the character is facin
 @onready var timer = $Timer
 @onready var animated_sprite = $AnimatedSprite2D
 
-var health = 100
+var health 
 var hurt = false
 
 func _on_timer_timeout():
 	anm = false
+
+func _ready() -> void:
+	health = Global.max_player_health
 
 func _physics_process(delta):
 	# Add the gravity
@@ -62,8 +65,15 @@ func _physics_process(delta):
 		is_facing_right = false
 		
 	# SHOOTING
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("attack") and not anm and Global.can_move:
 		animated_sprite.play("shoot")
+=======
+	
+	if Input.is_action_just_pressed("attack") and not anm and Global.can_move:
+		animated_sprite.play("shoot") 
+
+>>>>>>> ondrik_branch
 			
 		if is_facing_right:
 			b = bullet.instantiate()

@@ -19,6 +19,7 @@ config/openai_api="sk-proj-85tzciadLCEnJ7pHHSeL8dKJVXMT6vmiXGnakGujeU4w0mIvvljaQ
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+<<<<<<< HEAD
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
@@ -57,6 +58,8 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+=======
+>>>>>>> ondrik_branch
 
 [display]
 

@@ -1,7 +1,25 @@
+<<<<<<< HEAD
 Timer
 Label
 MarginContainer
 NinePatchRect
+=======
+<<<<<<< Updated upstream
+Sprite2D
+Label
+VBoxContainer
+VSeparator
+PanelContainer
+=======
+NinePatchRect
+Timer
+Label
+MarginContainer
+RichTextLabel
+>>>>>>> Stashed changes
+Button
+HBoxContainer
+>>>>>>> ondrik_branch
 RichTextLabel
 Button
 ColorRect

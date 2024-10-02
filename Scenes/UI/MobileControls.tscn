@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://owei72vs5yo4"]
+
+[ext_resource type="Texture2D" uid="uid://ytdavh3mn61m" path="res://Assets/Tilesets/MobileControls/tile_0760.png" id="1_dxj1b"]
+[ext_resource type="Texture2D" uid="uid://cu37l8oui8fse" path="res://Assets/Tilesets/MobileControls/tile_0794.png" id="2_ihuxs"]
+[ext_resource type="Texture2D" uid="uid://c617w58vugbek" path="res://Assets/Tilesets/MobileControls/tile_0758.png" id="3_80yey"]
+[ext_resource type="Texture2D" uid="uid://dufiifbejuker" path="res://Assets/Tilesets/MobileControls/tile_0792.png" id="4_nmh6j"]
+[ext_resource type="Texture2D" uid="uid://bkejcxamv0icp" path="res://Assets/Tilesets/MobileControls/tile_0757.png" id="5_ar7xk"]
+[ext_resource type="Texture2D" uid="uid://jibjvc0w1xop" path="res://Assets/Tilesets/MobileControls/tile_0791.png" id="6_bf8gy"]
+[ext_resource type="Texture2D" uid="uid://de2aht0p7ung0" path="res://Assets/Tilesets/MobileControls/tile_0759.png" id="7_k1r1s"]
+[ext_resource type="Texture2D" uid="uid://bakrd8ufdnmp5" path="res://Assets/Tilesets/MobileControls/tile_0793.png" id="8_w6ber"]
+[ext_resource type="Texture2D" uid="uid://b1ka237dmvau8" path="res://Assets/Tilesets/MobileControls/tile_0012.png" id="9_kus43"]
+[ext_resource type="Texture2D" uid="uid://5hvjq6vhsq3i" path="res://Assets/Tilesets/MobileControls/tile_0046.png" id="10_eb8pc"]
+
+[node name="MobileControls" type="CanvasLayer"]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(78, 450)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("1_dxj1b")
+texture_pressed = ExtResource("2_ihuxs")
+passby_press = true
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(190, 450)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("3_80yey")
+texture_pressed = ExtResource("4_nmh6j")
+passby_press = true
+action = "move_right"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(826, 373)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("5_ar7xk")
+texture_pressed = ExtResource("6_bf8gy")
+passby_press = true
+action = "jump"
+
+[node name="Crouch" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(832, 493)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("7_k1r1s")
+texture_pressed = ExtResource("8_w6ber")
+passby_press = true
+action = "crouch"
+
+[node name="Attack" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(966, 462)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("9_kus43")
+texture_pressed = ExtResource("10_eb8pc")
+passby_press = true
+action = "attack"
+
+[node name="Attack2" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(1006, 367)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("9_kus43")
+texture_pressed = ExtResource("10_eb8pc")
+passby_press = true
+action = "attack"
+
+[node name="Attack3" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(106, 332)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("9_kus43")
+texture_pressed = ExtResource("10_eb8pc")
+passby_press = true
+action = "attack"

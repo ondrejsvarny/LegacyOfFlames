@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://bipxw8qpb1pk0"]
+=======
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://brwfox7qj3lpm"]
+>>>>>>> ondrik_branch
 
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_cd6jj"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_5jbvh"]

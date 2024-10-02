@@ -1,15 +1,7 @@
-res://Scenes/Levels/level_1.tscn
-res://Scenes/UI/pause_menu.gdshader
-res://Scenes/Levels/level_2.tscn
-res://Scenes/Shooting/bullet.tscn
-res://Scenes/Shooting/bullet_left.tscn
-res://Scenes/Basic/player.tscn
-res://Scenes/Objects/slime.tscn
-res://Scenes/Basic/levelBasic.tscn
-res://Scenes/NPC/wizard.tscn
 res://Scenes/UI/Menu.tscn
-res://Scenes/UI/pause_menu.tscn
+res://Scenes/Levels/level_2.tscn
 res://Scenes/UI/character_menu.tscn
+<<<<<<< HEAD
 res://Scenes/UI/OptionsMenu.tscn
 res://Scenes/UI/ui.tscn
 res://Scripts/character_menu.gd
@@ -22,3 +14,5 @@ res://Scripts/Score.gd
 res://Scripts/ui.gd
 res://Scripts/yeti.gd
 res://Scripts/slime.gd
+=======
+>>>>>>> ondrik_branch
