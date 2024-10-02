@@ -30,9 +30,8 @@ func _ready() -> void:
 	health = Global.max_player_health
 
 func _physics_process(delta):
+	
 	# Add the gravity
-	if not Global.can_move:
-		velocity.x = 0
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -41,7 +40,7 @@ func _physics_process(delta):
 		jump_count = 0
 
 	# Handle jump
-	if Input.is_action_just_pressed("jump") and jump_count < jump_max and Global.can_move:
+	if Input.is_action_just_pressed("jump") and jump_count < jump_max:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 		
@@ -65,15 +64,10 @@ func _physics_process(delta):
 		is_facing_right = false
 		
 	# SHOOTING
-<<<<<<< HEAD
-	if Input.is_action_just_pressed("attack") and not anm and Global.can_move:
-		animated_sprite.play("shoot")
-=======
 	
 	if Input.is_action_just_pressed("attack") and not anm and Global.can_move:
 		animated_sprite.play("shoot") 
 
->>>>>>> ondrik_branch
 			
 		if is_facing_right:
 			b = bullet.instantiate()
@@ -96,7 +90,7 @@ func _physics_process(delta):
 	if not anm:
 		if is_on_floor():
 			hurt = false
-			if direction == 0 and not Input.is_action_pressed("crouch") and Global.can_move:
+			if direction == 0 and not Input.is_action_pressed("crouch"):
 				animated_sprite.play("idle")
 			elif Input.is_action_pressed("crouch"):
 				animated_sprite.play("crouch")
@@ -112,9 +106,8 @@ func _physics_process(delta):
 				animated_sprite.play("second_jump")
 		
 	# Apply movement
-	if direction and not Input.is_action_pressed("crouch") and anm == false and Global.can_move:
+	if direction and not Input.is_action_pressed("crouch") and anm == false:
 		velocity.x = direction * speed
-
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
@@ -125,5 +118,6 @@ func _physics_process(delta):
 		jump_count = 1
 		hurt = true
 	
+
 	move_and_slide()
 	

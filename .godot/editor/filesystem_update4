@@ -1,18 +1,5 @@
 res://Scenes/UI/Menu.tscn
 res://Scenes/Levels/level_2.tscn
 res://Scenes/UI/character_menu.tscn
-<<<<<<< HEAD
-res://Scenes/UI/OptionsMenu.tscn
-res://Scenes/UI/ui.tscn
-res://Scripts/character_menu.gd
-res://Scripts/Global.gd
-res://Scripts/Menu.gd
-res://Scripts/OptionsMenu.gd
-res://Scripts/pause_menu.gd
-res://Scripts/player.gd
-res://Scripts/Score.gd
-res://Scripts/ui.gd
-res://Scripts/yeti.gd
-res://Scripts/slime.gd
-=======
->>>>>>> ondrik_branch
+res://Scenes/Levels/level_1.tscn
+res://Scenes/UI/MobileControls.tscn
