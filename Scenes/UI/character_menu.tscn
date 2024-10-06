@@ -1,15 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://ditremhsiglhy"]
+[gd_scene load_steps=20 format=3 uid="uid://ditremhsiglhy"]
 
 [ext_resource type="Script" path="res://Scripts/character_menu.gd" id="1_ehmi0"]
 [ext_resource type="FontFile" uid="uid://jg8xdqwe2jb1" path="res://Assets/UI/fonts/monogram.ttf" id="1_rxwj8"]
 [ext_resource type="Texture2D" uid="uid://dredvudpufvxl" path="res://Assets/Tilesets/Cherry/cherry-1.png" id="2_enwcd"]
 [ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="5_o43dw"]
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="5_quefu"]
+[ext_resource type="Texture2D" uid="uid://dhofynamh2gnl" path="res://Assets/Tilesets/heart/heart pixel art 16x16.png" id="6_aimao"]
+[ext_resource type="Theme" uid="uid://dxo0vbnf4jely" path="res://Assets/UI/Themes/upgrade_window.tres" id="6_n3aqh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut8t3"]
+content_margin_right = 55.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq4h5"]
 bg_color = Color(0.332881, 0.332881, 0.332881, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjef0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpdim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3t4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c60bn"]
 content_margin_left = 50.0
@@ -17,6 +27,8 @@ content_margin_top = 0.0
 content_margin_right = 50.0
 content_margin_bottom = 2.0
 bg_color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikcsu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8e3n"]
 content_margin_left = 49.0
@@ -47,30 +59,52 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ehmi0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 66.0
-offset_bottom = 42.0
-theme_override_constants/separation = 80
-
-[node name="Back" type="Button" parent="HBoxContainer"]
+[node name="Back" type="Button" parent="."]
 layout_mode = 2
+offset_left = 25.0
+offset_top = 17.0
+offset_right = 129.0
+offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 32
 text = "  Back  "
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 519.0
+offset_top = 6.0
+offset_right = 639.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 80
+text = "SHOP"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 19.0
+offset_right = -23.0
+offset_bottom = 61.0
+grow_horizontal = 0
+theme_override_constants/separation = 80
+
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
-position = Vector2(70, 25)
-scale = Vector2(1.88492, 1.88492)
+position = Vector2(85, 23)
+scale = Vector2(2, 2)
 texture = ExtResource("2_enwcd")
 offset = Vector2(50, 0)
 
 [node name="Score" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 48
-text = "0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ut8t3")
+text = "100
 "
 script = ExtResource("5_quefu")
 
@@ -81,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -263.0
-offset_top = -129.0
-offset_right = 263.0
-offset_bottom = 129.0
+offset_left = -575.0
+offset_top = -241.0
+offset_right = 576.0
+offset_bottom = 322.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hq4h5")
@@ -94,24 +128,26 @@ layout_mode = 2
 
 [node name="MainButtons" type="HBoxContainer" parent="PanelContainer/AllContent"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 3
 
 [node name="CharacterButton" type="Button" parent="PanelContainer/AllContent/MainButtons"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rjef0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tpdim")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_b3t4i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c60bn")
 text = "CHARACTER"
 
 [node name="AbilitiesButton" type="Button" parent="PanelContainer/AllContent/MainButtons"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rjef0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ikcsu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y8e3n")
 text = "ABILITIES"
 
@@ -131,49 +167,58 @@ text = "  ABILITIES CONTENT"
 
 [node name="CharacterContent" type="PanelContainer" parent="PanelContainer/AllContent"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3gwap")
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/AllContent/CharacterContent"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 13
+theme_override_constants/separation = 30
 
-[node name="Speed" type="HBoxContainer" parent="PanelContainer/AllContent/CharacterContent/VBox"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/AllContent/CharacterContent/VBox"]
+layout_mode = 2
+theme = ExtResource("6_n3aqh")
+
+[node name="Speed" type="HBoxContainer" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="SpeedLabel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+[node name="SpeedLabel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 32
 text = "Speed: 100"
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
 
-[node name="SpeedLevel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+[node name="SpeedLevel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed"]
+unique_name_in_owner = true
 modulate = Color(0.127947, 0.615479, 0.21519, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 32
 text = "LEVEL 1"
 
-[node name="SpeedMax" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+[node name="SpeedMax" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_o43dw")
 theme_override_font_sizes/font_size = 32
 text = " / 4"
 
-[node name="VSeparator3" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed"]
 layout_mode = 2
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
 
-[node name="UpgradeSpeed" type="Button" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed"]
+[node name="UpgradeSpeed" type="Button" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/h_separation = 0
@@ -184,41 +229,58 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_snkbl")
 text = "x15 Upgrade"
 icon = ExtResource("2_enwcd")
 
-[node name="Speed2" type="HBoxContainer" parent="PanelContainer/AllContent/CharacterContent/VBox"]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/AllContent/CharacterContent/VBox"]
+layout_mode = 2
+theme = ExtResource("6_n3aqh")
+
+[node name="Speed2" type="HBoxContainer" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="HealthLabel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
+position = Vector2(8, 17)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_aimao")
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
+layout_mode = 2
+theme_override_constants/separation = 27
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="HealthLabel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_o43dw")
 theme_override_font_sizes/font_size = 32
 text = "Health: 100"
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
 
-[node name="HealthLevel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+[node name="HealthLevel" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
+unique_name_in_owner = true
 modulate = Color(0.127947, 0.615479, 0.21519, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_o43dw")
 theme_override_font_sizes/font_size = 32
 text = "LEVEL 1"
 
-[node name="HealthMax" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+[node name="HealthMax" type="Label" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_o43dw")
 theme_override_font_sizes/font_size = 32
 text = " / 4"
 
-[node name="VSeparator3" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
 
-[node name="UpgradeHealth" type="Button" parent="PanelContainer/AllContent/CharacterContent/VBox/Speed2"]
+[node name="UpgradeHealth" type="Button" parent="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -230,8 +292,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_snkbl")
 text = "x15 Upgrade"
 icon = ExtResource("2_enwcd")
 
-[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="PanelContainer/AllContent/MainButtons/CharacterButton" to="." method="_on_character_button_pressed"]
 [connection signal="pressed" from="PanelContainer/AllContent/MainButtons/AbilitiesButton" to="." method="_on_abilities_button_pressed"]
-[connection signal="pressed" from="PanelContainer/AllContent/CharacterContent/VBox/Speed/UpgradeSpeed" to="." method="_on_upgrade_speed_pressed"]
-[connection signal="pressed" from="PanelContainer/AllContent/CharacterContent/VBox/Speed2/UpgradeHealth" to="." method="_on_upgrade_health_pressed"]
+[connection signal="pressed" from="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer/Speed/UpgradeSpeed" to="." method="_on_upgrade_speed_pressed"]
+[connection signal="pressed" from="PanelContainer/AllContent/CharacterContent/VBox/PanelContainer2/Speed2/UpgradeHealth" to="." method="_on_upgrade_health_pressed"]

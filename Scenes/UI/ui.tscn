@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5jl03e6ro4yp"]
+[gd_scene load_steps=11 format=3 uid="uid://c5jl03e6ro4yp"]
 
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="1_tlhqj"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_wyl8w"]
+[ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="2_inaud"]
 [ext_resource type="PackedScene" uid="uid://demqmpcbamx3r" path="res://Scenes/Basic/healthbar.tscn" id="2_kx834"]
+[ext_resource type="Texture2D" uid="uid://dredvudpufvxl" path="res://Assets/Tilesets/Cherry/cherry-1.png" id="2_pt3ix"]
 [ext_resource type="Texture2D" uid="uid://bnwuwvab6jn4m" path="res://Assets/Tilesets/heart/pixil-frame-0.png" id="4_rb0sg"]
+[ext_resource type="Texture2D" uid="uid://cudj57b3nf28n" path="res://Assets/UI/Bars/attack1barV2.png" id="7_tveuk"]
+[ext_resource type="PackedScene" uid="uid://b28yj0bs4jhom" path="res://Scenes/Basic/attackbar.tscn" id="8_iwplf"]
+[ext_resource type="Texture2D" uid="uid://dskgofbsqkd6d" path="res://Assets/UI/Bars/attack2barV2.png" id="8_kxmku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6lwdm"]
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_wyl8w")
 
-[node name="Control" type="Control" parent="."]
+[node name="Score" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,43 +23,104 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Score"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -230.0
+offset_top = 10.0
+offset_bottom = 113.0
+grow_horizontal = 0
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="Score/MarginContainer"]
+position = Vector2(181, 45)
+scale = Vector2(3, 3)
+texture = ExtResource("2_pt3ix")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Score/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Score" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Score" type="Label" parent="Score/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-modulate = Color(1, 0, 0, 1)
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "0
-"
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_inaud")
+theme_override_font_sizes/font_size = 64
+text = "12"
 script = ExtResource("1_tlhqj")
 
-[node name="HealthBar" parent="." instance=ExtResource("2_kx834")]
-offset_left = 100.0
+[node name="VSeparator" type="VSeparator" parent="Score/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6lwdm")
+
+[node name="Healthbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 370.0
+offset_bottom = 100.0
+
+[node name="HealthBar" parent="Healthbar" instance=ExtResource("2_kx834")]
+layout_mode = 0
+offset_left = 70.0
 offset_top = 39.0
-offset_right = 358.0
+offset_right = 328.0
 offset_bottom = 67.0
 max_value = 200.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Healthbar"]
 z_index = 2
-position = Vector2(240, 55)
+position = Vector2(210, 55)
 scale = Vector2(3.65, 3.65)
 texture = ExtResource("4_rb0sg")
+
+[node name="Attack1bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 110.0
+offset_right = 80.0
+offset_bottom = 150.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack1bar"]
+z_index = 2
+position = Vector2(167, 0)
+scale = Vector2(3.65, 3.65)
+texture = ExtResource("7_tveuk")
+
+[node name="AttackBar" parent="Attack1bar" instance=ExtResource("8_iwplf")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -16.0
+offset_right = 135.0
+offset_bottom = 12.0
+
+[node name="Attack2bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 110.0
+offset_right = 339.0
+offset_bottom = 142.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack2bar"]
+physics_interpolation_mode = 1
+z_index = 2
+position = Vector2(320, 0)
+scale = Vector2(3.65, 3.65)
+texture = ExtResource("8_kxmku")
+
+[node name="AttackBar" parent="Attack2bar" instance=ExtResource("8_iwplf")]
+layout_mode = 0
+offset_left = 188.0
+offset_top = -16.0
+offset_right = 288.0
+offset_bottom = 12.0

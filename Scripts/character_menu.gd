@@ -9,12 +9,14 @@ var SpeedLevel = 1
 var HealthPrice = 15
 var HealthLevel = 1
 
-@onready var speed_button: Button = $PanelContainer/AllContent/CharacterContent/VBox/Speed/UpgradeSpeed
-@onready var speed_level: Label = $PanelContainer/AllContent/CharacterContent/VBox/Speed/SpeedLevel
+@onready var speed_label: Label = %SpeedLabel
+@onready var speed_level: Label = %SpeedLevel
+@onready var speed_button: Button = %UpgradeSpeed
 
-@onready var health_button: Button = $PanelContainer/AllContent/CharacterContent/VBox/Speed2/UpgradeHealth
-@onready var health_level: Label = $PanelContainer/AllContent/CharacterContent/VBox/Speed2/HealthLevel
-@onready var health_label: Label = $PanelContainer/AllContent/CharacterContent/VBox/Speed2/HealthLabel
+@onready var health_label: Label = %HealthLabel
+@onready var health_level: Label = %HealthLevel
+@onready var health_button: Button = %UpgradeHealth
+
 
 @onready var abilities_content: PanelContainer = $PanelContainer/AllContent/AbilitiesContent
 @onready var character_content: PanelContainer = $PanelContainer/AllContent/CharacterContent

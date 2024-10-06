@@ -1,32 +1,13 @@
-<<<<<<< HEAD
-Timer
-Label
-MarginContainer
-NinePatchRect
-=======
-<<<<<<< Updated upstream
-Sprite2D
-Label
-VBoxContainer
-VSeparator
 PanelContainer
-=======
-NinePatchRect
-Timer
 Label
-MarginContainer
-RichTextLabel
->>>>>>> Stashed changes
-Button
-HBoxContainer
->>>>>>> ondrik_branch
-RichTextLabel
-Button
-ColorRect
-CanvasLayer
-Control
-CharacterBody2D
-Panel
 Sprite2D
-Area2D
-ProgressBar
+HBoxContainer
+Node
+Control
+VSeparator
+HSeparator
+VBoxContainer
+Timer
+MarginContainer
+NinePatchRect
+NinePatchRect

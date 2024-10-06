@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://bfu3p1nb50rcr"]
 
 [ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_b2fl5"]
-[ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="2_k58nb"]
 [ext_resource type="PackedScene" uid="uid://ox3lkgvyrihy" path="res://Scenes/Basic/playerBasic.tscn" id="2_wpymv"]
 [ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/cherry.tscn" id="3_4pog1"]
 [ext_resource type="PackedScene" uid="uid://cnskxuoxa3mh4" path="res://Scenes/Objects/platform.tscn" id="4_e13n7"]
@@ -10,6 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://st4be7a8pe7m" path="res://Scenes/Objects/spike.tscn" id="7_d8u70"]
 [ext_resource type="PackedScene" uid="uid://h6vwrkf1n28q" path="res://Scenes/Objects/slime.tscn" id="8_bgdvo"]
 [ext_resource type="PackedScene" path="res://Assets/NPC/witch.tscn" id="9_pn6xr"]
+
+[sub_resource type="GDScript" id="GDScript_acyps"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsg0m"]
 distance = -56.0
@@ -53,7 +60,7 @@ _data = {
 }
 
 [node name="Level1" instance=ExtResource("1_b2fl5")]
-script = ExtResource("2_k58nb")
+script = SubResource("GDScript_acyps")
 
 [node name="Layer1" parent="." index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAIAAAADAAMAAAAAAAMAAAADAAMAAAABAAAAAAABAAEAAAABAAEAAAADAAMAAAABAAIAAAADAAMAAAABAAMAAAADAAMAAAACAAAAAAABAAEAABACAAEAAAADAAMAAAACAAIAAAAFAAcAAAACAAMAAAADAAMAAAADAAAAAAADAAEAABADAAEAAAADAAMAAAADAAIAAAADAAMAAAADAAMAAAADAAMAAAAEAAAAAAABAAEAABAEAAEAAAADAAMAAAAEAAIAAAADAAMAAAAEAAMAAAADAAMAAAAFAAAAAAADAAEAAAAFAAEAAAADAAMAAAAFAAIAAAAFAAcAABAFAAMAAAAHAAcAAAAGAAAAAAAFAAEAAAAGAAEAAAAHAAcAABAGAAIAAAAHAAcAAAAGAAMAAAADAAMAAAAHAAAAAAAHAAEAAAAHAAEAAAADAAMAAAAHAAIAAAADAAMAAAAHAAMAAAADAAMAAAAIAAAAAAAWAAEAAAAIAAEAAAAWAAIAAAAIAAIAAAADAAMAAAAIAAMAAAADAAMAAAAJAAAAAAAXAAEAAAAJAAEAAAAXAAIAAAAJAAIAAAADAAMAAAAJAAMAAAADAAMAAAAKAAEAAAAWAAEAAAAKAAIAAAAWAAIAAAAKAAMAAAADAAMAAAAKAAQAAAADAAUAAAALAAEAAAAXAAEAAAALAAIAAAAXAAIAAAALAAMAAAADAAMAAAALAAQAAAADAAUAAAAMAAIAAAAWAAEAAAAMAAMAAAAHAAUAAAAMAAQAAAAFAAoAAAANAAMAAAAIAAUAAAAOAAMAAAAJAAUAAAASAAIAAAATAAEAAAASAAMAAAABAAMAAAASAAQAAAABAAoAAAATAAIAAAAUAAEAAAATAAMAAAAHAAEAAAATAAQAAAACAAoAAAATAAUAAAACAAsAAAAUAAMAAAAFAAEAAAAUAAQAAAADAAMAAAAUAAUAAAADAAUAABAVAAMAAAADAAEAABAVAAQAAAADAAMAAAAVAAUAAAADAAUAAAAWAAMAAAADAAEAABAWAAQAAAAHAAcAAAAWAAUAAAAFAAUAAAAXAAMAAAABAAEAABAXAAQAAAADAAMAAAAXAAUAAAADAAUAABAYAAMAAAABAAEAAAAYAAQAAAADAAMAAAAYAAUAAAADAAUAAAAZAAMAAAAFAAEAABAZAAQAAAADAAMAAAAZAAUAAAAFAAUAAAAaAAMAAAADAAEAAAAaAAQAAAAHAAcAABAaAAUAAAADAAUAAAAbAAMAAAADAAEAAAAbAAQAAAADAAMAAAAbAAUAAAADAAUAAAAcAAMAAAAFAAEAAAAcAAQAAAADAAMAAAAcAAUAAAAFAAUAAAAdAAMAAAABAAEAABAdAAQAAAAFAAcAAAAdAAUAAAADAAUAAAAeAAMAAAAHAAEAABAeAAQAAAAEAAoAAAAeAAUAAAAEAAsAAAAfAAIAAAAXAAEAAAAfAAMAAAAFAAMAAAAfAAQAAAAFAAoAAAAgAAMAAAAFAAEAAAAhAAMAAAAFAAEAAAAiAAMAAAAFAAEAAAAjAAMAAAAFAAEAAAAeAAIAAAAWAAEAAAA=")
@@ -92,23 +99,25 @@ autoplay = "RESET"
 [node name="Yeti" parent="." index="8" instance=ExtResource("6_lp7dp")]
 position = Vector2(341, 48)
 
-[node name="Spike" parent="." index="9" instance=ExtResource("7_d8u70")]
-position = Vector2(252, 60)
-
-[node name="Spike4" parent="." index="10" instance=ExtResource("7_d8u70")]
-position = Vector2(280, 60)
-
-[node name="Spike5" parent="." index="11" instance=ExtResource("7_d8u70")]
-position = Vector2(288, 60)
-
-[node name="Spike2" parent="." index="12" instance=ExtResource("7_d8u70")]
-position = Vector2(271, 60)
-
-[node name="Spike3" parent="." index="13" instance=ExtResource("7_d8u70")]
-position = Vector2(262, 60)
-
-[node name="Node2D" parent="." index="14" instance=ExtResource("8_bgdvo")]
+[node name="Slime" parent="." index="9" instance=ExtResource("8_bgdvo")]
 position = Vector2(541, 49)
 
-[node name="Witch" parent="." index="15" instance=ExtResource("9_pn6xr")]
+[node name="Witch" parent="." index="10" instance=ExtResource("9_pn6xr")]
 position = Vector2(136, -55)
+
+[node name="Spikes" type="Node" parent="." index="12"]
+
+[node name="Spike" parent="Spikes" index="0" instance=ExtResource("7_d8u70")]
+position = Vector2(252, 60)
+
+[node name="Spike2" parent="Spikes" index="1" instance=ExtResource("7_d8u70")]
+position = Vector2(271, 60)
+
+[node name="Spike3" parent="Spikes" index="2" instance=ExtResource("7_d8u70")]
+position = Vector2(262, 60)
+
+[node name="Spike4" parent="Spikes" index="3" instance=ExtResource("7_d8u70")]
+position = Vector2(280, 60)
+
+[node name="Spike5" parent="Spikes" index="4" instance=ExtResource("7_d8u70")]
+position = Vector2(288, 60)

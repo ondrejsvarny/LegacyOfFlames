@@ -64,25 +64,18 @@ func _physics_process(delta):
 		is_facing_right = false
 		
 	# SHOOTING
-	
-	if Input.is_action_just_pressed("attack") and not anm and Global.can_move:
+	if Input.is_action_just_pressed("attack") and Global.can_attack: #and not anm and Global.can_move
+		Global.can_attack = false
 		animated_sprite.play("shoot") 
-
-			
 		if is_facing_right:
 			b = bullet.instantiate()
 			b.global_position = $BulletSpawn.global_position + Vector2(-35, 0)
-			get_parent().add_child(b)
-		
-			
+			get_parent().add_child(b)	
 		else:
 			b_l = bullet_left.instantiate()
 			b_l.global_position = $BulletSpawnLeft.global_position + Vector2(-35, 0)
 			get_parent().add_child(b_l)
-			
-			
-			
-			
+				
 		timer.start()
 		anm = true
 		

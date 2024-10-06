@@ -1,3 +1,5 @@
+res://Assets/UI/Themes
+res://Scripts
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -9,7 +11,6 @@ res://Assets/NPC/Wizard
 >>>>>>> ondrik_branch
 res://
 res://Scenes/UI
-res://Scripts
 res://Assets/UI
 res://Scenes/NPC
 res://Scenes/Objects
@@ -19,34 +20,13 @@ res://Scenes/Basic
 <<<<<<< HEAD
 =======
 res://Assets/NPC
-res://
 C:/Users/HP/Desktop/veci 5/projekt/godot
-res://Scripts
-res://Scenes/Basic
-res://Scenes/UI
-res://Assets/Tilesets/enemy-death
-res://Assets/Player
-res://Scenes/Objects
 >>>>>>> ja
 =======
 <<<<<<< Updated upstream
 >>>>>>> ondrik_branch
-res://Scenes/Levels
-res://Scenes/Enemies
-res://Assets/Enemies/yeti
-res://Assets/Tilesets
-res://Scenes
-res://Assets/Tilesets/Cherry
 =======
 =======
-res://Assets/NPC
-res://
 C:/Users/HP/Desktop/veci 5/projekt/godot
-res://Scripts
-res://Scenes/Basic
-res://Scenes/UI
-res://Assets/Tilesets/enemy-death
-res://Assets/Player
-res://Scenes/Objects
 >>>>>>> ja
 >>>>>>> Stashed changes

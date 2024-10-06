@@ -252,8 +252,10 @@ script = ExtResource("1_lvcu4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22.5)
 sprite_frames = SubResource("SpriteFrames_sld4c")
-animation = &"run"
+animation = &"shoot"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.581683
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.166675, -11.0416)

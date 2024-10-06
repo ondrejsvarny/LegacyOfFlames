@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b28yj0bs4jhom"]
+
+[ext_resource type="Script" path="res://Scripts/attackbar.gd" id="1_6y2fk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unf6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dud3p"]
+bg_color = Color(0.117647, 0.6, 0.313726, 1)
+
+[node name="AttackBar" type="ProgressBar"]
+z_index = 1
+offset_right = 240.0
+offset_bottom = 10.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_unf6e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dud3p")
+value = 60.0
+show_percentage = false
+script = ExtResource("1_6y2fk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
