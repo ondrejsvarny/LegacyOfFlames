@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ox3lkgvyrihy"]
+[gd_scene load_steps=3 format=3 uid="uid://ox3lkgvyrihy"]
 
 [ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="1_ahm3k"]
+[ext_resource type="PackedScene" uid="uid://q54ojq1ejh4f" path="res://Scenes/Basic/dash.tscn" id="2_db6gd"]
+
 
 [node name="PlayerBasic" type="Node2D"]
 
@@ -16,3 +18,7 @@ zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
+
+[node name="Dash" parent="Player" instance=ExtResource("2_db6gd")]
+position = Vector2(-2.38419e-06, -7.45057e-08)
+scale = Vector2(1.25, 1.25)

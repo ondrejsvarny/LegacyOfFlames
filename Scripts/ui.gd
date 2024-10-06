@@ -24,9 +24,9 @@ func _physics_process(delta):
 		Global.player_health = Global.max_player_health
 		get_tree().reload_current_scene()
 		
-	if Input.is_action_just_pressed("attack") and Global.can_attack:
+	if Input.is_action_just_pressed("attack") and Global.can_attack and Global.can_move:
 		attackbar1.attack(Global.attack1)
-	if Input.is_action_just_pressed("attack2") and Global.can_attack:
+	if Input.is_action_just_pressed("attack2") and Global.can_attack and Global.can_move:
 		attackbar2.attack(Global.attack2)
 		
 	
