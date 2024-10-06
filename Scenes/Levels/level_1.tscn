@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cx4efkoqce571" path="res://Scenes/Enemies/yeti.tscn" id="6_lp7dp"]
 [ext_resource type="PackedScene" uid="uid://st4be7a8pe7m" path="res://Scenes/Objects/spike.tscn" id="7_d8u70"]
 [ext_resource type="PackedScene" uid="uid://h6vwrkf1n28q" path="res://Scenes/Objects/slime.tscn" id="8_bgdvo"]
-[ext_resource type="PackedScene" path="res://Assets/NPC/witch.tscn" id="9_pn6xr"]
+[ext_resource type="PackedScene" uid="uid://c6dnqotp483ey" path="res://Assets/NPC/witch.tscn" id="9_pn6xr"]
 
 [sub_resource type="GDScript" id="GDScript_acyps"]
 script/source = "extends Node2D
@@ -103,7 +103,7 @@ position = Vector2(341, 48)
 position = Vector2(541, 49)
 
 [node name="Witch" parent="." index="10" instance=ExtResource("9_pn6xr")]
-position = Vector2(136, -55)
+position = Vector2(139, -54)
 
 [node name="Spikes" type="Node" parent="." index="12"]
 

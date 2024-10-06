@@ -1,24 +1,24 @@
 [gd_scene load_steps=24 format=3 uid="uid://c6dnqotp483ey"]
 
-[ext_resource type="Texture2D" uid="uid://vkfkvlkww54o" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle1.png" id="1_m22ks"]
+[ext_resource type="Texture2D" uid="uid://cp0hv1taehmng" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle1.png" id="1_m22ks"]
 [ext_resource type="Script" path="res://Scripts/witch.gd" id="1_omiib"]
-[ext_resource type="Texture2D" uid="uid://u3i5uy532asj" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle2.png" id="2_1haer"]
-[ext_resource type="Texture2D" uid="uid://2tmpdq21r8pj" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle3.png" id="3_ijtp5"]
-[ext_resource type="Texture2D" uid="uid://b4qln7adgs5a3" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle4.png" id="4_5jnom"]
-[ext_resource type="Texture2D" uid="uid://c83a1d8h8ux0b" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle5.png" id="5_d4gg4"]
-[ext_resource type="Texture2D" uid="uid://wjgjcxivetks" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle6.png" id="6_cadhp"]
-[ext_resource type="Texture2D" uid="uid://cx3gjt43w0ypn" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle7.png" id="7_yvpt0"]
-[ext_resource type="Texture2D" uid="uid://butgxhl86y2tg" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle8.png" id="8_gpms0"]
-[ext_resource type="Texture2D" uid="uid://cmknk6amligvs" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle9.png" id="9_fjk6h"]
-[ext_resource type="Texture2D" uid="uid://diorbtn13t7ak" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow1.png" id="10_00dsm"]
-[ext_resource type="Texture2D" uid="uid://ucad36y8sfrk" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow2.png" id="11_2hp36"]
-[ext_resource type="Texture2D" uid="uid://8jukxq5a0kmt" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow3.png" id="12_i23nj"]
-[ext_resource type="Texture2D" uid="uid://byjtw4bcapr8p" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow4.png" id="13_7v8cg"]
-[ext_resource type="Texture2D" uid="uid://ci3wngk0ihy6n" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow5.png" id="14_utb17"]
-[ext_resource type="Texture2D" uid="uid://c13ofnxeokwta" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow6.png" id="15_v3r60"]
-[ext_resource type="Texture2D" uid="uid://cpxypb67sd1vj" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow7.png" id="16_jbsno"]
-[ext_resource type="Texture2D" uid="uid://c1s4swx1w65kg" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow8.png" id="17_ciotu"]
-[ext_resource type="Texture2D" uid="uid://osk2st4cffrg" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow9.png" id="18_tid2o"]
+[ext_resource type="Texture2D" uid="uid://c7f0btdskgdx5" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle2.png" id="2_1haer"]
+[ext_resource type="Texture2D" uid="uid://ddxcac365ymoh" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle3.png" id="3_ijtp5"]
+[ext_resource type="Texture2D" uid="uid://cal83ssggcr5g" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle4.png" id="4_5jnom"]
+[ext_resource type="Texture2D" uid="uid://ddeyoj6yg0xwx" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle5.png" id="5_d4gg4"]
+[ext_resource type="Texture2D" uid="uid://c8fswnx5rl483" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle6.png" id="6_cadhp"]
+[ext_resource type="Texture2D" uid="uid://cjcip1kyr43s1" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle7.png" id="7_yvpt0"]
+[ext_resource type="Texture2D" uid="uid://dd1njtqogwce3" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle8.png" id="8_gpms0"]
+[ext_resource type="Texture2D" uid="uid://dgday6bam8sde" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle9.png" id="9_fjk6h"]
+[ext_resource type="Texture2D" uid="uid://dyddbx7b6tf33" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow1.png" id="10_00dsm"]
+[ext_resource type="Texture2D" uid="uid://dufnnnhl3fhmd" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow2.png" id="11_2hp36"]
+[ext_resource type="Texture2D" uid="uid://cgrbe4qljhhj8" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow3.png" id="12_i23nj"]
+[ext_resource type="Texture2D" uid="uid://b3p7j1yb4bq2r" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow4.png" id="13_7v8cg"]
+[ext_resource type="Texture2D" uid="uid://dde5t676jyqcu" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow5.png" id="14_utb17"]
+[ext_resource type="Texture2D" uid="uid://4i8p0vyo18jo" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow6.png" id="15_v3r60"]
+[ext_resource type="Texture2D" uid="uid://c6wyrrvdmjfma" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow7.png" id="16_jbsno"]
+[ext_resource type="Texture2D" uid="uid://bkbbjqup8yd5" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow8.png" id="17_ciotu"]
+[ext_resource type="Texture2D" uid="uid://bajdx0006xxyo" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow9.png" id="18_tid2o"]
 [ext_resource type="Script" path="res://Scripts/shadow.gd" id="20_inesk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ufbb2"]
@@ -92,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ulb"]
-size = Vector2(72, 54.5)
+size = Vector2(40, 6)
 
 [node name="Witch" type="Node2D"]
 
@@ -116,7 +116,7 @@ animation = &"shadow"
 script = ExtResource("20_inesk")
 
 [node name="Interaction_area" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-23, -24.75)
+position = Vector2(-7, -16)
 shape = SubResource("RectangleShape2D_x5ulb")
 
 [connection signal="body_entered" from="Area2D" to="Area2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
