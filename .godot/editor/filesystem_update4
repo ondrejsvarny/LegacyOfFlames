@@ -13,3 +13,17 @@ res://Scenes/UI/Menu.tscn
 res://Scenes/UI/LevelMenu.tscn
 res://Scenes/UI/pause_menu.tscn
 res://Scripts/character_menu.gd
+res://addons/dialogic/Editor/Theme/MainTheme.tres
+res://addons/dialogic/Editor/Events/styles/unselected_stylebox.tres
+res://addons/dialogic/Editor/Events/styles/ResourceMenuPanelBackground.tres
+res://Scripts/attackbar.gd
+res://Scripts/Global.gd
+res://Scripts/healthbar.gd
+res://Scripts/LevelMenu.gd
+res://Scripts/Menu.gd
+res://Scripts/pause_menu.gd
+res://Scripts/player.gd
+res://Scripts/slime.gd
+res://Scripts/ui.gd
+res://Scripts/witch.gd
+res://Scripts/yeti.gd
