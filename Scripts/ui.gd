@@ -25,7 +25,7 @@ func _physics_process(delta):
 		get_tree().reload_current_scene()
 		
 	if Input.is_action_just_pressed("attack") and Global.can_attack and Global.can_move:
-		attackbar1.attack(Global.attack1)
+		attackbar1.attack(Global.fireball_reload)
 	if Input.is_action_just_pressed("attack2") and Global.can_attack and Global.can_move:
 		attackbar2.attack(Global.attack2)
 		

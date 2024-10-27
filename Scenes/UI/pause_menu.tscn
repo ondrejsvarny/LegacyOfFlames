@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://qhpmxeh61stg"]
 
-[ext_resource type="Shader" path="res://Scenes/UI/pause_menu.gdshader" id="1_8rslc"]
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_bcw22"]
+[ext_resource type="Shader" path="res://Scenes/UI/pause_menu.gdshader" id="2_xtxub"]
 [ext_resource type="Theme" uid="uid://0tjibdl3241f" path="res://Assets/UI/Themes/button.tres" id="3_oyyjl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m6qon"]
-shader = ExtResource("1_8rslc")
+shader = ExtResource("2_xtxub")
 shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmk83"]
@@ -19,26 +19,25 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/lod")
+tracks/0/path = NodePath("../PanelContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../PanelContainer:modulate")
+tracks/1/path = NodePath(".:material:shader_parameter/lod")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_k7uh3"]
@@ -95,6 +94,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+process_mode = 3
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8

@@ -6,7 +6,7 @@ var hit = false
 
 func _physics_process(delta):
 	if !hit:
-		position.x -= 3
+		position.x -= Global.fireball_speed
 
 func _on_area_2d_body_entered(body):
 	hit = true
@@ -21,7 +21,7 @@ func _on_area_2d_area_entered(area):
 		#area.get_parent().animated_sprite.play("death")
 		#await get_tree().create_timer(0.5).timeout
 		
-		area.get_parent().health -= 20
+		area.get_parent().health -= Global.fireball_damage
 		
 		if area.get_parent().health <= 0:
 			area.get_parent().queue_free()

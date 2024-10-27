@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn2f1h6ultc6o"]
+[gd_scene load_steps=9 format=3 uid="uid://cn2f1h6ultc6o"]
 
 [ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="1_3yspg"]
 [ext_resource type="PackedScene" uid="uid://c5jl03e6ro4yp" path="res://Scenes/UI/ui.tscn" id="3_0f846"]
 [ext_resource type="PackedScene" uid="uid://plxmx8c4kid2" path="res://Scenes/Basic/killzone.tscn" id="4_cvkpn"]
+[ext_resource type="PackedScene" uid="uid://bhrbn4sk7ydw8" path="res://Scenes/Basic/victory_zone.tscn" id="4_xgh0l"]
 [ext_resource type="PackedScene" uid="uid://qhpmxeh61stg" path="res://Scenes/UI/pause_menu.tscn" id="4_yw8kv"]
+[ext_resource type="PackedScene" uid="uid://b3dt0h3k2ncnk" path="res://Scenes/UI/victory_menu.tscn" id="6_hx0n6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtbit"]
 texture = ExtResource("1_3yspg")
@@ -217,6 +219,22 @@ position = Vector2(-1, 93)
 
 [node name="UI" parent="." instance=ExtResource("3_0f846")]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="VictoryMenu" parent="CanvasLayer2" instance=ExtResource("6_hx0n6")]
+unique_name_in_owner = true
+z_index = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_yw8kv")]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VictoryZone" parent="." instance=ExtResource("4_xgh0l")]

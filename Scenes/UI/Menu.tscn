@@ -45,8 +45,7 @@ text = "PLAY"
 [node name="Character" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_pjv47")
-text = "SHOP
-"
+text = "UPGRADES"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2

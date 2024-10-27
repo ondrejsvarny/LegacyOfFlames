@@ -1,5 +1,7 @@
 res://Assets/UI/Themes
 res://Scripts
+res://
+res://Scenes/Basic
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -9,14 +11,12 @@ res://Assets/NPC/Wizard
 <<<<<<< HEAD
 >>>>>>> Stashed changes
 >>>>>>> ondrik_branch
-res://
 res://Scenes/UI
 res://Assets/UI
 res://Scenes/NPC
 res://Scenes/Objects
 res://Assets/Tilesets/enemy-death
 res://Assets/Player
-res://Scenes/Basic
 <<<<<<< HEAD
 =======
 res://Assets/NPC

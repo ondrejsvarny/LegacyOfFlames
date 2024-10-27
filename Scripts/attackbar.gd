@@ -2,10 +2,10 @@ extends ProgressBar
 
 # Dictionary to store attack types and their cooldown durations (in seconds)
 var attack_cooldowns = {
-	"normal_lvl1": 3.0,  
-	"normal_lvl2": 3.0,  
-	"normal_lvl3": 3.0, 
-	"normal_lvl4": 3.0,
+	"fireball_lvl1": 3.0,  
+	"fireball_lvl2": 2.0,  
+	"fireball_lvl3": 1.5, 
+	"fireball_lvl4": 1.0,
 	
 	"heavy_lvl1": 3.0,  
 	"heavy_lvl2": 3.0,
