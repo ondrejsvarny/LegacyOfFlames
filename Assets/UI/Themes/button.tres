@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://0tjibdl3241f"]
 
 [ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="1_3cjrc"]
-[ext_resource type="Texture2D" uid="uid://cnurqq1pygcr0" path="res://Assets/UI/GUI.png" id="2_myasd"]
+[ext_resource type="Texture2D" uid="uid://cnurqq1pygcr0" path="res://Assets/UI/Textures/GUI.png" id="2_myasd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7oc8s"]
 content_margin_bottom = 10.0

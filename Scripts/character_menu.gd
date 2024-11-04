@@ -1,8 +1,5 @@
 extends Control
 
-var save_path = "user://savegame.save"
-#  C:\Users\Ondrej1\AppData\Roaming\Godot\app_userdata\MyGame
-
 #var cherries
 var SpeedPrice = 10
 var SpeedLevel = 1
@@ -145,54 +142,52 @@ func _on_upgrade_proj_speed_pressed() -> void:
 
 # SAVE AND LOAD
 func save():
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	if file:
-		var save = {
-			"SpeedPrice": SpeedPrice,
-			"SpeedLevel": SpeedLevel,
-			"HealthPrice": HealthPrice,
-			"HealthLevel": HealthLevel,
-			"DamagePrice": DamagePrice,
-			"DamageLevel": DamageLevel,
-			"RelSpeedPrice": RelSpeedPrice,
-			"RelSpeedLevel": RelSpeedLevel,
-			"ProjSpeedPrice": ProjSpeedPrice,
-			"ProjSpeedLevel": ProjSpeedLevel,
-			
-			"max_player_health": Global.max_player_health,
-			"fireball_damage": Global.fireball_damage,
-			"fireball_reload": Global.fireball_reload,
-			"fireball_speed": Global.fireball_speed,
-			
-			"cherries": Global.cherries
-		}
-		file.store_var(save)
-		file.close()
+	var data = {
+		"SpeedPrice": SpeedPrice,
+		"SpeedLevel": SpeedLevel,
+		"HealthPrice": HealthPrice,
+		"HealthLevel": HealthLevel,
+		"DamagePrice": DamagePrice,
+		"DamageLevel": DamageLevel,
+		"RelSpeedPrice": RelSpeedPrice,
+		"RelSpeedLevel": RelSpeedLevel,
+		"ProjSpeedPrice": ProjSpeedPrice,
+		"ProjSpeedLevel": ProjSpeedLevel,
+	}
+	SaveManager.save_section("character_menu", data)
+	
+	var upgrade_data = {
+		"max_player_health": Global.max_player_health,
+		"fireball_damage": Global.fireball_damage,
+		"fireball_reload": Global.fireball_reload,
+		"fireball_speed": Global.fireball_speed,
+	}
+	SaveManager.save_section("global_upgrade_data", upgrade_data)
+	
+	var currencies = {
+		"cherries": Global.cherries
+	}
+	SaveManager.save_section("global_currencies", currencies)
+	
 
 func load_data():
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		if file:
-			var save_data = file.get_var()
-			
-			SpeedPrice = save_data.get("SpeedPrice", 10)  
-			SpeedLevel = save_data.get("SpeedLevel", 1) 
-			HealthPrice = save_data.get("HealthPrice", 15)
-			HealthLevel = save_data.get("HealthLevel", 1)  
-			DamagePrice = save_data.get("DamagePrice", 10)
-			DamageLevel = save_data.get("DamageLevel", 1)
-			RelSpeedPrice = save_data.get("RelSpeedPrice", 10)
-			RelSpeedLevel = save_data.get("RelSpeedLevel", 1)
-			ProjSpeedPrice = save_data.get("ProjSpeedPrice", 10)
-			ProjSpeedLevel = save_data.get("ProjSpeedLevel", 1)
-			
-			Global.max_player_health = save_data.get("max_player_health", 100)
-			Global.fireball_damage = save_data.get("fireball_damage", 10)
-			Global.fireball_reload = save_data.get("fireball_reload", "fireball_lvl1")
-			Global.fireball_speed = save_data.get("fireball_speed", 3)
-			
-			Global.cherries = save_data.get("cherries", 150)
-			
-			print(save_data)
-			file.close()
-			
+	var data = SaveManager.load_section("character_menu")
+	SpeedPrice = data.get("SpeedPrice", 10)  
+	SpeedLevel = data.get("SpeedLevel", 1) 
+	HealthPrice = data.get("HealthPrice", 15)
+	HealthLevel = data.get("HealthLevel", 1)  
+	DamagePrice = data.get("DamagePrice", 10)
+	DamageLevel = data.get("DamageLevel", 1)
+	RelSpeedPrice = data.get("RelSpeedPrice", 10)
+	RelSpeedLevel = data.get("RelSpeedLevel", 1)
+	ProjSpeedPrice = data.get("ProjSpeedPrice", 10)
+	ProjSpeedLevel = data.get("ProjSpeedLevel", 1)
+	
+	var data2 = SaveManager.load_section("global_upgrade_data")
+	Global.max_player_health = data2.get("max_player_health", 100)
+	Global.fireball_damage = data2.get("fireball_damage", 10)
+	Global.fireball_reload = data2.get("fireball_reload", "fireball_lvl1")
+	Global.fireball_speed = data2.get("fireball_speed", 3)
+	
+	var data3 = SaveManager.load_section("global_currencies")
+	Global.cherries = data3.get("cherries", 150)

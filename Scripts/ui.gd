@@ -1,10 +1,9 @@
 extends CanvasLayer
 
-var save_path = "user://savegame.save"
-
 @onready var healthbar: ProgressBar = $Healthbar/HealthBar
 @onready var attackbar1: ProgressBar = $Attack1bar/AttackBar
 @onready var attackbar2: ProgressBar = $Attack2bar/AttackBar
+@onready var score: Label = %Score
 
 var health
 
@@ -14,7 +13,6 @@ func _ready():
 	healthbar.init_health(Global.max_player_health)
 	
 	# 2 timere kt sa bude menit dlzka podla prave vybratych abilitiek
-	
 
 func _physics_process(delta):
 	if health != Global.player_health:
@@ -28,16 +26,11 @@ func _physics_process(delta):
 		attackbar1.attack(Global.fireball_reload)
 	if Input.is_action_just_pressed("attack2") and Global.can_attack and Global.can_move:
 		attackbar2.attack(Global.attack2)
-		
 	
-		
+	# UPDATING SCORE LABEL
+	score.text = str(Global.cherries)
+	
 
 func load_data():
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		if file:
-			var save_data = file.get_var()
-			Global.cherries = save_data.get("cherries", 150)
-			Global.max_player_health = save_data.get("max_player_health", 100)
-			print(save_data)
-			file.close()
+	var data = SaveManager.load_section("global_upgrade_data")
+	Global.max_player_health = data.get("max_player_health", 100)

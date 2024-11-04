@@ -86,11 +86,11 @@ func _physics_process(delta):
 		animated_sprite.play("shoot") 
 		if is_facing_right:
 			b = bullet.instantiate()
-			b.global_position = $BulletSpawn.global_position + Vector2(-35, 0)
+			b.global_position = $BulletSpawn.global_position #+ Vector2(-35, 0)
 			get_parent().add_child(b)	
 		else:
 			b_l = bullet_left.instantiate()
-			b_l.global_position = $BulletSpawnLeft.global_position + Vector2(-35, 0)
+			b_l.global_position = $BulletSpawnLeft.global_position #+ Vector2(-35, 0)
 			get_parent().add_child(b_l)
 				
 		timer.start()
@@ -110,14 +110,14 @@ func _physics_process(delta):
 				else:
 					animated_sprite.play("run")
 				
-			else:
+			else:  #ZMENA
 				if jump_count == 1:
-					if hurt == true:
-						animated_sprite.play("hurt")
-					else:
-						animated_sprite.play("jump")
+					animated_sprite.play("jump")
 				else:
-					animated_sprite.play("second_jump")
+					if hurt == true:
+						animated_sprite.play("hurt") 
+					else:
+						animated_sprite.play("second_jump")
 				
 			
 		
@@ -147,10 +147,10 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	
-	if health != Global.player_health:
+	if health != Global.player_health: 
 		health = Global.player_health
 		velocity.y = -300
-		jump_count = 1
+		jump_count = 2 #ZMENA
 		hurt = true
 	
 

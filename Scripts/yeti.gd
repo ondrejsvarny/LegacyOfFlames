@@ -11,7 +11,7 @@ var health = 50
 @onready var healthbar: ProgressBar = $HealthBar
 
 var direction = 1
-var health_changed = 50
+var health_changed = 50  # at the start same as the health
 
 func _ready():
 	healthbar.init_health(health)

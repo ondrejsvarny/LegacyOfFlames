@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5jl03e6ro4yp"]
+[gd_scene load_steps=10 format=3 uid="uid://c5jl03e6ro4yp"]
 
-[ext_resource type="Script" path="res://Scripts/Score.gd" id="1_tlhqj"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_wyl8w"]
 [ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="2_inaud"]
 [ext_resource type="PackedScene" uid="uid://demqmpcbamx3r" path="res://Scenes/Basic/healthbar.tscn" id="2_kx834"]
@@ -55,7 +54,6 @@ size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("2_inaud")
 theme_override_font_sizes/font_size = 64
 text = "12"
-script = ExtResource("1_tlhqj")
 
 [node name="VSeparator" type="VSeparator" parent="Score/MarginContainer/HBoxContainer"]
 layout_mode = 2

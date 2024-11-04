@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cy8twpo3m34fd"]
+[gd_scene load_steps=39 format=3 uid="uid://cy8twpo3m34fd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_lvcu4"]
 [ext_resource type="Texture2D" uid="uid://c2ejk5porlvrn" path="res://Assets/Player/idle-preview.png" id="1_um81c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://vxqyqpbhid4s" path="res://Assets/Player/crouch-shot-sheet.png" id="3_ohtqi"]
 [ext_resource type="Texture2D" uid="uid://b1xifudg7t2ve" path="res://Assets/Player/hurt-sheet.png" id="4_a4a0v"]
 [ext_resource type="Texture2D" uid="uid://bhljmyj6smahq" path="res://Assets/Player/shot-preview.png" id="7_skm01"]
+[ext_resource type="PackedScene" uid="uid://q54ojq1ejh4f" path="res://Scenes/Basic/dash.tscn" id="9_lh58j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfn2o"]
 atlas = ExtResource("2_00kaf")
@@ -278,5 +279,18 @@ gizmo_extents = 3.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.29
 one_shot = true
+
+[node name="Cam" type="Camera2D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+position = Vector2(-2.38419e-06, -10)
+zoom = Vector2(4, 4)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Dash" parent="." instance=ExtResource("9_lh58j")]
+position = Vector2(-2.38419e-06, -7.45057e-08)
+scale = Vector2(1.25, 1.25)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

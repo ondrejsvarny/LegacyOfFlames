@@ -3,14 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="1_ahm3k"]
 [ext_resource type="PackedScene" uid="uid://q54ojq1ejh4f" path="res://Scenes/Basic/dash.tscn" id="2_db6gd"]
 
-
 [node name="PlayerBasic" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ahm3k")]
 unique_name_in_owner = true
 position = Vector2(1.90735e-06, 5.96046e-08)
 
-[node name="Cam" type="Camera2D" parent="Player"]
+[node name="Cam2" type="Camera2D" parent="Player"]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
 position = Vector2(-2.38419e-06, -10)
@@ -19,6 +18,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="Dash" parent="Player" instance=ExtResource("2_db6gd")]
+[node name="Dash2" parent="Player" instance=ExtResource("2_db6gd")]
 position = Vector2(-2.38419e-06, -7.45057e-08)
 scale = Vector2(1.25, 1.25)

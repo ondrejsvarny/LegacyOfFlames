@@ -1,11 +1,11 @@
 [gd_scene load_steps=20 format=3 uid="uid://b3dt0h3k2ncnk"]
 
 [ext_resource type="Script" path="res://victory_menu.gd" id="1_7jo1p"]
-[ext_resource type="Texture2D" uid="uid://8lqkp4ar53u1" path="res://Assets/UI/MenuBackground.png" id="1_h51su"]
+[ext_resource type="Texture2D" uid="uid://8lqkp4ar53u1" path="res://Assets/UI/Textures/MenuBackground.png" id="1_h51su"]
 [ext_resource type="Shader" path="res://Scenes/UI/pause_menu.gdshader" id="1_wqf65"]
 [ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="2_aip1c"]
-[ext_resource type="Texture2D" uid="uid://viaaa3cuyna3" path="res://Assets/UI/TimeIcon.png" id="3_66egx"]
-[ext_resource type="Texture2D" uid="uid://cp3v87hvxbrcv" path="res://Assets/UI/New Piskel.png" id="4_bhskk"]
+[ext_resource type="Texture2D" uid="uid://viaaa3cuyna3" path="res://Assets/UI/Icons/TimeIcon.png" id="3_66egx"]
+[ext_resource type="Texture2D" uid="uid://cp3v87hvxbrcv" path="res://Assets/UI/Icons/New Piskel.png" id="4_bhskk"]
 [ext_resource type="Texture2D" uid="uid://dredvudpufvxl" path="res://Assets/Tilesets/Cherry/cherry-1.png" id="4_c2rcy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3vm"]
@@ -198,12 +198,12 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_g8rce")
 text = "NEW RECORD!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Time" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CurrentTime" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="CurrentTime" type="Label" parent="PanelContainer/VBoxContainer/Time"]
 unique_name_in_owner = true
 z_index = 3
 layout_mode = 2
@@ -213,18 +213,18 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_so32m")
 text = "8:14"
 
-[node name="Time" type="Sprite2D" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Time" type="Sprite2D" parent="PanelContainer/VBoxContainer/Time"]
 z_index = 5
 position = Vector2(30, 26)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_66egx")
 
-[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/Time"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mtn5t")
 
-[node name="YOUR RECORD" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="YOUR RECORD" type="Label" parent="PanelContainer/VBoxContainer/Time"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_aip1c")
@@ -232,21 +232,21 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_tk62n")
 text = "YOUR RECORD 0:00"
 
-[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBoxContainer/Time"]
 layout_mode = 2
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mtn5t")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Bonus" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBoxContainer/Bonus"]
 layout_mode = 2
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mtn5t")
 
-[node name="BonusTime" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="BonusTime" type="Label" parent="PanelContainer/VBoxContainer/Bonus"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
@@ -256,12 +256,12 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_5ppoq")
 text = "4:40"
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/Bonus"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mtn5t")
 
-[node name="BonusCherries" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="BonusCherries" type="Label" parent="PanelContainer/VBoxContainer/Bonus"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_aip1c")
@@ -269,29 +269,29 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_jpvt1")
 text = "BONUS +10 "
 
-[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/Bonus"]
 layout_mode = 2
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mtn5t")
 
-[node name="Trophy" type="Sprite2D" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="Trophy" type="Sprite2D" parent="PanelContainer/VBoxContainer/Bonus"]
 z_index = 2
 position = Vector2(35.5, 19)
 scale = Vector2(2.47, 2.47)
 texture = ExtResource("4_bhskk")
 
-[node name="Cherry" type="Sprite2D" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="Cherry" type="Sprite2D" parent="PanelContainer/VBoxContainer/Bonus"]
 unique_name_in_owner = true
 position = Vector2(375.5, 21)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("4_c2rcy")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 
-[node name="Menu" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="Menu" type="Button" parent="PanelContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -299,7 +299,15 @@ theme_override_fonts/font = ExtResource("2_aip1c")
 theme_override_font_sizes/font_size = 48
 text = "MENU"
 
-[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="Upgrades" type="Button" parent="PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_aip1c")
+theme_override_font_sizes/font_size = 48
+text = "UPGRADES"
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -307,7 +315,7 @@ theme_override_fonts/font = ExtResource("2_aip1c")
 theme_override_font_sizes/font_size = 48
 text = "RESTART"
 
-[node name="Next" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="Next" type="Button" parent="PanelContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -321,4 +329,4 @@ libraries = {
 "": SubResource("AnimationLibrary_vbtmn")
 }
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer3/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/Restart" to="." method="_on_restart_pressed"]

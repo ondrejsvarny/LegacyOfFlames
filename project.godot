@@ -19,6 +19,7 @@ config/openai_api="sk-proj-85tzciadLCEnJ7pHHSeL8dKJVXMT6vmiXGnakGujeU4w0mIvvljaQ
 
 Global="*res://Scripts/Global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SaveManager="*res://Scripts/SaveManager.gd"
 
 [dialogic]
 

@@ -1,5 +1,7 @@
-res://Assets/UI/Themes
 res://Scripts
+res://Assets/Enemies/ghost
+res://Scenes/Enemies
+res://Assets/UI/Themes
 res://
 res://Scenes/Basic
 <<<<<<< HEAD
@@ -19,7 +21,6 @@ res://Assets/Tilesets/enemy-death
 res://Assets/Player
 <<<<<<< HEAD
 =======
-res://Assets/NPC
 C:/Users/HP/Desktop/veci 5/projekt/godot
 >>>>>>> ja
 =======
