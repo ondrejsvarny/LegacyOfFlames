@@ -1,5 +1,8 @@
 extends Node
 
+@onready var timer = $dash_timer
+var dashing = false
+
 var cherries = 150
 var player_health = 100
 var can_move = true

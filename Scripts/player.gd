@@ -1,11 +1,17 @@
 extends CharacterBody2D
 class_name Player
 
-var normal_speed = 110.0
+var normal_speed = 125.0
 const JUMP_VELOCITY = -300.0
 
-const dash_speed = 350
-const dash_length = .3
+const dash_speed = 600
+const dash_length = .1
+var original_collision_mask: int
+
+const WALL_SLIDE_SPEED = 40.0
+const WALL_JUMP_VELOCITY = -400.0 
+var is_wallsliding = false
+var is_walljumping = false
 
 @onready var dash = $Dash
 
@@ -20,7 +26,8 @@ var anm = false # shoot animation is ongoing
 
 var jump_max = 2
 var jump_count = 0
-var is_facing_right = true # keeps track of the direction the character is facing
+var is_facing_right = true 
+
 
 @onready var timer = $Timer
 @onready var animated_sprite = $AnimatedSprite2D
@@ -34,6 +41,7 @@ func _on_timer_timeout():
 
 func _ready() -> void:
 	health = Global.max_player_health
+	original_collision_mask = collision_mask
 
 func _physics_process(delta):
 	
@@ -56,11 +64,34 @@ func _physics_process(delta):
 	
 	var speed = dash_speed if dash.is_dashing() else normal_speed
 	
-	# Handle jump
-	if Input.is_action_just_pressed("jump") and jump_count < jump_max and Global.can_move :
+	if dash.is_dashing():
+		Global.dashing = false
+		velocity.x = speed
+	
+	if not dash.is_dashing():
+		Global.dashing = true
+		
+	#Handle Walljump - wallslide
+	if is_on_wall() and !is_on_floor():
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+			is_wallsliding = true
+			velocity.y = WALL_SLIDE_SPEED
+		else:
+			is_wallsliding = false
+	else:
+		is_wallsliding = false
+	
+	if is_wallsliding and Input.is_action_pressed("jump"):
+		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
+			velocity.y = WALL_JUMP_VELOCITY
+			jump_count = 0
+			
+			
+
+	#Handle Jump
+	if Input.is_action_just_pressed("jump") and jump_count < jump_max and Global.can_move:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
-		
 	# Handle crouch
 	if Input.is_action_pressed("crouch"):
 		$CrouchShape2D.disabled = false
@@ -86,15 +117,16 @@ func _physics_process(delta):
 		animated_sprite.play("shoot") 
 		if is_facing_right:
 			b = bullet.instantiate()
-			b.global_position = $BulletSpawn.global_position #+ Vector2(-35, 0)
+			b.global_position = $BulletSpawn.global_position
 			get_parent().add_child(b)	
 		else:
 			b_l = bullet_left.instantiate()
-			b_l.global_position = $BulletSpawnLeft.global_position #+ Vector2(-35, 0)
+			b_l.global_position = $BulletSpawnLeft.global_position
 			get_parent().add_child(b_l)
 				
 		timer.start()
 		anm = true
+		
 		
 	# Play other animations
 	if Global.can_move:
@@ -147,12 +179,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	
-	if health != Global.player_health: 
+	if health != Global.player_health:
 		health = Global.player_health
 		velocity.y = -300
-		jump_count = 2 #ZMENA
+		jump_count = 2
 		hurt = true
 	
-
 	move_and_slide()
 	

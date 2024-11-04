@@ -1,12 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://h6vwrkf1n28q"]
 
 [ext_resource type="Script" path="res://Scripts/slime.gd" id="1_6v0c2"]
-[ext_resource type="Texture2D" uid="uid://dnmkvmuog560s" path="res://Scenes/Objects/pixilart-drawing (8).png" id="1_dxcpb"]
-[ext_resource type="Texture2D" uid="uid://4ebydenaampm" path="res://Scenes/Objects/pixilart-drawing (7).png" id="2_lnumu"]
-[ext_resource type="Texture2D" uid="uid://b1kf2w3ufcofv" path="res://Scenes/Objects/pixilart-drawing (6).png" id="3_xj70h"]
+[ext_resource type="Texture2D" uid="uid://cs6ee5oiubuxv" path="res://Scenes/Objects/pixilart-drawing (8).png" id="1_dxcpb"]
+[ext_resource type="Texture2D" uid="uid://d3brm1h3mmbus" path="res://Scenes/Objects/pixilart-drawing (7).png" id="2_lnumu"]
+[ext_resource type="Texture2D" uid="uid://6fxvksknejlc" path="res://Scenes/Objects/pixilart-drawing (6).png" id="3_xj70h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jb53r"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dxcpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lnumu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_dxcpb")
@@ -31,7 +42,8 @@ script = ExtResource("1_6v0c2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -23)
 sprite_frames = SubResource("SpriteFrames_jb53r")
-animation = &"slime"
+animation = &"idle"
+frame_progress = 0.349535
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
