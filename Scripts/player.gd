@@ -113,11 +113,11 @@ func _physics_process(delta):
 		animated_sprite.play("shoot") 
 		if is_facing_right:
 			b = bullet.instantiate()
-			b.global_position = $BulletSpawn.global_position + Vector2(-35, 0)
+			b.global_position = $BulletSpawn.global_position
 			get_parent().add_child(b)	
 		else:
 			b_l = bullet_left.instantiate()
-			b_l.global_position = $BulletSpawnLeft.global_position + Vector2(-35, 0)
+			b_l.global_position = $BulletSpawnLeft.global_position
 			get_parent().add_child(b_l)
 				
 		timer.start()
