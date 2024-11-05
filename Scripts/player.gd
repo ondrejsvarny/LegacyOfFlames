@@ -69,6 +69,7 @@ func _physics_process(delta):
 		
 	# Handle Walljump - wallslide
 	if is_on_wall() and !is_on_floor():
+		jump_count = 0
 		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			is_wallsliding = true
 			velocity.y = WALL_SLIDE_SPEED
@@ -85,7 +86,7 @@ func _physics_process(delta):
 	# Handle Jump
 	if Input.is_action_just_pressed("jump") and jump_count < jump_max and Global.can_move:
 		velocity.y = JUMP_VELOCITY
-		jump_count = 0
+		jump_count += 1
 
 	# Handle crouch
 	if Input.is_action_pressed("crouch"):
