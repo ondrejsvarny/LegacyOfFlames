@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ditremhsiglhy"]
+[gd_scene load_steps=18 format=3 uid="uid://ditremhsiglhy"]
 
 [ext_resource type="Script" path="res://Scripts/character_menu.gd" id="1_ehmi0"]
 [ext_resource type="FontFile" uid="uid://jg8xdqwe2jb1" path="res://Assets/UI/fonts/monogram.ttf" id="1_rxwj8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://dxo0vbnf4jely" path="res://Assets/UI/Themes/upgrade_window.tres" id="6_n3aqh"]
 [ext_resource type="Theme" uid="uid://dqm6x0epo4wyh" path="res://Assets/UI/Themes/upgrade_button.tres" id="7_dim58"]
 [ext_resource type="Texture2D" uid="uid://du2xkkwfug27y" path="res://Assets/Player/fireball-preview.png" id="7_fjueu"]
+[ext_resource type="Texture2D" uid="uid://dmq7gemxvahi" path="res://Assets/Tilesets/single_coin.png" id="7_sblvi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut8t3"]
 content_margin_right = 55.0
@@ -138,7 +139,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_rxwj8")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vji3")
-text = "Player speed"
+text = "Player sp?ed"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/PanelContainer/Speed"]
 layout_mode = 2
@@ -171,7 +172,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = ExtResource("7_dim58")
 text = "x15 Upgrade"
-icon = ExtResource("2_enwcd")
+icon = ExtResource("7_sblvi")
 
 [node name="PlayerHEALTH" type="PanelContainer" parent="PanelContainer/VBox"]
 layout_mode = 2
@@ -225,7 +226,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("7_dim58")
 text = "x15 Upgrade"
-icon = ExtResource("2_enwcd")
+icon = ExtResource("7_sblvi")
 
 [node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBox"]
 layout_mode = 2
@@ -246,11 +247,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_o43dw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wjx1k")
-text = "Player xxxxxx"
+text = "Player dash cooldown"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/PanelContainer3/Speed2"]
 layout_mode = 2
-theme_override_constants/separation = 210
+theme_override_constants/separation = 126
 theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
 
 [node name="HealthLevel" type="Label" parent="PanelContainer/VBox/PanelContainer3/Speed2"]

@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var healthbar: ProgressBar = $Healthbar/HealthBar
 @onready var attackbar1: ProgressBar = $Attack1bar/AttackBar
 @onready var attackbar2: ProgressBar = $Attack2bar/AttackBar
+@onready var dashbar: ProgressBar = $DashBar/DashBar
 @onready var score: Label = %Score
 
 var health
@@ -11,6 +12,8 @@ func _ready():
 	load_data()
 	Global.player_health = Global.max_player_health
 	healthbar.init_health(Global.max_player_health)
+	
+	Global.can_attack = true
 	
 	# 2 timere kt sa bude menit dlzka podla prave vybratych abilitiek
 
@@ -28,7 +31,7 @@ func _physics_process(delta):
 		attackbar2.attack(Global.attack2)
 	
 	# UPDATING SCORE LABEL
-	score.text = str(Global.cherries)
+	score.text = str(Global.coins)
 	
 
 func load_data():

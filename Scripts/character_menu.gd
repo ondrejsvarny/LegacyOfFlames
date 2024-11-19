@@ -1,6 +1,6 @@
 extends Control
 
-#var cherries
+#var coins
 var SpeedPrice = 10
 var SpeedLevel = 1
 var HealthPrice = 15
@@ -47,35 +47,35 @@ func _ready() -> void:
 	fireball_proj_speed_button.text = "x" + str(ProjSpeedPrice) + " Upgrade"
 
 func _process(delta: float) -> void:
-	if Global.cherries < SpeedPrice or SpeedLevel == 4:
+	if Global.coins < SpeedPrice or SpeedLevel == 4:
 		speed_button.disabled = true
 		if SpeedLevel == 4:
 			speed_button.text = "    MAX LEVEL    "
 	else:
 		speed_button.disabled = false
 	
-	if Global.cherries < HealthPrice or HealthLevel == 4:
+	if Global.coins < HealthPrice or HealthLevel == 4:
 		health_button.disabled = true
 		if HealthLevel == 4:
 			health_button.text = " MAX LEVEL "
 	else:
 		health_button.disabled = false
 		
-	if Global.cherries < DamagePrice or DamageLevel == 4:
+	if Global.coins < DamagePrice or DamageLevel == 4:
 		fireball_damage_button.disabled = true
 		if DamageLevel == 4:
 			fireball_damage_button.text = " MAX LEVEL "
 	else:
 		fireball_damage_button.disabled = false
 	
-	if Global.cherries < RelSpeedPrice or RelSpeedLevel == 4:
+	if Global.coins < RelSpeedPrice or RelSpeedLevel == 4:
 		fireball_rel_speed_button.disabled = true
 		if RelSpeedLevel == 4:
 			fireball_rel_speed_button.text = " MAX LEVEL "
 	else:
 		fireball_rel_speed_button.disabled = false
 	
-	if Global.cherries < ProjSpeedPrice or ProjSpeedLevel == 4:
+	if Global.coins < ProjSpeedPrice or ProjSpeedLevel == 4:
 		fireball_proj_speed_button.disabled = true
 		if ProjSpeedLevel == 4:
 			fireball_proj_speed_button.text = " MAX LEVEL "
@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 	
 # PLAYER UPGRADES
 func _on_upgrade_speed_pressed() -> void:
-	Global.cherries -= SpeedPrice
+	Global.coins -= SpeedPrice
 	#Global.speed + ...
 	SpeedLevel += 1
 	speed_level.text = "LEVEL " + str(SpeedLevel)
@@ -95,7 +95,7 @@ func _on_upgrade_speed_pressed() -> void:
 
 
 func _on_upgrade_health_pressed() -> void:
-	Global.cherries -= HealthPrice
+	Global.coins -= HealthPrice
 	Global.max_player_health += 25
 	Global.player_health += 25
 	HealthLevel += 1
@@ -107,7 +107,7 @@ func _on_upgrade_health_pressed() -> void:
 
 # FIREBALL UPGRADES
 func _on_upgrade_damage_pressed() -> void:
-	Global.cherries -= DamagePrice
+	Global.coins -= DamagePrice
 	Global.fireball_damage += 10
 	DamageLevel += 1
 	fireball_damage_level.text = "LEVEL " + str(DamageLevel)
@@ -118,7 +118,7 @@ func _on_upgrade_damage_pressed() -> void:
 
 
 func _on_upgrade_rel_speed_pressed() -> void:
-	Global.cherries -= RelSpeedPrice
+	Global.coins -= RelSpeedPrice
 	RelSpeedLevel += 1
 	Global.fireball_reload = "fireball_lvl" + str(RelSpeedLevel)
 	fireball_rel_speed_level.text = "LEVEL " + str(RelSpeedLevel)
@@ -128,7 +128,7 @@ func _on_upgrade_rel_speed_pressed() -> void:
 
 
 func _on_upgrade_proj_speed_pressed() -> void:
-	Global.cherries -= ProjSpeedPrice
+	Global.coins -= ProjSpeedPrice
 	Global.fireball_speed += 0.5
 	ProjSpeedLevel += 1
 	fireball_proj_speed_level.text = "LEVEL " + str(ProjSpeedLevel)
@@ -165,7 +165,7 @@ func save():
 	SaveManager.save_section("global_upgrade_data", upgrade_data)
 	
 	var currencies = {
-		"cherries": Global.cherries
+		"coins": Global.coins
 	}
 	SaveManager.save_section("global_currencies", currencies)
 	
@@ -190,4 +190,4 @@ func load_data():
 	Global.fireball_speed = data2.get("fireball_speed", 3)
 	
 	var data3 = SaveManager.load_section("global_currencies")
-	Global.cherries = data3.get("cherries", 150)
+	Global.coins = data3.get("coins", 150)

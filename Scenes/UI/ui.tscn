@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5jl03e6ro4yp"]
+[gd_scene load_steps=12 format=3 uid="uid://c5jl03e6ro4yp"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_wyl8w"]
 [ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="2_inaud"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cudj57b3nf28n" path="res://Assets/UI/Bars/attack1barV2.png" id="7_tveuk"]
 [ext_resource type="PackedScene" uid="uid://b28yj0bs4jhom" path="res://Scenes/Basic/attackbar.tscn" id="8_iwplf"]
 [ext_resource type="Texture2D" uid="uid://dskgofbsqkd6d" path="res://Assets/UI/Bars/attack2barV2.png" id="8_kxmku"]
+[ext_resource type="Script" path="res://Scripts/dashbar.gd" id="9_b38v5"]
+[ext_resource type="Texture2D" uid="uid://cfnu6rx7y3i4c" path="res://Assets/UI/Bars/dashbarV1.png" id="9_r5pkm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6lwdm"]
 
@@ -122,3 +124,26 @@ offset_left = 188.0
 offset_top = -16.0
 offset_right = 288.0
 offset_bottom = 12.0
+
+[node name="DashBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -126.0
+offset_top = 598.0
+offset_right = 182.0
+offset_bottom = 640.0
+
+[node name="Sprite2D" type="Sprite2D" parent="DashBar"]
+physics_interpolation_mode = 1
+z_index = 2
+position = Vector2(320, 0)
+scale = Vector2(3.65, 3.65)
+texture = ExtResource("9_r5pkm")
+
+[node name="DashBar" parent="DashBar" instance=ExtResource("8_iwplf")]
+layout_mode = 0
+offset_left = 188.0
+offset_top = -16.0
+offset_right = 288.0
+offset_bottom = 12.0
+script = ExtResource("9_b38v5")

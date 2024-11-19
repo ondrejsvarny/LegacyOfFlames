@@ -9,11 +9,13 @@ var bonus_times = {
 	2: '95.3',
 	3: '110.0',
 }
-var bonus_cherries = {
+var bonus_coins = {
 	1: 10,
 	2: 10,
 	3: 10,
 }
+
+var bonus_collected = {}
 
 @onready var canvas_layer_2: CanvasLayer = $".."
 @onready var canvas_layer: CanvasLayer = $"../../CanvasLayer"
@@ -23,13 +25,16 @@ var bonus_cherries = {
 @onready var new_record_label: Label = %"NEW RECORD!"
 
 @onready var bonus_time_label: Label = %BonusTime
-@onready var bonus_cherries_label: Label = %BonusCherries
+@onready var bonus_coins_label: Label = %BonusCoins
 @onready var try_again: Label = %TryAgain
-@onready var bonus_cherry_sprite: Sprite2D = %Cherry
+@onready var bonus_coin_sprite: Sprite2D = %Coin
 
+@onready var level_coins: Label = %LevelCoins
+@onready var total_coins: Label = %TotalCoins
 
 func _ready():
 	load_data()
+	Global.level_coins = 0
 	new_record_label.visible = false
 	#record_label.text = "YOUR RECORD " + record_times[Global.current_level]
 	bonus_time_label.text = bonus_times[Global.current_level]
@@ -38,7 +43,7 @@ func _physics_process(delta):
 	if stop == false:
 		time += delta
 		update_ui()
-	#print(record_times)
+	#print(Global.level_coins)
 
 	
 func update_ui():
@@ -73,13 +78,26 @@ func menu_on():
 		new_record_label.visible = true
 		
 	#BONUS TIME CHECK
-	if float(bonus_times[Global.current_level]) > float(formatted_time):
-		Global.cherries += bonus_cherries[Global.current_level]
-		bonus_cherries_label.text = "BONUS +" + str(bonus_cherries[Global.current_level])
-		bonus_cherry_sprite.visible = true
+	if float(bonus_times[Global.current_level]) > float(formatted_time) and not bonus_collected[Global.current_level]:
+		Global.coins += bonus_coins[Global.current_level]
+		bonus_coins_label.text = "BONUS +" + str(bonus_coins[Global.current_level])
+		
+		var new_style = load("res://Assets/UI/Styleboxes/bonus_yes.tres") as StyleBox
+		bonus_coins_label.add_theme_stylebox_override("normal", new_style)
+		bonus_coin_sprite.visible = true
+		bonus_collected[Global.current_level] = true
+	elif bonus_collected[Global.current_level]:
+		bonus_coins_label.text = "BONUS ALREADY COLLECTED"
+		bonus_coin_sprite.visible = false
 	else:
-		bonus_cherries_label.text = "FOR BONUS TRY AGAIN"
-		bonus_cherry_sprite.visible = false 
+		bonus_coins_label.text = "FOR BONUS TRY AGAIN"
+		#bonus_coins_label.add_theme_stylebox_override("content_margin_right", 20)
+		bonus_coin_sprite.visible = false 
+		
+	# coins
+	level_coins.text= str(Global.level_coins)
+	total_coins.text= "TOTAL " + str(Global.coins)
+	
 		
 	save()
 	
@@ -100,17 +118,19 @@ func _on_restart_pressed() -> void:
 func save():
 	var data = {
 		"record_times": record_times,
+		"bonus_collected": bonus_collected
 	}
 	SaveManager.save_section("victory_menu", data)
 	
 	var currencies = {
-		"cherries": Global.cherries
+		"coins": Global.coins
 	}
 	SaveManager.save_section("global_currencies", currencies)
 
 func load_data():
 	var data = SaveManager.load_section("victory_menu")
 	record_times = data.get("record_times", {})
+	bonus_collected = data.get("bonus_collected", {})
 	
 	var data2 = SaveManager.load_section("global_currencies")
-	Global.cherries = data2.get("cherries", 150)
+	Global.coins = data2.get("coins", 150)

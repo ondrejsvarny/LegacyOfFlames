@@ -6,10 +6,10 @@ const JUMP_VELOCITY = -300.0
 
 const dash_speed = 600
 const dash_length = .1
-var original_collision_mask: int
 
 const WALL_SLIDE_SPEED = 40.0
-const WALL_JUMP_VELOCITY = -400.0 
+const WALL_JUMP_VELOCITY = -170.0 
+const WALL_UPWRD_BOOST = - -250.0
 var is_wallsliding = false
 var is_walljumping = false
 
@@ -41,7 +41,6 @@ func _on_timer_timeout():
 
 func _ready() -> void:
 	health = Global.max_player_health
-	original_collision_mask = collision_mask
 
 func _physics_process(delta):
 	
@@ -67,26 +66,33 @@ func _physics_process(delta):
 	if dash.is_dashing():
 		Global.dashing = false
 		velocity.x = speed
+		velocity.y = 0
 	
 	if not dash.is_dashing():
 		Global.dashing = true
 		
 	#Handle Walljump - wallslide
-	if is_on_wall() and !is_on_floor():
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-			is_wallsliding = true
-			velocity.y = WALL_SLIDE_SPEED
-		else:
-			is_wallsliding = false
+	if is_on_wall() and !is_on_floor() and velocity.y > 0:
+		jump_count = 0
+		velocity.y = WALL_SLIDE_SPEED
+		is_wallsliding = true
 	else:
 		is_wallsliding = false
 	
-	if is_wallsliding and Input.is_action_pressed("jump"):
-		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
+	if is_wallsliding and Input.is_action_just_pressed("jump"):
+		var wall_direction = -1
+		var jump_direction = Input.get_axis("move_left", "move_right")
+		
+		if jump_direction == 0:
+			velocity.y = WALL_UPWRD_BOOST
+			velocity.x = 0
+			
+		else:
 			velocity.y = WALL_JUMP_VELOCITY
-			jump_count = 0
-			
-			
+			velocity.x = wall_direction * normal_speed * -1
+		
+		jump_count += 1
+		
 
 	#Handle Jump
 	if Input.is_action_just_pressed("jump") and jump_count < jump_max and Global.can_move:
