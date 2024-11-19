@@ -121,4 +121,5 @@ func _on_timer_timeout() -> void:
 
 
 func _on_enemy_body_entered(body):
-	Global.player_health -= DAMAGE
+	if Global.dashing == true:
+		Global.player_health -= DAMAGE

@@ -1,4 +1,6 @@
+res://Scenes/UI
 res://Scripts
+res://Scenes/Basic/text
 res://Assets/Enemies/ghost
 res://Scenes/Enemies
 res://Assets/UI/Themes
@@ -13,7 +15,6 @@ res://Assets/NPC/Wizard
 <<<<<<< HEAD
 >>>>>>> Stashed changes
 >>>>>>> ondrik_branch
-res://Scenes/UI
 res://Assets/UI
 res://Scenes/NPC
 res://Scenes/Objects

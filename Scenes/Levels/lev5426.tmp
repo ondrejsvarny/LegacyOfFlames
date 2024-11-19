@@ -1,0 +1,178 @@
+[gd_scene load_steps=22 format=4 uid="uid://bfu3p1nb50rcr"]
+
+[ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_b2fl5"]
+[ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/cherry.tscn" id="3_4pog1"]
+[ext_resource type="PackedScene" uid="uid://cnskxuoxa3mh4" path="res://Scenes/Objects/platform.tscn" id="4_e13n7"]
+[ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="5_gkuyb"]
+[ext_resource type="PackedScene" uid="uid://cx4efkoqce571" path="res://Scenes/Enemies/yeti.tscn" id="6_lp7dp"]
+[ext_resource type="PackedScene" uid="uid://st4be7a8pe7m" path="res://Scenes/Objects/spike.tscn" id="7_d8u70"]
+[ext_resource type="PackedScene" uid="uid://h6vwrkf1n28q" path="res://Scenes/Objects/slime.tscn" id="8_bgdvo"]
+[ext_resource type="PackedScene" uid="uid://c6dnqotp483ey" path="res://Assets/NPC/witch.tscn" id="9_pn6xr"]
+[ext_resource type="Texture2D" uid="uid://btay2cdrxwgg0" path="res://Assets/Tilesets/EnviromentProps/palm.png" id="10_0eu4b"]
+[ext_resource type="Texture2D" uid="uid://cnid6qdv6d3jt" path="res://Assets/Tilesets/EnviromentProps/skulls.png" id="11_dkcwh"]
+[ext_resource type="Texture2D" uid="uid://d0vd2uoe4yupo" path="res://Assets/Tilesets/EnviromentProps/bush.png" id="12_t1i2d"]
+[ext_resource type="Texture2D" uid="uid://ce38urxqm52yy" path="res://Assets/Tilesets/EnviromentProps/shrooms.png" id="13_3k7mo"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/chest.tscn" id="14_s7eba"]
+[ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="15_8so31"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/ghost.tscn" id="15_j1e0l"]
+
+[sub_resource type="GDScript" id="GDScript_acyps"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsg0m"]
+distance = -56.0
+
+[sub_resource type="Animation" id="Animation_cw73t"]
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(493, -26), Vector2(656, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_hfi7h"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(301, 24), Vector2(465, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kijxy"]
+_data = {
+"RESET": SubResource("Animation_cw73t"),
+"move": SubResource("Animation_hfi7h")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg5nj"]
+size = Vector2(19, 142)
+
+[node name="Level1" instance=ExtResource("1_b2fl5")]
+script = SubResource("GDScript_acyps")
+
+[node name="Layer1" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAIAAAADAAMAAAAAAAMAAAADAAMAAAABAAAAAAABAAEAAAABAAEAAAADAAMAAAABAAIAAAADAAMAAAABAAMAAAADAAMAAAACAAAAAAABAAEAABACAAEAAAADAAMAAAACAAIAAAAFAAcAAAACAAMAAAADAAMAAAADAAAAAAADAAEAABADAAEAAAADAAMAAAADAAIAAAADAAMAAAADAAMAAAADAAMAAAAEAAAAAAABAAEAABAEAAEAAAADAAMAAAAEAAIAAAADAAMAAAAEAAMAAAADAAMAAAAFAAAAAAADAAEAAAAFAAEAAAADAAMAAAAFAAIAAAAFAAcAABAFAAMAAAAHAAcAAAAGAAAAAAAFAAEAAAAGAAEAAAAHAAcAABAGAAIAAAAHAAcAAAAGAAMAAAADAAMAAAAHAAAAAAAHAAEAAAAHAAEAAAADAAMAAAAHAAIAAAADAAMAAAAHAAMAAAADAAMAAAAIAAAAAAAWAAEAAAAIAAEAAAAWAAIAAAAIAAIAAAADAAMAAAAIAAMAAAADAAMAAAAJAAAAAAAXAAEAAAAJAAEAAAAXAAIAAAAJAAIAAAADAAMAAAAJAAMAAAADAAMAAAAKAAEAAAAWAAEAAAAKAAIAAAAWAAIAAAAKAAMAAAADAAMAAAAKAAQAAAADAAUAAAALAAEAAAAXAAEAAAALAAIAAAAXAAIAAAALAAMAAAADAAMAAAALAAQAAAADAAUAAAAMAAIAAAAWAAEAAAAMAAMAAAAHAAUAAAAMAAQAAAAFAAoAAAANAAMAAAAIAAUAAAAOAAMAAAAJAAUAAAASAAIAAAATAAEAAAASAAMAAAABAAMAAAASAAQAAAABAAoAAAATAAIAAAAUAAEAAAATAAMAAAAHAAEAAAATAAQAAAACAAoAAAATAAUAAAACAAsAAAAUAAMAAAAFAAEAAAAUAAQAAAADAAMAAAAUAAUAAAADAAUAABAVAAMAAAADAAEAABAVAAQAAAADAAMAAAAVAAUAAAADAAUAAAAWAAMAAAADAAEAABAWAAQAAAAHAAcAAAAWAAUAAAAFAAUAAAAXAAMAAAABAAEAABAXAAQAAAADAAMAAAAXAAUAAAADAAUAABAYAAMAAAABAAEAAAAYAAQAAAADAAMAAAAYAAUAAAADAAUAAAAZAAMAAAAFAAEAABAZAAQAAAADAAMAAAAZAAUAAAAFAAUAAAAaAAMAAAADAAEAAAAaAAQAAAAHAAcAABAaAAUAAAADAAUAAAAbAAMAAAADAAEAAAAbAAQAAAADAAMAAAAbAAUAAAADAAUAAAAcAAMAAAAFAAEAAAAcAAQAAAADAAMAAAAcAAUAAAAFAAUAAAAdAAMAAAABAAEAABAdAAQAAAAFAAcAAAAdAAUAAAADAAUAAAAeAAMAAAAHAAEAABAeAAQAAAAEAAoAAAAeAAUAAAAEAAsAAAAfAAIAAAAXAAEAAAAfAAMAAAAFAAMAAAAfAAQAAAAFAAoAAAAgAAMAAAAFAAEAAAAhAAMAAAAFAAEAAAAiAAMAAAAFAAEAAAAjAAMAAAAFAAEAAAAeAAIAAAAWAAEAAAAkAAMAAAADAAEAAAAlAAMAAAADAAEAAAAmAAMAAAADAAEAAAAnAAMAAAADAAEAAAAoAAMAAAADAAEAAAApAAMAAAADAAEAAAAqAAMAAAADAAEAAAArAAMAAAADAAEAAAAsAAMAAAADAAEAAAAtAAMAAAADAAEAAAAuAAMAAAADAAEAAADN//7/AAABAAEAAADO//7/AAABAAEAAADP//7/AAABAAEAAADQ//7/AAABAAEAAADR//7/AAABAAEAAADS//7/AAABAAEAAADT//7/AAABAAEAAADU//7/AAABAAEAAADV//7/AAAWAAEAAADW//7/AAAXAAEAAADX////AAABAAEAAADY////AAABAAEAAADZ////AAABAAEAAADa////AAABAAEAAADb////AAABAAEAAADc////AAABAAEAAADd////AAAWAAEAAADe////AAAXAAEAAADe/wAAAAABAAEAAADf/wAAAAABAAEAAADg/wAAAAABAAEAAADh/wAAAAABAAEAAADi/wAAAAAWAAEAAADj/wAAAAAXAAEAAADk/wEAAAADAAEAAADl/wEAAAADAAEAAADm/wEAAAADAAEAAADn/wEAAAADAAEAAADo/wEAAAADAAEAAADp/wEAAAADAAEAAADq/wEAAAADAAEAAADr/wEAAAADAAEAAADs/wEAAAADAAEAAADt/wEAAAADAAEAAADu/wEAAAADAAEAAADv/wEAAAADAAEAAADw/wEAAAADAAEAAADx/wEAAAADAAEAAADy/wEAAAADAAEAAADz/wEAAAADAAEAAAD0/wEAAAADAAEAAADL//r/AAAFAAMAAADL//v/AAAFAAMAAADL//z/AAAFAAMAAADL//3/AAADAAMAAADL//7/AAADAAMAAADM//3/AAAWAAQAAADM//7/AAAWAAUAAADV////AAABAAEAAADW////AAABAAEAAADc/wAAAAABAAEAAADd/wAAAAABAAEAAADi/wEAAAAWAAIAAADj/wEAAAAXAAIAAAD+/wEAAAAFAAEAAAD//wEAAAAFAAEAAAD9/wEAAAAPAA4AAAD8/wEAAAAPAA4AAAD6/wEAAAAPAA4AAAD5/wEAAAAPAA4AAAD3/wEAAAAPAA4AAAD2/wEAAAAPAA4AAAD1/wEAAAAPAA4AAAD7/wEAAAARAAsAAAD4/wEAAAARAAsAAAD4/wAAAAAPAAkAAAD4////AAAPAAkAAAD4//7/AAAPAAkAAAD4//3/AAAPAAkAAAD7/wAAAAAPAAkAAAD7////AAAPAAkAAAD7//7/AAAPAAkAAAD7//3/AAAPAAkAAAD4//z/AAAPAAkAAAD7//z/AAAPAAkAAAA=")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" index="1"]
+shape = SubResource("WorldBoundaryShape2D_wsg0m")
+
+[node name="Cherries" type="Node" parent="." index="3"]
+
+[node name="Cherry3" parent="Cherries" index="0" instance=ExtResource("3_4pog1")]
+position = Vector2(223, -63)
+
+[node name="Cherry2" parent="Cherries" index="1" instance=ExtResource("3_4pog1")]
+position = Vector2(106, -76)
+
+[node name="Cherry" parent="Cherries" index="2" instance=ExtResource("3_4pog1")]
+position = Vector2(354, -80)
+
+[node name="Platform" parent="." index="4" instance=ExtResource("4_e13n7")]
+position = Vector2(119, -47)
+collision_layer = 1
+
+[node name="Platform3" parent="." index="5" instance=ExtResource("4_e13n7")]
+position = Vector2(-325, -49)
+collision_layer = 1
+
+[node name="Platform2" parent="." index="6" instance=ExtResource("4_e13n7")]
+position = Vector2(493, -26)
+collision_layer = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2" index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_kijxy")
+}
+autoplay = "RESET"
+
+[node name="Background" parent="." index="7" instance=ExtResource("5_gkuyb")]
+
+[node name="Yeti" parent="." index="8" instance=ExtResource("6_lp7dp")]
+z_index = 5
+position = Vector2(341, 48)
+
+[node name="Slime" parent="." index="9" instance=ExtResource("8_bgdvo")]
+position = Vector2(541, 49)
+
+[node name="Witch" parent="." index="10" instance=ExtResource("9_pn6xr")]
+position = Vector2(139, -54)
+
+[node name="Spikes" type="Node" parent="." index="11"]
+
+[node name="Spike" parent="Spikes" index="0" instance=ExtResource("7_d8u70")]
+position = Vector2(252, 60)
+
+[node name="Spike2" parent="Spikes" index="1" instance=ExtResource("7_d8u70")]
+position = Vector2(271, 60)
+
+[node name="Spike3" parent="Spikes" index="2" instance=ExtResource("7_d8u70")]
+position = Vector2(262, 60)
+
+[node name="Spike4" parent="Spikes" index="3" instance=ExtResource("7_d8u70")]
+position = Vector2(280, 60)
+
+[node name="Spike5" parent="Spikes" index="4" instance=ExtResource("7_d8u70")]
+position = Vector2(288, 60)
+
+[node name="Palm" type="Sprite2D" parent="Spikes" index="5"]
+position = Vector2(391, -40)
+texture = ExtResource("10_0eu4b")
+
+[node name="Skulls" type="Sprite2D" parent="." index="12"]
+position = Vector2(430, 43)
+texture = ExtResource("11_dkcwh")
+
+[node name="Bush" type="Sprite2D" parent="." index="13"]
+z_index = 1
+position = Vector2(384, 34)
+texture = ExtResource("12_t1i2d")
+
+[node name="Shrooms" type="Sprite2D" parent="." index="15"]
+position = Vector2(671, 41)
+texture = ExtResource("13_3k7mo")
+
+[node name="Chest" parent="." index="16" instance=ExtResource("14_s7eba")]
+position = Vector2(629, 32)
+
+[node name="PauseMenu" parent="CanvasLayer" index="0"]
+offset_left = -19.0
+offset_top = -6.0
+offset_right = -19.0
+offset_bottom = -6.0
+
+[node name="VictoryZone" parent="." index="18"]
+position = Vector2(3, -1)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone" index="0"]
+position = Vector2(719, -20)
+shape = SubResource("RectangleShape2D_vg5nj")
+debug_color = Color(0, 0.627451, 0, 0.419608)
+
+[node name="Ghost" parent="." index="19" node_paths=PackedStringArray("player") instance=ExtResource("15_j1e0l")]
+position = Vector2(-326, -6)
+player = NodePath("../Player")
+
+[node name="Player" parent="." index="20" instance=ExtResource("15_8so31")]
+position = Vector2(31, 1)
