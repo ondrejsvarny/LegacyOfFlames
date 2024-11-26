@@ -113,9 +113,6 @@ layout_mode = 2
 [node name="Button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/KeyList" instance=ExtResource("3_sxai5")]
 layout_mode = 2
 
-[node name="Button7" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/KeyList" instance=ExtResource("3_sxai5")]
-layout_mode = 2
-
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Mute" to="." method="_on_mute_toggled"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Screen_mode" to="." method="_on_screen_mode_item_selected"]
