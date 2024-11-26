@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvkivjsgqks6o"]
+[gd_scene load_steps=5 format=3 uid="uid://dvkivjsgqks6o"]
 
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="1_63bwa"]
 [ext_resource type="FontFile" uid="uid://06mf1kofuo2t" path="res://Assets/UI/fonts/monogram.ttf" id="2_2r7ip"]
 [ext_resource type="PackedScene" uid="uid://yx4t5mib78tw" path="res://Scenes/UI/Keybinds.tscn" id="3_sxai5"]
+
+[sub_resource type="Theme" id="Theme_f4von"]
+default_font = ExtResource("2_2r7ip")
+default_font_size = 32
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -85,6 +89,7 @@ text = "Screen Mode"
 
 [node name="Screen_mode" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList"]
 layout_mode = 2
+theme = SubResource("Theme_f4von")
 theme_override_fonts/font = ExtResource("2_2r7ip")
 theme_override_font_sizes/font_size = 32
 selected = 0
@@ -124,7 +129,14 @@ layout_mode = 2
 [node name="Button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/KeyList" instance=ExtResource("3_sxai5")]
 layout_mode = 2
 
+[node name="Restore" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2r7ip")
+theme_override_font_sizes/font_size = 32
+text = "RESET TO DEFAULT"
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Mute" to="." method="_on_mute_toggled"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Screen_mode" to="." method="_on_screen_mode_item_selected"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Restore" to="." method="_on_restore_pressed"]

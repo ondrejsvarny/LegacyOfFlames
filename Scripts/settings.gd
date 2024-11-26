@@ -2,6 +2,7 @@ extends Control
 
 @onready var input_button_scene = preload("res://Scenes/UI/Keybinds.tscn")
 @onready var key_list = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/KeyList
+@onready var screen_mode: OptionButton = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Screen_mode
 
 
 func _on_back_pressed():
@@ -61,7 +62,7 @@ func _create_key_list():
 		var events = InputMap.action_get_events(action)
 		
 		if events.size() > 0:
-			input_label.text = events[0].as_text()
+			input_label.text = events[0].as_text().trim_suffix(" (Physical)")
 		
 		else:
 			input_label.text = ""
@@ -77,4 +78,32 @@ func _on_input_button_pressed(button, action):
 		remapping_button = button
 		button.find_child("Input_label").text = "Press key to bind ..." 
 		
-		
+func _input(event):
+	if is_remaping:
+		if (
+			event is InputEventKey ||
+			(event is InputEventMouseButton && event.pressed)
+		) :
+			if event is InputEventMouseButton && event.double_click:
+				event.double_click = false
+			
+			InputMap.action_erase_events(action_to_remap)
+			InputMap.action_add_event(action_to_remap, event)
+			_update_key_list(remapping_button, event)
+			
+			
+			is_remaping = false
+			action_to_remap = null
+			remapping_button = null 
+			
+			accept_event()
+
+
+
+func _update_key_list(button, event):
+	button.find_child("Input_label").text = event.as_text().trim_suffix(" (Physical)")
+
+
+
+func _on_restore_pressed() -> void:
+	_create_key_list()
