@@ -4,6 +4,9 @@ extends Control
 @onready var key_list = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/KeyList
 
 
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://Scenes/UI/Menu.tscn")
+
 #Volume
 func _on_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, value)

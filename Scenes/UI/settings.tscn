@@ -31,6 +31,26 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_2r7ip")
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+
+[node name="Settings" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_2r7ip")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+horizontal_alignment = 1
+uppercase = true
+max_lines_visible = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -38,15 +58,6 @@ size_flags_vertical = 3
 [node name="ActionList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Settings" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2r7ip")
-theme_override_font_sizes/font_size = 48
-text = "Settings"
-horizontal_alignment = 1
-uppercase = true
-max_lines_visible = 1
 
 [node name="Volume_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList"]
 layout_mode = 2
@@ -113,6 +124,7 @@ layout_mode = 2
 [node name="Button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/KeyList" instance=ExtResource("3_sxai5")]
 layout_mode = 2
 
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Mute" to="." method="_on_mute_toggled"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Screen_mode" to="." method="_on_screen_mode_item_selected"]

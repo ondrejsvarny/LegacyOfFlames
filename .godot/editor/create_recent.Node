@@ -1,9 +1,9 @@
+HBoxContainer
+Button
 MarginContainer
 VBoxContainer
-HBoxContainer
 Control
 Label
-Button
 ScrollContainer
 PanelContainer
 OptionButton
