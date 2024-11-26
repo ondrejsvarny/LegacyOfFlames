@@ -18,6 +18,7 @@ func _ready():
 	# 2 timere kt sa bude menit dlzka podla prave vybratych abilitiek
 
 func _physics_process(delta):
+	
 	if health != Global.player_health:
 			health = Global.player_health
 			healthbar._set_health(health)

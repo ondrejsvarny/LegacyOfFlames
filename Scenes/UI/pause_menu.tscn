@@ -121,12 +121,6 @@ theme = ExtResource("3_oyyjl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_limrw")
 text = "Resume"
 
-[node name="Character" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_oyyjl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_b7xnp")
-text = "Edit character"
-
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_oyyjl")
@@ -147,6 +141,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
