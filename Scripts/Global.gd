@@ -10,7 +10,7 @@ var player_health = 100
 var can_move = true
 var can_attack = true
 
-var current_level = 0
+var current_level = 1
 var pausable = true
 
 var max_player_health = 100

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c6dnqotp483ey"]
+[gd_scene load_steps=23 format=3 uid="uid://c6dnqotp483ey"]
 
 [ext_resource type="Texture2D" uid="uid://cp0hv1taehmng" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle1.png" id="1_m22ks"]
 [ext_resource type="Script" path="res://Scripts/witch.gd" id="1_omiib"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://c6wyrrvdmjfma" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow7.png" id="16_jbsno"]
 [ext_resource type="Texture2D" uid="uid://bkbbjqup8yd5" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow8.png" id="17_ciotu"]
 [ext_resource type="Texture2D" uid="uid://bajdx0006xxyo" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow9.png" id="18_tid2o"]
-[ext_resource type="Script" path="res://Scripts/shadow.gd" id="20_inesk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ufbb2"]
 animations = [{
@@ -113,7 +112,7 @@ script = ExtResource("1_omiib")
 scale = Vector2(1.14063, 1)
 sprite_frames = SubResource("SpriteFrames_67n38")
 animation = &"shadow"
-script = ExtResource("20_inesk")
+autoplay = "shadow"
 
 [node name="Interaction_area" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-7, -16)
