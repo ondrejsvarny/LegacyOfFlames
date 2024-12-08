@@ -1,13 +1,13 @@
+Label
+CheckBox
 Button
 HBoxContainer
 MarginContainer
 VBoxContainer
 Control
-Label
 ScrollContainer
 PanelContainer
 OptionButton
-CheckBox
 HSlider
 Node2D
 Node
