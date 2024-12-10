@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var healthbar: ProgressBar = $Healthbar/HealthBar
 @onready var attackbar1: ProgressBar = $Attack1bar/AttackBar
-@onready var attackbar2: ProgressBar = $Attack2bar/AttackBar
 @onready var dashbar: ProgressBar = $DashBar/DashBar
 @onready var score: Label = %Score
 @onready var death_timer: Timer = $DeathTimer

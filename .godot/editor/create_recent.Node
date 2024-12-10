@@ -1,7 +1,8 @@
+AnimationPlayer
+Timer
 Node
 Area2D
 CollisionShape2D
-Timer
 Control
 Node2D
 CharacterBody2D

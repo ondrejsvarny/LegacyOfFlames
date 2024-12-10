@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dfxth3p462ndv"]
+[gd_scene load_steps=25 format=4 uid="uid://dfxth3p462ndv"]
 
 [ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_enwfv"]
 [ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="2_8xrep"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dxwchbx3pqk3u" path="res://Scenes/Objects/chest.tscn" id="14_5vth1"]
 [ext_resource type="PackedScene" uid="uid://b2sufjoxxh4rv" path="res://Scenes/Enemies/ghost.tscn" id="15_nnjbb"]
 [ext_resource type="PackedScene" uid="uid://cy8twpo3m34fd" path="res://Scenes/Basic/player.tscn" id="16_tmuim"]
+[ext_resource type="PackedScene" uid="uid://d1btuus4lqqbn" path="res://Scenes/Objects/falling_log.tscn" id="17_wxgal"]
+[ext_resource type="PackedScene" uid="uid://rlopbauv4jyo" path="res://Scenes/Objects/falling_platform.tscn" id="18_7ufwa"]
 
 [sub_resource type="GDScript" id="GDScript_acyps"]
 script/source = "extends Node2D
@@ -178,3 +180,27 @@ position = Vector2(-326, -6)
 player = NodePath("../Player")
 
 [node name="Player" parent="." index="22" instance=ExtResource("16_tmuim")]
+
+[node name="FallingLog" parent="." index="23" instance=ExtResource("17_wxgal")]
+position = Vector2(190, -7)
+
+[node name="FallingLog2" parent="." index="24" instance=ExtResource("17_wxgal")]
+position = Vector2(164, -15)
+
+[node name="FallingLog3" parent="." index="25" instance=ExtResource("17_wxgal")]
+position = Vector2(279, -30)
+
+[node name="FallingLog6" parent="." index="26" instance=ExtResource("17_wxgal")]
+position = Vector2(306, -30)
+
+[node name="FallingLog7" parent="." index="27" instance=ExtResource("17_wxgal")]
+position = Vector2(330, -30)
+
+[node name="FallingLog4" parent="." index="28" instance=ExtResource("17_wxgal")]
+position = Vector2(248, -23)
+
+[node name="FallingLog5" parent="." index="29" instance=ExtResource("17_wxgal")]
+position = Vector2(223, -14)
+
+[node name="FallingPlatform" parent="." index="30" instance=ExtResource("18_7ufwa")]
+position = Vector2(395, -2)

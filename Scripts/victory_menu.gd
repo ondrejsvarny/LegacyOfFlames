@@ -27,7 +27,7 @@ var bonus_collected = {}
 @onready var bonus_time_label: Label = %BonusTime
 @onready var bonus_label: Label = %BonusLabel
 @onready var bonus_coins_label: Label = %BonusCoinsLabel
-@onready var try_again: Label = %TryAgain
+#@onready var try_again: Label = %TryAgain
 @onready var bonus_coin_sprite: Sprite2D = %Coin
 
 @onready var level_coins: Label = %LevelCoins
