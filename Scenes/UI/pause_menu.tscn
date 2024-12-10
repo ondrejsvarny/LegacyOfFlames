@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_bcw22"]
 [ext_resource type="Shader" path="res://Scenes/UI/pause_menu.gdshader" id="2_xtxub"]
-[ext_resource type="Theme" uid="uid://0tjibdl3241f" path="res://Assets/UI/Themes/button.tres" id="3_oyyjl"]
+[ext_resource type="Theme" uid="uid://8h5300dg8oml" path="res://Assets/UI/Themes/button_menu.tres" id="3_38eax"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m6qon"]
 shader = ExtResource("2_xtxub")
@@ -117,19 +117,19 @@ theme_override_constants/separation = 10
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_oyyjl")
+theme = ExtResource("3_38eax")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_limrw")
 text = "Resume"
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_oyyjl")
+theme = ExtResource("3_38eax")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b7xnp")
 text = "Restart level"
 
 [node name="Menu" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_oyyjl")
+theme = ExtResource("3_38eax")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b7xnp")
 text = "Exit to menu
 "

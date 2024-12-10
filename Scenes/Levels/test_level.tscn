@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bfu3p1nb50rcr"]
+[gd_scene load_steps=23 format=4 uid="uid://dfxth3p462ndv"]
 
 [ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_enwfv"]
 [ext_resource type="PackedScene" uid="uid://uvohych4blxr" path="res://Scenes/Basic/background.tscn" id="2_8xrep"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://h6vwrkf1n28q" path="res://Scenes/Objects/slime.tscn" id="6_rbvm6"]
 [ext_resource type="PackedScene" uid="uid://c6dnqotp483ey" path="res://Assets/NPC/witch.tscn" id="7_s2t6v"]
 [ext_resource type="PackedScene" uid="uid://st4be7a8pe7m" path="res://Scenes/Objects/spikeCollision.tscn" id="8_xmjhs"]
-[ext_resource type="Texture2D" uid="uid://bst5gdq4un5ex" path="res://Scenes/Objects/spike_no_black.png" id="9_07kcq"]
+[ext_resource type="Texture2D" uid="uid://bst5gdq4un5ex" path="res://Assets/Tilesets/spike_no_black.png" id="9_07kcq"]
 [ext_resource type="Texture2D" uid="uid://cl6piq4pm06j5" path="res://Assets/Tilesets/EnviromentProps/skulls.png" id="10_dc7qi"]
 [ext_resource type="Texture2D" uid="uid://b86r45l0mapg7" path="res://Assets/Tilesets/EnviromentProps/palm.png" id="11_km2hg"]
 [ext_resource type="Texture2D" uid="uid://dbiv20fti5pjh" path="res://Assets/Tilesets/EnviromentProps/bush.png" id="12_fa15l"]
@@ -69,7 +69,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg5nj"]
 size = Vector2(19, 142)
 
-[node name="Level1" instance=ExtResource("1_enwfv")]
+[node name="TestLevel" instance=ExtResource("1_enwfv")]
 script = SubResource("GDScript_acyps")
 
 [node name="Background" parent="." index="0" instance=ExtResource("2_8xrep")]
@@ -167,7 +167,6 @@ offset_bottom = -6.0
 
 [node name="VictoryZone" parent="." index="20"]
 position = Vector2(3, -1)
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone" index="0"]
 position = Vector2(711, -22)
@@ -179,4 +178,3 @@ position = Vector2(-326, -6)
 player = NodePath("../Player")
 
 [node name="Player" parent="." index="22" instance=ExtResource("16_tmuim")]
-position = Vector2(31, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cy8twpo3m34fd"]
+[gd_scene load_steps=46 format=3 uid="uid://cy8twpo3m34fd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_lvcu4"]
 [ext_resource type="Texture2D" uid="uid://c2ejk5porlvrn" path="res://Assets/Player/idle-preview.png" id="1_um81c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4jsv70s1j5bm" path="res://Assets/Player/run-preview.png" id="2_e24ry"]
 [ext_resource type="Texture2D" uid="uid://hqxngctfjve" path="res://Assets/Player/jump-preview.png" id="3_lq02r"]
 [ext_resource type="Texture2D" uid="uid://vxqyqpbhid4s" path="res://Assets/Player/crouch-shot-sheet.png" id="3_ohtqi"]
+[ext_resource type="Texture2D" uid="uid://dhu4uofc1tgpb" path="res://Assets/Tilesets/deaths/white_death.png" id="4_4j81j"]
 [ext_resource type="Texture2D" uid="uid://b1xifudg7t2ve" path="res://Assets/Player/hurt-sheet.png" id="4_a4a0v"]
 [ext_resource type="Texture2D" uid="uid://bhljmyj6smahq" path="res://Assets/Player/shot-preview.png" id="7_skm01"]
 [ext_resource type="PackedScene" uid="uid://q54ojq1ejh4f" path="res://Scenes/Basic/dash.tscn" id="9_lh58j"]
@@ -37,6 +38,30 @@ region = Rect2(102, 0, 51, 45)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8p1j"]
 atlas = ExtResource("3_ohtqi")
 region = Rect2(153, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5o7j"]
+atlas = ExtResource("4_4j81j")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di7gi"]
+atlas = ExtResource("4_4j81j")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrw5s"]
+atlas = ExtResource("4_4j81j")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3flnd"]
+atlas = ExtResource("4_4j81j")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5fpr"]
+atlas = ExtResource("4_4j81j")
+region = Rect2(160, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4oj8"]
+atlas = ExtResource("4_4j81j")
+region = Rect2(200, 0, 40, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okgxv"]
 atlas = ExtResource("4_a4a0v")
@@ -149,9 +174,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_m5o7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di7gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrw5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3flnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5fpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4oj8")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_okgxv")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 100.0
 }, {
@@ -241,11 +289,10 @@ size = Vector2(19.6667, 20.4167)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3it4f"]
 size = Vector2(16.6667, 12.2222)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 physics_interpolation_mode = 1
 z_index = 5
 texture_filter = 1
-scale = Vector2(0.8, 0.8)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_lvcu4")
@@ -253,10 +300,10 @@ script = ExtResource("1_lvcu4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22.5)
 sprite_frames = SubResource("SpriteFrames_sld4c")
-animation = &"shoot"
+animation = &"death"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.581683
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.166675, -11.0416)

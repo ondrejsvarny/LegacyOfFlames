@@ -1,9 +1,10 @@
-CollisionShape2D
-Node2D
 Node
 Area2D
-CharacterBody2D
+CollisionShape2D
 Timer
+Control
+Node2D
+CharacterBody2D
 RayCast2D
 AnimatedSprite2D
 Button
@@ -11,4 +12,3 @@ HBoxContainer
 VSeparator
 HSeparator
 Label
-Sprite2D

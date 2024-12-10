@@ -28,6 +28,7 @@ func start_recharge(duration: float) -> void:
 	recharge_bar.max_value = 100  # Set max value for the bar
 
 func _process(delta: float):
+	print("Can dash:" + str(Global.can_dash))
 	if not Global.can_dash and not already_started:
 		dash(Global.dash_cooldown)
 		already_started = true

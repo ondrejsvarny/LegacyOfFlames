@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-var normal_speed = 125.0
+var normal_speed = 100.0
 const JUMP_VELOCITY = -300.0
 
 const dash_speed = 600
@@ -22,7 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var b # bullet instance
 var b_l
-var anm = false # shoot animation is ongoing
+var shoot_anm = false # shoot animation is ongoing
 
 var jump_max = 2
 var jump_count = 0
@@ -34,17 +34,42 @@ var is_facing_right = true
 
 var health 
 var hurt = false
+var dead = false
 
+# SHOOTING
+func attack():
+	Global.can_attack = false
+	animated_sprite.play("shoot") 
+	if is_facing_right:
+		b = bullet.instantiate()
+		b.global_position = $BulletSpawn.global_position
+		get_parent().add_child(b)
+	else:
+		b_l = bullet_left.instantiate()
+		b_l.global_position = $BulletSpawnLeft.global_position
+		get_parent().add_child(b_l)
+				
+	timer.start()
+	shoot_anm = true
+
+func death():
+	Global.can_attack = false
+	dead = true
 
 func _on_timer_timeout():
-	anm = false
+	shoot_anm = false
+	
+
 
 func _ready() -> void:
+	Global.can_move = true
+	Global.can_attack = true
+	dead = false
 	health = Global.max_player_health
 
 func _physics_process(delta):
 	
-	# Add the gravity
+	# Add the GRAVITY
 
 	if not Global.can_move:
 		velocity.x = 0
@@ -57,7 +82,7 @@ func _physics_process(delta):
 	if is_on_floor() and jump_count != 0:
 		jump_count = 0
 	
-	if Input.is_action_just_pressed("dash") and Global.can_move and not anm:
+	if Input.is_action_just_pressed("dash") and Global.can_move and not shoot_anm:
 		dash.start_dash(dash_length)
 		animated_sprite.play("run")
 	
@@ -99,7 +124,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 	# Handle crouch
-	if Input.is_action_pressed("crouch"):
+	if Input.is_action_pressed("crouch") and is_on_floor():
 		$CrouchShape2D.disabled = false
 		$CollisionShape2D.disabled = true
 	else:
@@ -117,26 +142,10 @@ func _physics_process(delta):
 		animated_sprite.flip_h = true
 		is_facing_right = false
 		
-	# SHOOTING
-	if Input.is_action_just_pressed("attack") and Global.can_attack and Global.can_move : #and not anm 
-		Global.can_attack = false
-		animated_sprite.play("shoot") 
-		if is_facing_right:
-			b = bullet.instantiate()
-			b.global_position = $BulletSpawn.global_position
-			get_parent().add_child(b)	
-		else:
-			b_l = bullet_left.instantiate()
-			b_l.global_position = $BulletSpawnLeft.global_position
-			get_parent().add_child(b_l)
-				
-		timer.start()
-		anm = true
-		
 		
 	# Play other animations
 	if Global.can_move:
-		if not anm:
+		if not shoot_anm:
 			if is_on_floor():
 				hurt = false
 				if direction == 0 and not Input.is_action_pressed("crouch"):
@@ -152,7 +161,10 @@ func _physics_process(delta):
 				if jump_count == 1:
 					animated_sprite.play("jump")
 				else:
-					if hurt == true:
+					if dead:
+						set_physics_process(false)
+						animated_sprite.play("death")
+					elif hurt:
 						animated_sprite.play("hurt") 
 					else:
 						animated_sprite.play("second_jump")
@@ -174,10 +186,10 @@ func _physics_process(delta):
 	
 	# Apply movement
 
-	if direction and not Input.is_action_pressed("crouch") and anm == false:
+	if direction and not Input.is_action_pressed("crouch") and shoot_anm == false:
 		velocity.x = direction * speed
 
-	if direction and not Input.is_action_pressed("crouch") and anm == false and not anm and Global.can_move:
+	if direction and not Input.is_action_pressed("crouch") and shoot_anm == false and not shoot_anm and Global.can_move:
 		velocity.x = direction * speed
 	
 

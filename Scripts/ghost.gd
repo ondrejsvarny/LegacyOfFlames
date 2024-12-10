@@ -14,6 +14,7 @@ var health_changed = 50 # same as the health
 @onready var timer: Timer = %Timer
 @onready var healthbar: ProgressBar = $HealthBar
 #@onready var player = playerBasic.get_node("Player") as 
+@onready var enemy_area: Area2D = $Enemy
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2
@@ -37,12 +38,14 @@ func _physics_process(delta: float) -> void:
 	change_direction()
 	look_for_player()
 	
+			
+func _process(delta: float) -> void:
 	if health_changed != health:
 		healthbar.health = health
 		health_changed = health
 		if current_state != States.CHASE:  # start chase if health is reduced
 			chase_player()
-			print("chase")
+			enemy_area.name = "noDoubleHit"
 			
 func look_for_player():
 	if ray_cast.is_colliding():
@@ -105,6 +108,7 @@ func change_direction():
 			sprite.flip_h = false
 			ray_cast.target_position = Vector2(125, 0)
 			ray_cast_up.target_position = Vector2(125, 0)
+			
 		else:
 			# flip to moving left
 			sprite.flip_h = true
@@ -119,6 +123,19 @@ func handle_gravity(delta: float):
 func _on_timer_timeout() -> void:
 	current_state = States.WANDER
 
+func death():
+	enemy_area.visible = false
+	set_physics_process(false)
+	$AnimatedSprite2D.play("death")
+	$DeathTimer.start()
+
+func _on_death_timer_timeout() -> void:
+	queue_free()
 
 func _on_enemy_body_entered(body):
-	Global.player_health -= DAMAGE
+	if Global.dashing == true:
+		Global.player_health -= DAMAGE
+	else:
+		health -= Global.dash_damage
+		if health <= 0:
+			death()

@@ -27,7 +27,7 @@ func _ready():
 # Function to handle attacking
 func attack(attack_type: String):
 	if Global.can_attack and attack_cooldowns.has(attack_type):
-		print("Attacked with", attack_type)
+		#Global.can_attack = false
 
 		# Start cooldown based on attack type
 		recharge_duration = attack_cooldowns[attack_type]

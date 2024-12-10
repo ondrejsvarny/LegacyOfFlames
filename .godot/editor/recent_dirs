@@ -1,7 +1,9 @@
+res://Scripts
+res://Assets/Tilesets/deaths
+res://Assets/Tilesets/jumppad
 res://Scenes/Levels
 res://Assets/Tilesets
 res://Assets/UI/Styleboxes
-res://Scripts
 res://Assets/Enemies/ghost
 res://Scenes/Enemies
 res://Assets/UI/Themes
@@ -18,8 +20,6 @@ res://Assets/NPC/Wizard
 >>>>>>> ondrik_branch
 res://Scenes/UI
 res://Assets/UI
-res://Scenes/NPC
-res://Scenes/Objects
 <<<<<<< HEAD
 =======
 C:/Users/HP/Desktop/veci 5/projekt/godot

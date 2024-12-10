@@ -5,8 +5,8 @@ var stop = false
 var formatted_time
 var record_times = {}
 var bonus_times = {
-	1: '10.0',
-	2: '95.3',
+	1: '20.0',
+	2: '95.0',
 	3: '110.0',
 }
 var bonus_coins = {
@@ -25,7 +25,8 @@ var bonus_collected = {}
 @onready var new_record_label: Label = %"NEW RECORD!"
 
 @onready var bonus_time_label: Label = %BonusTime
-@onready var bonus_coins_label: Label = %BonusCoins
+@onready var bonus_label: Label = %BonusLabel
+@onready var bonus_coins_label: Label = %BonusCoinsLabel
 @onready var try_again: Label = %TryAgain
 @onready var bonus_coin_sprite: Sprite2D = %Coin
 
@@ -55,6 +56,7 @@ func update_ui():
 		formatted_time = formatted_time.left(decimal_index + 3)  # Take only two decimal places
 	
 	current_time_label.text = formatted_time
+	print(formatted_time)
 
 
 func menu_on():
@@ -63,6 +65,8 @@ func menu_on():
 	Global.pausable = false
 	stop = true
 	get_tree().paused = true
+	
+	Global.levels[Global.current_level + 1] = true
 	
 	#RECORD TIME CHECK
 	if Global.current_level in record_times:
@@ -78,30 +82,34 @@ func menu_on():
 		new_record_label.visible = true
 		
 	#BONUS TIME CHECK
-	if float(bonus_times[Global.current_level]) > float(formatted_time) and not bonus_collected[Global.current_level]:
+	if float(bonus_times[Global.current_level]) > float(formatted_time) and not bonus_collected.has(Global.current_level):
 		Global.coins += bonus_coins[Global.current_level]
-		bonus_coins_label.text = "BONUS +" + str(bonus_coins[Global.current_level])
+		bonus_label.text = "BONUS "
+		bonus_coins_label.text = "+" + str(bonus_coins[Global.current_level])
 		
-		var new_style = load("res://Assets/UI/Styleboxes/bonus_yes.tres") as StyleBox
-		bonus_coins_label.add_theme_stylebox_override("normal", new_style)
+		#var new_style = load("res://Assets/UI/Styleboxes/bonus_yes.tres") as StyleBox
+		#bonus_coins_label.add_theme_stylebox_override("normal", new_style)
 		bonus_coin_sprite.visible = true
+		bonus_coins_label.visible = true
 		bonus_collected[Global.current_level] = true
 	elif bonus_collected[Global.current_level]:
-		bonus_coins_label.text = "BONUS ALREADY COLLECTED"
+		bonus_label.text = "BONUS COLLECTED"
+		bonus_coins_label.visible = false
 		bonus_coin_sprite.visible = false
 	else:
 		bonus_coins_label.text = "FOR BONUS TRY AGAIN"
 		#bonus_coins_label.add_theme_stylebox_override("content_margin_right", 20)
+		bonus_coins_label.visible = false
 		bonus_coin_sprite.visible = false 
 		
-	# coins
-	level_coins.text= str(Global.level_coins)
-	total_coins.text= "TOTAL " + str(Global.coins)
+	# COINS
+	level_coins.text= "+" + str(Global.level_coins)
+	total_coins.text= str(Global.coins)
 	
 		
 	save()
 	
-	print(record_times[Global.current_level])
+	#print(record_times[Global.current_level])
 	$AnimationPlayer.play("blur")
 
 func menu_off():
@@ -113,7 +121,19 @@ func _on_restart_pressed() -> void:
 	menu_off()
 	get_tree().reload_current_scene()
 
+func _on_menu_pressed() -> void:
+	menu_off()
+	get_tree().change_scene_to_file("res://Scenes/UI/Menu.tscn")
 
+func _on_upgrades_pressed() -> void:
+	menu_off()
+	get_tree().change_scene_to_file("res://Scenes/UI/character_menu.tscn")
+
+func _on_next_pressed() -> void:
+	menu_off()
+	Global.current_level += 1
+	get_tree().change_scene_to_file("res://Scenes/levels/level_" + str(Global.current_level) + ".tscn")
+	
 
 func save():
 	var data = {
@@ -126,6 +146,11 @@ func save():
 		"coins": Global.coins
 	}
 	SaveManager.save_section("global_currencies", currencies)
+	
+	var levels = {
+		"levels": Global.levels,
+	}
+	SaveManager.save_section("levels", levels)
 
 func load_data():
 	var data = SaveManager.load_section("victory_menu")

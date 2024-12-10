@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1btuus4lqqbn"]
+
+[ext_resource type="Script" path="res://Scripts/falling_log.gd" id="1_hcdh5"]
+[ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="2_72wao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahifa"]
+size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n51dk"]
+size = Vector2(14, 4)
+
+[node name="FallingLog" type="RigidBody2D"]
+collision_mask = 3
+lock_rotation = true
+freeze = true
+script = ExtResource("1_hcdh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_72wao")
+region_enabled = true
+region_rect = Rect2(177, 160, 14, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ahifa")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_n51dk")
+debug_color = Color(0.806501, 0.414609, 0.0377399, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

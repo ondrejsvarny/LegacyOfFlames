@@ -24,14 +24,15 @@ func _on_area_2d_area_entered(area):
 		area.get_parent().health -= Global.fireball_damage
 		
 		if area.get_parent().health <= 0:
-			area.get_parent().queue_free()
+			area.get_parent().death()
 		
 		hit = true
 		animated_sprite.play("hit")
 		timer.start()
 		
 #func _on_visible_on_screen_notifier_2d_screen_exited():
-	
+	elif area.name == "noDoubleHit":
+		area.name = "Enemy"
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:

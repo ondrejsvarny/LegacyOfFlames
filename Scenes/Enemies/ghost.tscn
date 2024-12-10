@@ -1,12 +1,41 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2sufjoxxh4rv"]
+[gd_scene load_steps=28 format=3 uid="uid://b2sufjoxxh4rv"]
 
 [ext_resource type="Script" path="res://Scripts/ghost.gd" id="1_bw5xo"]
+[ext_resource type="Texture2D" uid="uid://n5g513li62qx" path="res://Assets/Tilesets/deaths/purple_death.png" id="2_7g1h6"]
 [ext_resource type="Texture2D" uid="uid://bubvvpvjmnq8g" path="res://Assets/Enemies/ghost/transparent-no-particles.png" id="2_vx810"]
 [ext_resource type="Texture2D" uid="uid://ceswvqdi064r2" path="res://Assets/Enemies/ghost/transparent-particles.png" id="3_x65n2"]
 [ext_resource type="PackedScene" uid="uid://b4cp1v4g4bcj3" path="res://Scenes/Basic/enemy_healthbar.tscn" id="4_xrxmj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a40j"]
 size = Vector2(19, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evwts"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(0, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bs2l"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(64, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixdfg"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(128, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxu07"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(192, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usmhh"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(256, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qrjv"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(320, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peyav"]
+atlas = ExtResource("2_7g1h6")
+region = Rect2(384, 0, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbfcg"]
 atlas = ExtResource("2_vx810")
@@ -60,6 +89,32 @@ region = Rect2(320, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_evwts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bs2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixdfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxu07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usmhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qrjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peyav")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qbfcg")
 }, {
 "duration": 1.0,
@@ -100,7 +155,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_opq7s")
 }],
-"loop": true,
+"loop": false,
 "name": &"move_particles",
 "speed": 8.0
 }]
@@ -119,10 +174,8 @@ shape = SubResource("RectangleShape2D_5a40j")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_w1r72")
-animation = &"move"
+animation = &"death"
 autoplay = "move"
-frame = 3
-frame_progress = 0.855468
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(0, 14)
@@ -153,5 +206,10 @@ offset_top = -17.0
 offset_right = 10.0
 offset_bottom = -15.0
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Enemy" to="." method="_on_enemy_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

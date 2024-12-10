@@ -251,3 +251,4 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="VictoryZone" parent="." instance=ExtResource("4_xgh0l")]
+collision_mask = 2

@@ -12,9 +12,11 @@ var health = 50
 
 var direction = 1
 var health_changed = 50  # at the start same as the health
+var dead
 
 func _ready():
 	healthbar.init_health(health)
+	dead = false
 
 func _process(delta):
 	if health_changed != health:
@@ -27,10 +29,25 @@ func _process(delta):
 	if ray_cast_left.is_colliding():
 		direction = 1
 		animated_sprite.flip_h = false
+		
+	if !dead:
+		position.x += direction * SPEED * delta
 	
-	position.x += direction * SPEED * delta
+
+func death():
+	dead = true
+	$Enemy.visible = false
+	$AnimatedSprite2D.play("death")
+	$DeathTimer.start()
+
+func _on_death_timer_timeout() -> void:
+	queue_free()
 
 	
 func _on_enemy_body_entered(body):
 	if Global.dashing == true:
 		Global.player_health -= DAMAGE
+	else:
+		health -= Global.dash_damage
+		if health <= 0:
+			death()

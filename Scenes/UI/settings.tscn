@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6sdrvx7cj07p"]
+[gd_scene load_steps=5 format=3 uid="uid://d3mdhoxrpvsa2"]
 
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="1_63bwa"]
 [ext_resource type="FontFile" uid="uid://jg8xdqwe2jb1" path="res://Assets/UI/fonts/monogram.ttf" id="2_2r7ip"]
