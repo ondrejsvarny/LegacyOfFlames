@@ -5,11 +5,15 @@ extends AnimatedSprite2D
 @onready var chest: AnimatedSprite2D = $"."
 
 var is_opened = false
-
-
+var chest_id
 
 func _ready() -> void:
-	pass
+	chest_id = str(global_position.x) + str(global_position.y)
+	load_data()
+	if is_opened:
+		chest.autoplay = ""
+		chest.animation = "open"
+		chest.frame = 4
 
 func drop_object():
 	var object: Node2D = object_scene.instantiate()
@@ -46,4 +50,17 @@ func _on_area_2d_body_entered(body: Player) -> void:
 	if not is_opened:
 		chest.play("open")
 		is_opened = true
+		save()
 		timer.start()
+		
+
+func save():
+	var data = {
+		"is_opened": is_opened,
+	}
+	SaveManager.save_section("chest_" + chest_id, data)
+
+func load_data():
+	var data = SaveManager.load_section("chest_" + chest_id)
+	is_opened = data.get("is_opened", false)
+	

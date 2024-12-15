@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://rlopbauv4jyo"]
+
+[ext_resource type="Script" path="res://Scripts/falling_platform.gd" id="1_hcdh5"]
+[ext_resource type="Texture2D" uid="uid://cnae0x7u07n5h" path="res://Assets/Tilesets/EnviromentProps/platform-long.png" id="2_kj5m3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahifa"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n51dk"]
+size = Vector2(32, 4)
+
+[node name="FallingPlatform" type="RigidBody2D"]
+collision_mask = 3
+lock_rotation = true
+freeze = true
+script = ExtResource("1_hcdh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kj5m3")
+region_rect = Rect2(177, 160, 14, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ahifa")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_n51dk")
+debug_color = Color(0.806501, 0.414609, 0.0377399, 0.42)
+
+[node name="TimerBlinking" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="TimerBlinkingVisible" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="TimerBlinking" to="." method="_on_timer_blinking_timeout"]
+[connection signal="timeout" from="TimerBlinkingVisible" to="." method="_on_timer_blinking_visible_timeout"]

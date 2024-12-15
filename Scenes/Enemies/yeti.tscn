@@ -1,33 +1,37 @@
-[gd_scene load_steps=21 format=3 uid="uid://cx4efkoqce571"]
+[gd_scene load_steps=22 format=3 uid="uid://cx4efkoqce571"]
 
 [ext_resource type="Texture2D" uid="uid://iq8uaoffs3a0" path="res://Assets/Enemies/yeti/yeti-preview.png" id="1_b57q4"]
 [ext_resource type="Script" path="res://Scripts/yeti.gd" id="1_v1or0"]
-[ext_resource type="Texture2D" uid="uid://dhu4uofc1tgpb" path="res://Assets/Tilesets/enemy-death/enemy-deadth.png" id="2_wr1l0"]
+[ext_resource type="Texture2D" uid="uid://n5g513li62qx" path="res://Assets/Tilesets/deaths/purple_death.png" id="2_rhb77"]
 [ext_resource type="PackedScene" uid="uid://b4cp1v4g4bcj3" path="res://Scenes/Basic/enemy_healthbar.tscn" id="4_vcx2p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctwqd"]
-atlas = ExtResource("2_wr1l0")
-region = Rect2(0, 0, 40, 41)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5peu"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(0, 0, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2mtr3"]
-atlas = ExtResource("2_wr1l0")
-region = Rect2(40, 0, 40, 41)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb2ai"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(64, 0, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkunl"]
-atlas = ExtResource("2_wr1l0")
-region = Rect2(80, 0, 40, 41)
+[sub_resource type="AtlasTexture" id="AtlasTexture_txkd1"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(128, 0, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d25f2"]
-atlas = ExtResource("2_wr1l0")
-region = Rect2(120, 0, 40, 41)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtwmn"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(192, 0, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jehxi"]
-atlas = ExtResource("2_wr1l0")
-region = Rect2(160, 0, 40, 41)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkyvn"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(256, 0, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12f5s"]
-atlas = ExtResource("2_wr1l0")
-region = Rect2(200, 0, 40, 41)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u4ak"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(320, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ek4e"]
+atlas = ExtResource("2_rhb77")
+region = Rect2(384, 0, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldmwg"]
 atlas = ExtResource("1_b57q4")
@@ -65,24 +69,27 @@ region = Rect2(245, 0, 35, 33)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ctwqd")
+"texture": SubResource("AtlasTexture_p5peu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2mtr3")
+"texture": SubResource("AtlasTexture_gb2ai")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rkunl")
+"texture": SubResource("AtlasTexture_txkd1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d25f2")
+"texture": SubResource("AtlasTexture_mtwmn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jehxi")
+"texture": SubResource("AtlasTexture_gkyvn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12f5s")
+"texture": SubResource("AtlasTexture_0u4ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ek4e")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -125,7 +132,7 @@ script = ExtResource("1_v1or0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_hqxiv")
-animation = &"walk"
+animation = &"death"
 autoplay = "walk"
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -150,4 +157,9 @@ offset_top = -33.0
 offset_right = 10.0
 offset_bottom = -31.0
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
 [connection signal="body_entered" from="Enemy" to="." method="_on_enemy_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

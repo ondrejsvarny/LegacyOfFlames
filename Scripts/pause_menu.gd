@@ -15,7 +15,6 @@ func pause():
 	canvas_layer.layer = 2
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
-	print("jou")
 
 func _process(delta):
 	testEsc()
@@ -29,10 +28,8 @@ func testEsc():
 func _on_resume_pressed():
 	resume()
 
-func _on_character_pressed():
-	pass 
-
 func _on_restart_pressed():
+	Global.can_move = true
 	resume()
 	get_tree().reload_current_scene()
 

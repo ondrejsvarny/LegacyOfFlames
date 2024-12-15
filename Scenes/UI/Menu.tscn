@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dll2s58k6qd6y"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_glcsc"]
-[ext_resource type="Theme" uid="uid://0tjibdl3241f" path="res://Assets/UI/Themes/button.tres" id="2_pjv47"]
+[ext_resource type="Theme" uid="uid://8h5300dg8oml" path="res://Assets/UI/Themes/button_menu.tres" id="2_h7jb2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -39,22 +39,22 @@ theme_override_constants/separation = 10
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("2_pjv47")
+theme = ExtResource("2_h7jb2")
 text = "PLAY"
 
 [node name="Character" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_pjv47")
+theme = ExtResource("2_h7jb2")
 text = "UPGRADES"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_pjv47")
+theme = ExtResource("2_h7jb2")
 text = "OPTIONS"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_pjv47")
+theme = ExtResource("2_h7jb2")
 text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

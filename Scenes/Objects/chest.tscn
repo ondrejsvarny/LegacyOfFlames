@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://umvhjcj17vnf" path="res://Assets/Tilesets/chest/Chests.png" id="1_lsflm"]
 [ext_resource type="Script" path="res://Scripts/chest.gd" id="2_fxd5r"]
-[ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/cherry.tscn" id="3_6x7lf"]
+[ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/coin.tscn" id="3_6x7lf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4vy0"]
 atlas = ExtResource("1_lsflm")
@@ -93,10 +93,8 @@ size = Vector2(28, 21)
 [node name="Chest" type="AnimatedSprite2D"]
 position = Vector2(9, -16)
 sprite_frames = SubResource("SpriteFrames_4lrcf")
-animation = &"open"
+animation = &"idle"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
 script = ExtResource("2_fxd5r")
 object_scene = ExtResource("3_6x7lf")
 

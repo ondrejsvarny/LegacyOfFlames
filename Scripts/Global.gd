@@ -1,14 +1,27 @@
 extends Node
 
-@onready var timer = $dash_timer
+#@onready var timer = $dash_timer
 var dashing = false
+var can_dash = true
 
-var cherries = 150
+var coins = 150
+var level_coins = 0
+var silver_coins = 100
+var level_silver_coins = 0
+
 var player_health = 100
 var can_move = true
 var can_attack = true
 
-var current_level = 0
+var levels = [null,
+	true,true,false,false,false,
+	false,false,false,false,false,
+	false,false,false,false,false,
+	false,false,false,false,false,
+]
+
+var level_time
+var current_level = 1
 var pausable = true
 
 var max_player_health = 100
@@ -17,4 +30,5 @@ var fireball_damage = 10
 var fireball_speed = 3
 var fireball_reload = "fireball_lvl1"
 
-var attack2 = "heavy_lvl2"
+var dash_damage = 30
+var dash_cooldown = "dash_lvl1"

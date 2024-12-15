@@ -8,7 +8,4 @@ script = ExtResource("1_p0nom")
 [node name="dash_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="dash_cooldown" type="Timer" parent="."]
-
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
