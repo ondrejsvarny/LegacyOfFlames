@@ -60,6 +60,7 @@ variables={}
 window/size/viewport_width=1548
 window/size/viewport_height=848
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=2
 
 [editor_plugins]
 
