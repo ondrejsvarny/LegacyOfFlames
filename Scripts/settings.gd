@@ -36,7 +36,7 @@ var action_to_remap = null
 var remapping_button = null
 
 var input_actions = {
-	"move_left": "Move right",
+	"move_left": "Move left",
 	"move_right": "Move right",
 	"crouch": "Crouch",
 	"jump": "Jump",
@@ -108,10 +108,9 @@ func _on_back_pressed() -> void:
 	
 	
 
-"""
 func save():
 	var data = {
-		"screen_mode": screen_mode,
+		"ProjectSettings": ProjectSettings,
 	}
 	SaveManager.save_section("settings", data)
 
@@ -123,4 +122,6 @@ func load_data():
 
 func _on_apply_pressed() -> void:
 	save()
+
+"""
 """

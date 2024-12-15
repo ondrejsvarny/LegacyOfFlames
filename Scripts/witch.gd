@@ -13,9 +13,10 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and token == 0:
 		token += 1
-		current_dialogue_name = "witch_1"
-		Dialogic.start(current_dialogue_name)  
-		_on_dialog_started(current_dialogue_name)  
+		if Global.current_level == 1:
+			current_dialogue_name = "witch_1"
+			Dialogic.start(current_dialogue_name)  
+			_on_dialog_started(current_dialogue_name)  
 
 func _on_dialog_started(dialogue_id: String):
 	Global.can_move = false
