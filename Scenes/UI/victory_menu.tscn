@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://barnlm1g51lqr" path="res://Assets/UI/fonts/monogram-extended.ttf" id="2_aip1c"]
 [ext_resource type="Texture2D" uid="uid://viaaa3cuyna3" path="res://Assets/UI/TimeIcon.png" id="3_66egx"]
 [ext_resource type="Texture2D" uid="uid://cp3v87hvxbrcv" path="res://Assets/UI/New Piskel.png" id="4_bhskk"]
-[ext_resource type="Texture2D" uid="uid://dmq7gemxvahi" path="res://Assets/Tilesets/single_coin.png" id="8_kkeag"]
+[ext_resource type="Texture2D" uid="uid://dmq7gemxvahi" path="res://Assets/Tilesets/coins/single_coin.png" id="8_kkeag"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3vm"]
 shader = ExtResource("1_wqf65")

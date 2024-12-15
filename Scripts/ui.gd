@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var dashbar: ProgressBar = $DashBar/DashBar
 @onready var score: Label = %Score
 @onready var death_timer: Timer = $DeathTimer
+@onready var time_label: Label = %TimeLabel
+@onready var score_silver: Label = %ScoreSilver
 
 var health
 var dead = false
@@ -17,6 +19,7 @@ func _ready():
 	# 2 timere kt sa bude menit dlzka podla prave vybratych abilitiek
 
 func _physics_process(delta):
+	time_label.text = str(Global.level_time)
 	if health != Global.player_health: # and is_instance_valid(healthbar):
 			health = Global.player_health
 			healthbar._set_health(health)
@@ -35,6 +38,8 @@ func _physics_process(delta):
 	
 	# UPDATING SCORE LABEL
 	score.text = str(Global.coins)
+	score_silver.text = str(Global.silver_coins)
+	
 	
 
 func load_data():

@@ -1,34 +1,15 @@
+C:/Program Files/Java/jdk-23/bin
 res://Scripts
+res://Scenes/Objects
+res://Assets/Tilesets
 res://Assets/Tilesets/deaths
 res://Assets/Tilesets/jumppad
 res://Scenes/Levels
-res://Assets/Tilesets
 res://Assets/UI/Styleboxes
 res://Assets/Enemies/ghost
 res://Scenes/Enemies
 res://Assets/UI/Themes
 res://
 res://Scenes/Basic
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
 res://Assets/NPC/Wizard
-<<<<<<< HEAD
->>>>>>> Stashed changes
->>>>>>> ondrik_branch
 res://Scenes/UI
-res://Assets/UI
-<<<<<<< HEAD
-=======
-C:/Users/HP/Desktop/veci 5/projekt/godot
->>>>>>> ja
-=======
-<<<<<<< Updated upstream
->>>>>>> ondrik_branch
-=======
-=======
-C:/Users/HP/Desktop/veci 5/projekt/godot
->>>>>>> ja
->>>>>>> Stashed changes

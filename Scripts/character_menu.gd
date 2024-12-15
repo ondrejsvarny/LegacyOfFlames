@@ -165,7 +165,8 @@ func save():
 	SaveManager.save_section("global_upgrade_data", upgrade_data)
 	
 	var currencies = {
-		"coins": Global.coins
+		"coins": Global.coins,
+		"silver_coins": Global.silver_coins
 	}
 	SaveManager.save_section("global_currencies", currencies)
 	

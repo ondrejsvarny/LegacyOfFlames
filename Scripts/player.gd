@@ -13,6 +13,9 @@ const WALL_UPWRD_BOOST = - -250.0
 var is_wallsliding = false
 var is_walljumping = false
 
+const PUSH_FORCE = 50
+const MAX_VELOCITY = 100
+
 @onready var dash = $Dash
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -58,8 +61,6 @@ func death():
 
 func _on_timer_timeout():
 	shoot_anm = false
-	
-
 
 func _ready() -> void:
 	Global.can_move = true
@@ -70,7 +71,6 @@ func _ready() -> void:
 func _physics_process(delta):
 	
 	# Add the GRAVITY
-
 	if not Global.can_move:
 		velocity.x = 0
 	
@@ -82,9 +82,11 @@ func _physics_process(delta):
 	if is_on_floor() and jump_count != 0:
 		jump_count = 0
 	
-	if Input.is_action_just_pressed("dash") and Global.can_move and not shoot_anm:
-		dash.start_dash(dash_length)
-		animated_sprite.play("run")
+	# handle DASH
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		if Input.is_action_just_pressed("dash") and Global.can_move and not shoot_anm:
+			dash.start_dash(dash_length)
+			animated_sprite.play("run")
 	
 	var speed = dash_speed if dash.is_dashing() else normal_speed
 	
@@ -142,7 +144,6 @@ func _physics_process(delta):
 		animated_sprite.flip_h = true
 		is_facing_right = false
 		
-		
 	# Play other animations
 	if Global.can_move:
 		if not shoot_anm:
@@ -169,8 +170,6 @@ func _physics_process(delta):
 					else:
 						animated_sprite.play("second_jump")
 				
-			
-		
 	if not Global.can_move:
 		if is_on_floor():
 			
@@ -185,14 +184,12 @@ func _physics_process(delta):
 				animated_sprite.play("idle")
 	
 	# Apply movement
-
 	if direction and not Input.is_action_pressed("crouch") and shoot_anm == false:
 		velocity.x = direction * speed
 
 	if direction and not Input.is_action_pressed("crouch") and shoot_anm == false and not shoot_anm and Global.can_move:
 		velocity.x = direction * speed
 	
-
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
@@ -202,6 +199,13 @@ func _physics_process(delta):
 		velocity.y = -300
 		jump_count = 2
 		hurt = true
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_box = collision.get_collider()
+		if collision_box.is_in_group("boxes") and abs(collision_box.get_linear_velocity().x) < MAX_VELOCITY:
+			collision_box.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+			
 	
 	move_and_slide()
 	

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4jsv70s1j5bm" path="res://Assets/Player/run-preview.png" id="2_e24ry"]
 [ext_resource type="Texture2D" uid="uid://hqxngctfjve" path="res://Assets/Player/jump-preview.png" id="3_lq02r"]
 [ext_resource type="Texture2D" uid="uid://vxqyqpbhid4s" path="res://Assets/Player/crouch-shot-sheet.png" id="3_ohtqi"]
-[ext_resource type="Texture2D" uid="uid://dhu4uofc1tgpb" path="res://Assets/Tilesets/deaths/white_death.png" id="4_4j81j"]
+[ext_resource type="Texture2D" uid="uid://dhu4uofc1tgpb" path="res://Assets/Tilesets/enemy-death/enemy-deadth.png" id="4_4j81j"]
 [ext_resource type="Texture2D" uid="uid://b1xifudg7t2ve" path="res://Assets/Player/hurt-sheet.png" id="4_a4a0v"]
 [ext_resource type="Texture2D" uid="uid://bhljmyj6smahq" path="res://Assets/Player/shot-preview.png" id="7_skm01"]
 [ext_resource type="PackedScene" uid="uid://q54ojq1ejh4f" path="res://Scenes/Basic/dash.tscn" id="9_lh58j"]

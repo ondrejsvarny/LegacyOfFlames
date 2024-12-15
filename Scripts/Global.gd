@@ -6,17 +6,21 @@ var can_dash = true
 
 var coins = 150
 var level_coins = 0
+var silver_coins = 100
+var level_silver_coins = 0
+
 var player_health = 100
 var can_move = true
 var can_attack = true
 
 var levels = [null,
-	true,false,false,false,false,
+	true,true,false,false,false,
 	false,false,false,false,false,
 	false,false,false,false,false,
 	false,false,false,false,false,
 ]
 
+var level_time
 var current_level = 1
 var pausable = true
 

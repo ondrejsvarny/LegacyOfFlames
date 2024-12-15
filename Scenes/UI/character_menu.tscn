@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://dxo0vbnf4jely" path="res://Assets/UI/Themes/upgrade_window.tres" id="6_n3aqh"]
 [ext_resource type="Theme" uid="uid://dqm6x0epo4wyh" path="res://Assets/UI/Themes/upgrade_button.tres" id="7_dim58"]
 [ext_resource type="Texture2D" uid="uid://du2xkkwfug27y" path="res://Assets/Player/fireball-preview.png" id="7_fjueu"]
-[ext_resource type="Texture2D" uid="uid://dmq7gemxvahi" path="res://Assets/Tilesets/single_coin.png" id="7_sblvi"]
+[ext_resource type="Texture2D" uid="uid://dmq7gemxvahi" path="res://Assets/Tilesets/coins/single_coin.png" id="7_sblvi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut8t3"]
 content_margin_right = 40.0

@@ -13,8 +13,8 @@ func _ready() -> void:
 		queue_free()
 
 func _on_body_entered(body):
-	Global.coins += 1
-	Global.level_coins += 1
+	Global.silver_coins += 1
+	Global.level_silver_coins += 1
 	set_collision_mask_value(2,0)
 	animated_sprite.play("collected")
 	timer.start()

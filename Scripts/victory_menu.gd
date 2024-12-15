@@ -41,7 +41,7 @@ func _ready():
 	bonus_time_label.text = bonus_times[Global.current_level]
 	
 func _physics_process(delta):
-	if stop == false:
+	if not get_tree().paused and Global.can_move and not stop:
 		time += delta
 		update_ui()
 	#print(Global.level_coins)
@@ -56,7 +56,8 @@ func update_ui():
 		formatted_time = formatted_time.left(decimal_index + 3)  # Take only two decimal places
 	
 	current_time_label.text = formatted_time
-	print(formatted_time)
+	Global.level_time = formatted_time
+	
 
 
 func menu_on():
@@ -143,7 +144,8 @@ func save():
 	SaveManager.save_section("victory_menu", data)
 	
 	var currencies = {
-		"coins": Global.coins
+		"coins": Global.coins,
+		"silver_coins": Global.silver_coins
 	}
 	SaveManager.save_section("global_currencies", currencies)
 	
@@ -159,3 +161,4 @@ func load_data():
 	
 	var data2 = SaveManager.load_section("global_currencies")
 	Global.coins = data2.get("coins", 150)
+	Global.silver_coins = data2.get("silver_coins", 100)
