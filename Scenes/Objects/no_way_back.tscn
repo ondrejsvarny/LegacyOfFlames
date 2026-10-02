@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://4inbilwtbqn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olv4r"]
+size = Vector2(283, 75)
+
+[node name="No_way_back" type="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17.5, -143.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_olv4r")
+one_way_collision = true

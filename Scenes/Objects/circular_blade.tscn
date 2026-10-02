@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvyemrtosemd3"]
+
+[ext_resource type="Texture2D" uid="uid://c58ij3h6lsksn" path="res://Assets/Tilesets/mini_circular_no_shadow.png" id="1_y46th"]
+[ext_resource type="Script" path="res://Scripts/circular_blade.gd" id="2_826qb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rw245"]
+radius = 13.0
+
+[node name="CircularBlade" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_y46th")
+script = ExtResource("2_826qb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rw245")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

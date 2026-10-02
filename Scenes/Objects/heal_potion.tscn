@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://dlaphfp0yn6kb"]
+
+[ext_resource type="Texture2D" uid="uid://w4t6lbjtcmd4" path="res://Assets/Tilesets/potions/red_potion.png" id="1_1cq45"]
+[ext_resource type="Texture2D" uid="uid://e2330abmagut" path="res://Assets/Tilesets/item-feedback/item-feedback-1.png" id="1_p574j"]
+[ext_resource type="Script" path="res://Scripts/heal_potion.gd" id="1_rfi14"]
+[ext_resource type="Texture2D" uid="uid://s23nttes2g6m" path="res://Assets/Tilesets/item-feedback/item-feedback-2.png" id="2_fbty5"]
+[ext_resource type="Texture2D" uid="uid://c0jge81apwio4" path="res://Assets/Tilesets/item-feedback/item-feedback-3.png" id="3_dtlpf"]
+[ext_resource type="Texture2D" uid="uid://cl75qgmddyrqn" path="res://Assets/Tilesets/item-feedback/item-feedback-4.png" id="4_lhkuc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbwn6"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnygu"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f23m"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s53im"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vniob"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v8x1"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgxwn"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6dmm"]
+atlas = ExtResource("1_1cq45")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iv3ho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p574j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fbty5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dtlpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lhkuc")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbwn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnygu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f23m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s53im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vniob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v8x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgxwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6dmm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yhde2"]
+radius = 7.0
+height = 16.0
+
+[node name="HealPotion" type="Area2D"]
+z_index = 5
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rfi14")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iv3ho")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yhde2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.39
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

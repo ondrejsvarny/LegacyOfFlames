@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://uvohych4blxr"]
+
+[ext_resource type="Texture2D" uid="uid://c37hswh176khc" path="res://Assets/Backgrounds/basic_sea/back.png" id="1_lua40"]
+[ext_resource type="Texture2D" uid="uid://qwmar2v1qsdb" path="res://Assets/Backgrounds/basic_sea/middle.png" id="2_efd2u"]
+
+[node name="Background" type="ParallaxBackground"]
+physics_interpolation_mode = 1
+
+[node name="BackLayer" type="ParallaxLayer" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(0, -180)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackLayer"]
+physics_interpolation_mode = 1
+position = Vector2(0, 96.26)
+texture = ExtResource("1_lua40")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackLayer"]
+physics_interpolation_mode = 1
+position = Vector2(384, 96.26)
+texture = ExtResource("1_lua40")
+centered = false
+
+[node name="MiddleLayer" type="ParallaxLayer" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(0, -200)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(176, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleLayer"]
+physics_interpolation_mode = 1
+position = Vector2(0, 174)
+texture = ExtResource("2_efd2u")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="MiddleLayer"]
+physics_interpolation_mode = 1
+position = Vector2(176, 174)
+texture = ExtResource("2_efd2u")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="MiddleLayer"]
+physics_interpolation_mode = 1
+position = Vector2(352, 174)
+texture = ExtResource("2_efd2u")
+centered = false

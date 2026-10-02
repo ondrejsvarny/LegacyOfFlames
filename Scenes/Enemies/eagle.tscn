@@ -1,0 +1,118 @@
+[gd_scene load_steps=17 format=3 uid="uid://vqjfutrq551t"]
+
+[ext_resource type="Script" path="res://Scripts/eagle.gd" id="1_3u8it"]
+[ext_resource type="Texture2D" uid="uid://clinwflve3534" path="res://Assets/Tilesets/deaths/purple_death.png" id="2_cpet7"]
+[ext_resource type="Texture2D" uid="uid://b3axt4g015rcw" path="res://Assets/Enemies/eagle/eagle-attack-1.png" id="3_nt7ci"]
+[ext_resource type="Texture2D" uid="uid://bmebiacelmecu" path="res://Assets/Enemies/eagle/eagle-attack-2.png" id="4_arshy"]
+[ext_resource type="PackedScene" uid="uid://b4cp1v4g4bcj3" path="res://Scenes/Basic/enemy_healthbar.tscn" id="5_mu3u5"]
+[ext_resource type="Texture2D" uid="uid://bx34nmytwmkps" path="res://Assets/Enemies/eagle/eagle-attack-3.png" id="5_ujeqd"]
+[ext_resource type="Texture2D" uid="uid://cb5lem1apfqee" path="res://Assets/Enemies/eagle/eagle-attack-4.png" id="6_73608"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5peu"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(0, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb2ai"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(64, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txkd1"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(128, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtwmn"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(192, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkyvn"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(256, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u4ak"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(320, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ek4e"]
+atlas = ExtResource("2_cpet7")
+region = Rect2(384, 0, 64, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqxiv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5peu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb2ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txkd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtwmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkyvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u4ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ek4e")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nt7ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_arshy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ujeqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_73608")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15fi8"]
+size = Vector2(24, 25)
+
+[node name="Eagle" type="Node2D"]
+z_index = 3
+script = ExtResource("1_3u8it")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_hqxiv")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.87916
+
+[node name="Enemy" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(-2, -13.5)
+shape = SubResource("RectangleShape2D_15fi8")
+debug_color = Color(0.987918, 0, 0.307779, 0.42)
+
+[node name="HealthBar" parent="." instance=ExtResource("5_mu3u5")]
+offset_left = -8.0
+offset_top = -33.0
+offset_right = 10.0
+offset_bottom = -31.0
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="body_entered" from="Enemy" to="." method="_on_enemy_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

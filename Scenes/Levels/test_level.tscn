@@ -1,0 +1,276 @@
+[gd_scene load_steps=32 format=4 uid="uid://dfxth3p462ndv"]
+
+[ext_resource type="PackedScene" uid="uid://cn2f1h6ultc6o" path="res://Scenes/Basic/levelBasic.tscn" id="1_enwfv"]
+[ext_resource type="PackedScene" uid="uid://dhgy4r1esn7d5" path="res://Scenes/Backgrounds/background_winter.tscn" id="2_u8nq6"]
+[ext_resource type="PackedScene" uid="uid://cix8d0k6vr0p1" path="res://Scenes/Objects/coin.tscn" id="3_rgylt"]
+[ext_resource type="PackedScene" uid="uid://cnskxuoxa3mh4" path="res://Scenes/Objects/platform.tscn" id="4_d7xao"]
+[ext_resource type="PackedScene" uid="uid://cx4efkoqce571" path="res://Scenes/Enemies/yeti.tscn" id="5_xum1l"]
+[ext_resource type="PackedScene" uid="uid://h6vwrkf1n28q" path="res://Scenes/Objects/slime.tscn" id="6_rbvm6"]
+[ext_resource type="PackedScene" uid="uid://st4be7a8pe7m" path="res://Scenes/Objects/spikeCollision.tscn" id="8_xmjhs"]
+[ext_resource type="Texture2D" uid="uid://dehiyiradyxuv" path="res://Assets/Tilesets/spike_no_black.png" id="9_07kcq"]
+[ext_resource type="Texture2D" uid="uid://bhbi8fv28dtff" path="res://Assets/EnviromentProps/skulls.png" id="10_dc7qi"]
+[ext_resource type="Texture2D" uid="uid://cus3nmi5h7k32" path="res://Assets/EnviromentProps/palm.png" id="11_km2hg"]
+[ext_resource type="Texture2D" uid="uid://opx5muss16kc" path="res://Assets/EnviromentProps/bush.png" id="12_fa15l"]
+[ext_resource type="Texture2D" uid="uid://hn5yyo1ki5o5" path="res://Assets/EnviromentProps/shrooms.png" id="13_pa8ba"]
+[ext_resource type="PackedScene" uid="uid://dxwchbx3pqk3u" path="res://Scenes/Objects/chest.tscn" id="14_5vth1"]
+[ext_resource type="PackedScene" uid="uid://d1btuus4lqqbn" path="res://Scenes/Objects/falling_log.tscn" id="17_wxgal"]
+[ext_resource type="PackedScene" uid="uid://vqjfutrq551t" path="res://Scenes/Enemies/eagle.tscn" id="19_ejaok"]
+[ext_resource type="PackedScene" uid="uid://bs6rstkw502gi" path="res://Scenes/Objects/attack_potion.tscn" id="22_5rhql"]
+[ext_resource type="PackedScene" uid="uid://bypde65gcu7qs" path="res://Scenes/Objects/door_and_button_onetime.tscn" id="22_c3o07"]
+[ext_resource type="PackedScene" uid="uid://dcqj30rr8tsbt" path="res://Scenes/Objects/door_and_button.tscn" id="22_yvd8c"]
+[ext_resource type="PackedScene" uid="uid://bpeiwt5b6tqrm" path="res://Scenes/Objects/door_and_button_time.tscn" id="23_8jaxy"]
+[ext_resource type="PackedScene" uid="uid://xabalyrjso52" path="res://Scenes/Objects/push_box.tscn" id="23_an7qq"]
+[ext_resource type="PackedScene" uid="uid://cecubtux8g8tj" path="res://Scenes/Objects/dash_potion.tscn" id="23_qoryd"]
+[ext_resource type="PackedScene" uid="uid://dlaphfp0yn6kb" path="res://Scenes/Objects/heal_potion.tscn" id="24_ytmda"]
+
+[sub_resource type="GDScript" id="GDScript_acyps"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+"
+
+[sub_resource type="Animation" id="Animation_cw73t"]
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(493, -26), Vector2(656, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_hfi7h"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(301, 24), Vector2(465, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kijxy"]
+_data = {
+&"RESET": SubResource("Animation_cw73t"),
+&"move": SubResource("Animation_hfi7h")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg5nj"]
+size = Vector2(19, 142)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wsg0m"]
+distance = -56.0
+
+[sub_resource type="Animation" id="Animation_s7tms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, -60)]
+}
+
+[sub_resource type="Animation" id="Animation_mpib2"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(39, -60), Vector2(-103, -90)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wllm"]
+_data = {
+&"RESET": SubResource("Animation_s7tms"),
+&"new_animation": SubResource("Animation_mpib2")
+}
+
+[node name="TestLevel" instance=ExtResource("1_enwfv")]
+script = SubResource("GDScript_acyps")
+
+[node name="Background" parent="." index="0" instance=ExtResource("2_u8nq6")]
+
+[node name="Layer1" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAIAAAADAAMAAAAAAAMAAAADAAMAAAABAAAAAAABAAEAAAABAAEAAAADAAMAAAABAAIAAAADAAMAAAABAAMAAAADAAMAAAACAAAAAAABAAEAABACAAEAAAADAAMAAAACAAIAAAAFAAcAAAACAAMAAAADAAMAAAADAAAAAAADAAEAABADAAEAAAADAAMAAAADAAIAAAADAAMAAAADAAMAAAADAAMAAAAEAAAAAAABAAEAABAEAAEAAAADAAMAAAAEAAIAAAADAAMAAAAEAAMAAAADAAMAAAAFAAAAAAADAAEAAAAFAAEAAAADAAMAAAAFAAIAAAAFAAcAABAFAAMAAAAHAAcAAAAGAAAAAAAFAAEAAAAGAAEAAAAHAAcAABAGAAIAAAAHAAcAAAAGAAMAAAADAAMAAAAHAAAAAAAHAAEAAAAHAAEAAAADAAMAAAAHAAIAAAADAAMAAAAHAAMAAAADAAMAAAAIAAAAAAAWAAEAAAAIAAEAAAAWAAIAAAAIAAIAAAADAAMAAAAIAAMAAAADAAMAAAAJAAAAAAAXAAEAAAAJAAEAAAAXAAIAAAAJAAIAAAADAAMAAAAJAAMAAAADAAMAAAAKAAEAAAAWAAEAAAAKAAIAAAAWAAIAAAAKAAMAAAADAAMAAAAKAAQAAAADAAUAAAALAAEAAAAXAAEAAAALAAIAAAAXAAIAAAALAAMAAAADAAMAAAALAAQAAAADAAUAAAAMAAIAAAAWAAEAAAAMAAMAAAAHAAUAAAAMAAQAAAAFAAoAAAANAAMAAAAIAAUAAAAOAAMAAAAJAAUAAAASAAIAAAATAAEAAAASAAMAAAABAAMAAAASAAQAAAABAAoAAAATAAIAAAAUAAEAAAATAAMAAAAHAAEAAAATAAQAAAACAAoAAAATAAUAAAACAAsAAAAUAAMAAAAFAAEAAAAUAAQAAAADAAMAAAAUAAUAAAADAAUAABAVAAMAAAADAAEAABAVAAQAAAADAAMAAAAVAAUAAAADAAUAAAAWAAMAAAADAAEAABAWAAQAAAAHAAcAAAAWAAUAAAAFAAUAAAAXAAMAAAABAAEAABAXAAQAAAADAAMAAAAXAAUAAAADAAUAABAYAAMAAAABAAEAAAAYAAQAAAADAAMAAAAYAAUAAAADAAUAAAAZAAMAAAAFAAEAABAZAAQAAAADAAMAAAAZAAUAAAAFAAUAAAAaAAMAAAADAAEAAAAaAAQAAAAHAAcAABAaAAUAAAADAAUAAAAbAAMAAAADAAEAAAAbAAQAAAADAAMAAAAbAAUAAAADAAUAAAAcAAMAAAAFAAEAAAAcAAQAAAADAAMAAAAcAAUAAAAFAAUAAAAdAAMAAAABAAEAABAdAAQAAAAFAAcAAAAdAAUAAAADAAUAAAAeAAMAAAAHAAEAABAeAAQAAAAEAAoAAAAeAAUAAAAEAAsAAAAfAAIAAAAXAAEAAAAfAAMAAAAFAAMAAAAfAAQAAAAFAAoAAAAgAAMAAAAFAAEAAAAhAAMAAAAFAAEAAAAiAAMAAAAFAAEAAAAjAAMAAAAFAAEAAAAeAAIAAAAWAAEAAAAkAAMAAAADAAEAAAAlAAMAAAADAAEAAAAmAAMAAAADAAEAAAAnAAMAAAADAAEAAAAoAAMAAAADAAEAAAApAAMAAAADAAEAAAAqAAMAAAADAAEAAAArAAMAAAADAAEAAAAsAAMAAAADAAEAAAAtAAMAAAADAAEAAAAuAAMAAAADAAEAAAD+/wEAAAAFAAEAAAD//wEAAAAFAAEAAADD//7/AAABAAEAAADE//7/AAABAAEAAADF//7/AAABAAEAAADG//7/AAAWAAEAAADH//7/AAAXAAEAAADN////AAABAAEAAADO////AAAWAAEAAADP////AAAXAAEAAADU/wAAAAAXAAEAAADa/wEAAAADAAEAAADb/wEAAAADAAEAAADc/wEAAAADAAEAAADd/wEAAAADAAEAAADe/wEAAAADAAEAAADf/wEAAAADAAEAAADg/wEAAAADAAEAAADh/wEAAAADAAEAAADi/wEAAAADAAEAAADj/wEAAAADAAEAAADk/wEAAAADAAEAAADl/wEAAAADAAEAAADm/wEAAAAUAAUAAADn/wEAAAADAAMAAADo/wEAAAAWAAUAAADp/wEAAAARAA4AAADq/wEAAAAUAAUAAADr/wEAAAADAAMAAADs/wEAAAAFAAcAAADt/wAAAAAWAAUAAADt/wEAAAAHAAcAAADu/wAAAAAWAAQAAADu/wEAAAAWAAUAAAC8//r/AAAFAAMAAAC8//v/AAAFAAMAAAC8//z/AAAFAAMAAAC8//3/AAADAAMAAAC8//7/AAADAAMAAAC9//3/AAAWAAQAAAC9//7/AAAWAAUAAAC+//7/AAABAAEAAAC///7/AAABAAEAAADA//7/AAABAAEAAADB//H/AAAFAAMAABDB//L/AAAFAAMAABDB//P/AAAFAAMAABDB//T/AAAFAAMAABDB//X/AAAFAAMAABDB//b/AAAFAAMAABDB//f/AAAFAAMAABDB//j/AAAFAAMAABDB//n/AAAFAAMAABDB//r/AAAFAAMAABDB//v/AAAFAAMAABDB//z/AAAFAAMAABDB//3/AAAFAAMAABDB//7/AAABAAEAAADC//7/AAABAAEAAADF//H/AAAFAAMAABDF//L/AAAFAAMAABDF//P/AAAFAAMAABDF//T/AAAFAAMAABDF//X/AAAFAAMAABDF//b/AAAFAAMAABDF//f/AAAFAAMAABDF//j/AAAFAAMAABDF//n/AAAFAAMAABDF//r/AAAFAAMAABDG////AAABAAEAAADH////AAABAAEAAADI////AAABAAEAAADJ////AAABAAEAAADK////AAABAAEAAADL////AAABAAEAAADM////AAABAAEAAADN/wAAAAABAAEAAADO/wAAAAABAAEAAADP/wAAAAABAAEAAADQ/wAAAAABAAEAAADR/wAAAAABAAEAAADS/wAAAAABAAEAAADT/wAAAAAWAAEAAADT/wEAAAAWAAIAAADU/wEAAAAXAAIAAADV/wEAAAADAAEAAADW/wEAAAADAAEAAADX/wEAAAADAAEAAADY/wEAAAADAAEAAADZ/wEAAAADAAEAAADm/wAAAAAUAAQAAADn/wAAAAARAA4AAADo/wAAAAAWAAQAAADq/wAAAAAUAAQAAADr////AAAUAAQAAADr/wAAAAAUAAUAAADs////AAADAAEAAADs/wAAAAADAAMAAADt////AAAWAAQAAADv/wEAAAARAA4AAADw/wEAAAARAA4AAADx/wEAAAARAA4AAADy/wEAAAARAA4AAADz/wEAAAARAA4AAAD0/wEAAAARAA4AAAD1/wEAAAARAA4AAAD2/wEAAAARAA4AAAD3/wEAAAARAA4AAAD4/wEAAAARAA4AAAD5/wEAAAARAA4AAAD6/wEAAAARAA4AAAD7/wEAAAARAA4AAAD8/wEAAAARAA4AAAD9/wEAAAARAA4AAAD6//r/AAAWAAEAAAD7//r/AAAXAAEAAAD4//r/AAAWAAIAAAD4//v/AAAWAAIAAAD5//r/AAAXAAIAAAD5//v/AAAXAAIAAAD4//n/AAAWAAEAAAD5//n/AAAXAAEAAAD2//j/AAAWAAEAAAD2//n/AAAWAAIAAAD3//j/AAAXAAEAAAD3//n/AAAXAAIAAAD0//f/AAAWAAEAAAD0//j/AAAWAAIAAAD1//f/AAAXAAEAAAD1//j/AAAXAAIAAAA=")
+
+[node name="WallJumpLayer" parent="." index="3"]
+tile_map_data = PackedByteArray("AADJ//7/AAAPAAkAAADJ//3/AAAPAAkAAADJ//z/AAAPAAkAAADJ//v/AAAPAAkAAADJ//r/AAAPAAkAAADJ//n/AAAPAAkAAADJ//j/AAAPAAkAAADJ//f/AAAPAAkAAADJ//b/AAAPAAkAAADJ//X/AAAPAAkAAADJ//T/AAAPAAkAAAA=")
+
+[node name="Coins" type="Node" parent="." index="4"]
+
+[node name="Coin3" parent="Coins" index="0" instance=ExtResource("3_rgylt")]
+position = Vector2(223, -63)
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource("3_rgylt")]
+position = Vector2(106, -76)
+
+[node name="Coin" parent="Coins" index="2" instance=ExtResource("3_rgylt")]
+position = Vector2(354, -80)
+
+[node name="Platform" parent="." index="5" instance=ExtResource("4_d7xao")]
+position = Vector2(119, -47)
+collision_layer = 1
+
+[node name="Platform3" parent="." index="6" instance=ExtResource("4_d7xao")]
+position = Vector2(-557, -54)
+collision_layer = 1
+
+[node name="Platform2" parent="." index="7" instance=ExtResource("4_d7xao")]
+position = Vector2(493, -26)
+collision_layer = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2" index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_kijxy")
+}
+autoplay = "RESET"
+
+[node name="Yeti" parent="." index="8" instance=ExtResource("5_xum1l")]
+z_index = 5
+position = Vector2(341, 48)
+
+[node name="Slime" parent="." index="9" instance=ExtResource("6_rbvm6")]
+position = Vector2(541, 49)
+
+[node name="Spikes" type="Node" parent="." index="10"]
+
+[node name="SpikeCollision" parent="Spikes" index="0" instance=ExtResource("8_xmjhs")]
+position = Vector2(263, 56)
+
+[node name="SpikeNoBlack" type="Sprite2D" parent="Spikes" index="1"]
+position = Vector2(251, 82.38)
+texture = ExtResource("9_07kcq")
+
+[node name="SpikeNoBlack2" type="Sprite2D" parent="Spikes" index="2"]
+position = Vector2(265, 82.38)
+texture = ExtResource("9_07kcq")
+
+[node name="SpikeNoBlack3" type="Sprite2D" parent="Spikes" index="3"]
+position = Vector2(280, 82.38)
+texture = ExtResource("9_07kcq")
+
+[node name="Skulls" type="Sprite2D" parent="." index="11"]
+position = Vector2(430, 43)
+texture = ExtResource("10_dc7qi")
+
+[node name="Palm" type="Sprite2D" parent="." index="12"]
+position = Vector2(391, -40)
+texture = ExtResource("11_km2hg")
+
+[node name="Bush" type="Sprite2D" parent="." index="13"]
+z_index = 1
+position = Vector2(384, 34)
+texture = ExtResource("12_fa15l")
+
+[node name="Player" parent="." index="14"]
+position = Vector2(-396, -7)
+
+[node name="Shrooms" type="Sprite2D" parent="." index="15"]
+position = Vector2(671, 41)
+texture = ExtResource("13_pa8ba")
+
+[node name="Chest" parent="." index="16" instance=ExtResource("14_5vth1")]
+position = Vector2(629, 32)
+
+[node name="VictoryZone" parent="." index="17"]
+position = Vector2(3, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone" index="0"]
+position = Vector2(711, -22)
+shape = SubResource("RectangleShape2D_vg5nj")
+debug_color = Color(0, 0.627451, 0, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" index="0"]
+shape = SubResource("WorldBoundaryShape2D_wsg0m")
+
+[node name="FallingLog3" parent="." index="19" instance=ExtResource("17_wxgal")]
+position = Vector2(279, -30)
+
+[node name="FallingLog6" parent="." index="20" instance=ExtResource("17_wxgal")]
+position = Vector2(306, -30)
+
+[node name="FallingLog7" parent="." index="21" instance=ExtResource("17_wxgal")]
+position = Vector2(330, -30)
+
+[node name="FallingLog4" parent="." index="22" instance=ExtResource("17_wxgal")]
+position = Vector2(248, -23)
+
+[node name="FallingLog5" parent="." index="23" instance=ExtResource("17_wxgal")]
+position = Vector2(-18, -66)
+
+[node name="Eagle" parent="." index="24" instance=ExtResource("19_ejaok")]
+position = Vector2(39, -60)
+rotation = 0.0208261
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Eagle" index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_5wllm")
+}
+autoplay = "new_animation"
+
+[node name="PushBox" parent="." index="25" instance=ExtResource("23_an7qq")]
+position = Vector2(-452, -5)
+
+[node name="DoorAndButton" parent="." index="29" instance=ExtResource("22_yvd8c")]
+position = Vector2(86, -3)
+
+[node name="Button" parent="DoorAndButton" index="0"]
+position = Vector2(-1, -1)
+
+[node name="Door" parent="DoorAndButton" index="1"]
+position = Vector2(33, -13)
+
+[node name="DoorAndButtonOne" parent="." index="30" instance=ExtResource("22_c3o07")]
+position = Vector2(-164, -4)
+
+[node name="Button" parent="DoorAndButtonOne" index="0"]
+position = Vector2(-322, 16)
+
+[node name="Door" parent="DoorAndButtonOne" index="1"]
+position = Vector2(55, 4)
+
+[node name="DoorAndButtonTime" parent="." index="31" instance=ExtResource("23_8jaxy")]
+position = Vector2(-72, 13)
+timer_length = 2.0
+
+[node name="AttackPotion" parent="." index="33" instance=ExtResource("22_5rhql")]
+position = Vector2(-645, 8)
+
+[node name="DashPotion" parent="." index="34" instance=ExtResource("23_qoryd")]
+position = Vector2(-598, 8)
+
+[node name="HealPotion" parent="." index="35" instance=ExtResource("24_ytmda")]
+position = Vector2(-539, 8)
+
+[editable path="DoorAndButton"]
+[editable path="DoorAndButtonOne"]
+[editable path="DoorAndButtonTime"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjrgdedub2fyu"]
+
+[ext_resource type="Script" uid="uid://j83gsax4yjf5" path="res://Scripts/loading_screen.gd" id="1_nuqxu"]
+[ext_resource type="FontFile" uid="uid://banpm0kg30tl" path="res://Assets/UI/fonts/leapfont-bold.ttf" id="2_oc21n"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nuqxu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -73.485
+offset_right = 200.0
+offset_bottom = 14.515
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oc21n")
+theme_override_font_sizes/font_size = 80
+text = "LOADING..."
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 23.31
+offset_right = 80.0
+offset_bottom = 111.31
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oc21n")
+theme_override_font_sizes/font_size = 80
+text = "90%"

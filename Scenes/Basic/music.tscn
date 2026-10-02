@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkfr23nn6f81n"]
+
+[ext_resource type="AudioStream" uid="uid://njb68p8id7rw" path="res://Assets/Sounds/chill_loop_music.wav" id="1_8xesi"]
+[ext_resource type="Script" uid="uid://bkdau5ft8t4dp" path="res://Scripts/music.gd" id="2_0yx08"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_8xesi")
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_0yx08")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

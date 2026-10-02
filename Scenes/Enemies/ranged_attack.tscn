@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://nj0qx1rr7ncj"]
+
+[ext_resource type="Texture2D" uid="uid://0ehaxnlo5y30" path="res://Assets/Explosions/Yellow Effect Bullet Impact Explosion 32x32.png" id="1_bbjg7"]
+[ext_resource type="Script" path="res://Scripts/ranged_attack.gd" id="1_e43i8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y33ub"]
+atlas = ExtResource("1_bbjg7")
+region = Rect2(210, 96, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik8kx"]
+atlas = ExtResource("1_bbjg7")
+region = Rect2(252, 96, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifour"]
+atlas = ExtResource("1_bbjg7")
+region = Rect2(294, 96, 42, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcqr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y33ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik8kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifour")
+}],
+"loop": true,
+"name": &"go",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i1ao"]
+size = Vector2(57, 43)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_e43i8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mcqr0")
+animation = &"go"
+autoplay = "go"
+frame = 2
+frame_progress = 0.930577
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_1i1ao")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

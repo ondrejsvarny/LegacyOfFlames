@@ -1,0 +1,778 @@
+[gd_scene load_steps=24 format=4 uid="uid://ditremhsiglhy"]
+
+[ext_resource type="Script" uid="uid://bhy3orr8d6b8m" path="res://Scripts/character_menu.gd" id="1_ehmi0"]
+[ext_resource type="FontFile" uid="uid://dsbbmvsvlakcp" path="res://Assets/UI/fonts/monogram.ttf" id="1_rxwj8"]
+[ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="3_73nwo"]
+[ext_resource type="FontFile" uid="uid://banpm0kg30tl" path="res://Assets/UI/fonts/leapfont-bold.ttf" id="3_y22bn"]
+[ext_resource type="Theme" uid="uid://qvt3wbqia1sb" path="res://Assets/UI/Themes/back_button.tres" id="4_q7bnw"]
+[ext_resource type="Texture2D" uid="uid://cejbrgqc5q5mv" path="res://Assets/Tilesets/tileset-snow.png" id="4_xw7yp"]
+[ext_resource type="FontFile" uid="uid://dv86c210qs7jq" path="res://Assets/UI/fonts/monogram-extended.ttf" id="5_o43dw"]
+[ext_resource type="Theme" uid="uid://dxo0vbnf4jely" path="res://Assets/UI/Themes/upgrade_window.tres" id="6_n3aqh"]
+[ext_resource type="Texture2D" uid="uid://cj7k2exr1bikv" path="res://Assets/UI/Icons/dash_icon.png" id="7_0lbga"]
+[ext_resource type="Theme" uid="uid://dqm6x0epo4wyh" path="res://Assets/UI/Themes/upgrade_button.tres" id="7_dim58"]
+[ext_resource type="Texture2D" uid="uid://du2xkkwfug27y" path="res://Assets/Player/fireball-preview.png" id="7_fjueu"]
+[ext_resource type="Texture2D" uid="uid://cgy7md4xm05w8" path="res://Assets/Tilesets/coins/single_coin.png" id="7_sblvi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7bnw"]
+texture = ExtResource("3_73nwo")
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:7/0 = 0
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:7/0 = 0
+11:7/0 = 0
+17:9/0 = 0
+17:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:10/0 = 0
+7:10/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:10/0 = 0
+11:10/0 = 0
+13:13/0 = 0
+13:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+15:14/0 = 0
+15:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:14/0 = 0
+17:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:14/0 = 0
+19:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:18/0 = 0
+19:18/0 = 0
+21:18/0 = 0
+1:20/0 = 0
+1:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:20/0 = 0
+22:4/0 = 0
+22:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, -8, -8, 8, 8, 8)
+22:5/0 = 0
+22:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:4/0 = 0
+20:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
+20:5/0 = 0
+20:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 0.125, 8, 8, -8, 8)
+14:1/0 = 0
+14:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.375, 8, -8, 8, 8, -8, 8)
+13:2/0 = 0
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:2/0 = 0
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:20/0 = 0
+10:20/0 = 0
+11:20/0 = 0
+11:21/0 = 0
+10:21/0 = 0
+9:21/0 = 0
+13:20/0 = 0
+14:20/0 = 0
+15:20/0 = 0
+15:21/0 = 0
+14:21/0 = 0
+13:21/0 = 0
+14:16/0 = 0
+14:17/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+15:17/0 = 0
+15:16/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+4:16/0 = 0
+4:17/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+5:17/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+2:16/0 = 0
+2:17/0 = 0
+1:17/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+11:16/0 = 0
+11:17/0 = 0
+11:18/0 = 0
+10:18/0 = 0
+12:18/0 = 0
+11:13/0 = 0
+11:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+11:14/0 = 0
+7:13/0 = 0
+7:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:14/0 = 0
+1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -6.75, -3.125, -6, 0.5, -0.5, 5.25, 8, 8)
+2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:11/0 = 0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -6.75, -3.125, -6, 0.5, -0.5, 5.25, 8, 8)
+5:10/0 = 0
+5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 6.75, -3.125, 6, 0.5, 0.5, 5.25, -8, 8)
+4:10/0 = 0
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:11/0 = 0
+4:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 6.75, -3.125, 6, 0.5, 0.5, 5.25, -8, 8)
+7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:5/0 = 0
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -8, -1.125)
+9:5/0 = 0
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -8, -1.125)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -8, -1.125)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.875, -8, -0.875)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.875, -8, -0.875)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:3/0 = 0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.875, -8, -0.875)
+11:3/0 = 0
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:20/0 = 0
+3:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:20/0 = 0
+4:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:21/0 = 0
+4:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:21/0 = 0
+3:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:16/0 = 0
+18:16/0 = 0
+19:16/0 = 0
+9:13/0 = 0
+9:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:14/0 = 0
+9:15/0 = 0
+14:4/0 = 0
+14:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, -8, 8, 8, -8, 8)
+14:5/0 = 0
+14:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:4/0 = 0
+16:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, -8, -8, 8, 8, 8)
+16:5/0 = 0
+16:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:1/0 = 0
+16:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 0, 8, 8, -8, 8)
+17:1/0 = 0
+17:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.125, 8, 8, 8, 8, -8, 8)
+17:2/0 = 0
+17:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:2/0 = 0
+16:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:1/0 = 0
+19:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, -0.0441942, 8, 8, -8, 8)
+20:1/0 = 0
+20:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.0835218, 8, -8, 8, 8, -8, 8)
+20:2/0 = 0
+20:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:2/0 = 0
+19:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+22:1/0 = 0
+22:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, -8, -8, -8, 8, 8, 8)
+23:1/0 = 0
+23:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 0, -8, 8, 8, 8)
+23:2/0 = 0
+23:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+22:2/0 = 0
+22:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+17:15/0 = 0
+18:14/0 = 0
+4:13/0 = 0
+4:13/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+21:7/0 = 0
+21:7/0/modulate = Color(1, 1, 1, 0.792157)
+23:7/0 = 0
+23:7/0/modulate = Color(1, 1, 1, 0.792157)
+22:7/0 = 0
+22:7/0/modulate = Color(1, 1, 1, 0.792157)
+24:7/0 = 0
+24:7/0/modulate = Color(1, 1, 1, 0.792157)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73nwo"]
+texture = ExtResource("4_xw7yp")
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:1/0 = 0
+19:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, -0.125, 8, 8, -8, 8)
+20:1/0 = 0
+20:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.125, 8, -8, 8, 8, -8, 8)
+22:1/0 = 0
+22:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -0.125, 8, 8, -8, 8)
+23:1/0 = 0
+23:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.25, 8, 8, 8, 8, -8, 8)
+19:2/0 = 0
+19:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:2/0 = 0
+20:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+22:2/0 = 0
+22:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+23:2/0 = 0
+23:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:4/0 = 0
+20:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, -8, 8, 8, -8, 8)
+22:4/0 = 0
+22:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, 8, 8, -8, 8)
+20:5/0 = 0
+20:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+22:5/0 = 0
+22:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_hfq3o"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_q7bnw")
+sources/1 = SubResource("TileSetAtlasSource_73nwo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut8t3"]
+content_margin_right = 40.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="GDScript" id="GDScript_o16f8"]
+script/source = "extends Label
+
+func _process(delta):
+	self.text = str(Global.coins)
+	
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq4h5"]
+bg_color = Color(0.333333, 0.333333, 0.333333, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fphj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjx1k"]
+content_margin_top = 10.0
+content_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pewa3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6kg3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsd2o"]
+
+[node name="Character_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehmi0")
+
+[node name="Layer1" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+use_parent_material = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAMAAAABAAAAAAADAAMAAAABAAEAAAADAAMAAAACAAEAAAADAAMAAAADAAEAAAAHAAcAAAAAAAEAAAADAAMAAAABAAIAAAAFAAcAAAABAAMAAAADAAMAAAACAAIAAAADAAMAAAADAAIAAAADAAMAAAACAAAAAAADAAMAAAADAAAAAAADAAMAAAAAAAMAAAADAAMAAAAAAAIAAAADAAMAAAAEAAAAAAADAAMAAAAFAAAAAAADAAMAAAAFAAEAAAADAAMAAAAEAAEAAAADAAMAAAAEAAIAAAADAAMAAAADAAMAAAADAAMAAAACAAMAAAADAAMAAAAEAAMAAAADAAMAAAAFAAIAAAADAAMAAAAGAAIAAAADAAMAAAAHAAIAAAADAAMAAAAFAAMAAAAHAAcAAAAGAAEAAAADAAMAAAAHAAEAAAADAAMAAAAIAAEAAAADAAMAAAAIAAAAAAADAAMAAAAJAAAAAAADAAMAAAAKAAAAAAADAAMAAAAHAAAAAAADAAMAAAAGAAAAAAADAAMAAAALAAAAAAADAAMAAAALAAEAAAADAAMAAAALAAIAAAADAAMAAAAKAAIAAAADAAMAAAAJAAIAAAADAAMAAAAIAAIAAAADAAMAAAAJAAEAAAADAAMAAAAKAAEAAAADAAMAAAAGAAMAAAADAAMAAAAHAAMAAAADAAMAAAAIAAMAAAAFAAcAAAAJAAMAAAADAAMAAAAKAAMAAAADAAMAAAAMAAIAAAADAAMAAAAMAAEAAAADAAMAAAAMAAAAAAADAAMAAAD//wMAAAADAAMAAAD//wQAAAADAAMAAAD//wUAAAADAAMAAAD//wYAAAADAAMAAAAAAAQAAAADAAMAAAAAAAUAAAADAAMAAAAAAAYAAAADAAMAAAABAAQAAAADAAMAAAABAAUAAAAFAAcAABABAAYAAAADAAMAAAACAAQAAAADAAMAAAACAAUAAAADAAMAAAACAAYAAAADAAMAAAD//wEAAAADAAMAAAD//wIAAAADAAMAAAD//wcAAAADAAMAAAD//wgAAAADAAMAAAD//wkAAAADAAMAAAD//woAAAADAAMAAAD//wsAAAADAAMAAAAAAAcAAAADAAMAAAAAAAgAAAADAAMAAAAAAAkAAAADAAMAAAAAAAoAAAADAAMAAAAAAAsAAAADAAMAAAABAAcAAAADAAMAAAABAAgAAAADAAMAAAABAAkAAAADAAMAAAABAAoAAAADAAMAAAABAAsAAAADAAMAAAACAAcAAAADAAMAAAACAAgAAAAHAAcAABACAAkAAAADAAMAAAACAAoAAAADAAMAAAACAAsAAAAFAAcAABADAAQAAAADAAMAAAADAAUAAAADAAMAAAADAAYAAAADAAMAAAADAAcAAAADAAMAAAADAAgAAAADAAMAAAADAAkAAAADAAMAAAADAAoAAAADAAMAAAADAAsAAAADAAMAAAAEAAQAAAADAAMAAAAEAAUAAAADAAMAAAAEAAYAAAADAAMAAAAEAAcAAAADAAMAAAAEAAgAAAADAAMAAAAEAAkAAAADAAMAAAAEAAoAAAADAAMAAAAEAAsAAAADAAMAAAAFAAQAAAADAAMAAAAFAAUAAAADAAMAAAAFAAYAAAADAAMAAAAFAAcAAAADAAMAAAAFAAgAAAADAAMAAAAFAAkAAAADAAMAAAAFAAoAAAADAAMAAAAFAAsAAAADAAMAAAAGAAQAAAADAAMAAAAGAAUAAAADAAMAAAAGAAYAAAADAAMAAAAGAAcAAAADAAMAAAAGAAkAAAADAAMAAAAGAAoAAAADAAMAAAAGAAsAAAADAAMAAAAHAAQAAAADAAMAAAAHAAUAAAADAAMAAAAHAAYAAAADAAMAAAAHAAcAAAADAAMAAAAHAAoAAAADAAMAAAAHAAsAAAADAAMAAAAIAAQAAAADAAMAAAAIAAUAAAADAAMAAAAIAAYAAAADAAMAAAAIAAcAAAADAAMAAAAIAAgAAAADAAMAAAAIAAoAAAADAAMAAAAIAAsAAAADAAMAAAAJAAQAAAADAAMAAAAJAAUAAAADAAMAAAAJAAYAAAADAAMAAAAJAAcAAAADAAMAAAAJAAgAAAADAAMAAAAJAAoAAAADAAMAAAAJAAsAAAADAAMAAAAKAAQAAAADAAMAAAAKAAUAAAADAAMAAAAKAAYAAAADAAMAAAAKAAcAAAADAAMAAAAKAAgAAAADAAMAAAAKAAkAAAADAAMAAAAKAAoAAAADAAMAAAAKAAsAAAADAAMAAAALAAMAAAADAAMAAAALAAQAAAADAAMAAAALAAUAAAADAAMAAAALAAYAAAADAAMAAAALAAcAAAADAAMAAAALAAgAAAADAAMAAAALAAkAAAADAAMAAAALAAoAAAADAAMAAAALAAsAAAADAAMAAAAMAAMAAAADAAMAAAAMAAQAAAADAAMAAAAMAAUAAAADAAMAAAAMAAYAAAADAAMAAAAMAAcAAAADAAMAAAAMAAgAAAADAAMAAAAMAAkAAAADAAMAAAAMAAoAAAADAAMAAAAMAAsAAAADAAMAAAANAAEAAAADAAMAAAANAAIAAAADAAMAAAANAAMAAAADAAMAAAANAAQAAAADAAMAAAANAAUAAAADAAMAAAANAAYAAAADAAMAAAANAAcAAAADAAMAAAANAAgAAAADAAMAAAANAAkAAAADAAMAAAANAAoAAAADAAMAAAANAAsAAAADAAMAAAAOAAEAAAADAAMAAAAOAAIAAAADAAMAAAAOAAMAAAADAAMAAAAOAAQAAAADAAMAAAAOAAUAAAADAAMAAAAOAAYAAAADAAMAAAAOAAcAAAADAAMAAAAOAAgAAAADAAMAAAAOAAkAAAADAAMAAAAOAAoAAAADAAMAAAAOAAsAAAADAAMAAAAPAAEAAAADAAMAAAAPAAIAAAADAAMAAAAPAAMAAAADAAMAAAAPAAQAAAADAAMAAAAPAAUAAAADAAMAAAAPAAYAAAADAAMAAAAPAAcAAAADAAMAAAAPAAgAAAADAAMAAAAPAAkAAAADAAMAAAAPAAoAAAADAAMAAAAPAAsAAAADAAMAAAD//wAAAAADAAMAAAD//wwAAAADAAMAAAD//w0AAAADAAMAAAD//w4AAAADAAMAAAD//w8AAAADAAMAAAAAAAwAAAADAAMAAAAAAA0AAAADAAMAAAAAAA4AAAADAAMAAAAAAA8AAAADAAMAAAABAAwAAAADAAMAAAABAA0AAAADAAMAAAABAA4AAAADAAMAAAABAA8AAAADAAMAAAACAAwAAAADAAMAAAACAA0AAAADAAMAAAACAA4AAAADAAMAAAACAA8AAAAFAAcAABADAAwAAAADAAMAAAADAA0AAAADAAMAAAADAA4AAAADAAMAAAADAA8AAAADAAMAAAAEAAwAAAADAAMAAAAEAA0AAAADAAMAAAAEAA4AAAADAAMAAAAEAA8AAAADAAMAAAAFAAwAAAADAAMAAAAFAA0AAAADAAMAAAAFAA4AAAAHAAcAAAAFAA8AAAADAAMAAAAGAAwAAAADAAMAAAAGAA0AAAADAAMAAAAGAA4AAAADAAMAAAAGAA8AAAADAAMAAAAHAAwAAAADAAMAAAAHAA0AAAADAAMAAAAHAA4AAAADAAMAAAAHAA8AAAADAAMAAAAIAAwAAAADAAMAAAAIAA0AAAADAAMAAAAIAA4AAAADAAMAAAAIAA8AAAADAAMAAAAJAAwAAAADAAMAAAAJAA0AAAADAAMAAAAJAA4AAAADAAMAAAAJAA8AAAADAAMAAAAKAAwAAAADAAMAAAAKAA0AAAADAAMAAAAKAA4AAAADAAMAAAAKAA8AAAAHAAcAAAALAAwAAAADAAMAAAALAA0AAAADAAMAAAALAA4AAAADAAMAAAALAA8AAAADAAMAAAAMAAwAAAADAAMAAAAMAA0AAAADAAMAAAAMAA4AAAADAAMAAAAMAA8AAAADAAMAAAANAAAAAAADAAMAAAANAAwAAAADAAMAAAANAA0AAAADAAMAAAANAA4AAAADAAMAAAANAA8AAAADAAMAAAAOAAAAAAADAAMAAAAOAAwAAAADAAMAAAAOAA0AAAAFAAcAABAOAA4AAAADAAMAAAAOAA8AAAADAAMAAAAPAAAAAAADAAMAAAAPAAwAAAADAAMAAAAPAA0AAAADAAMAAAAPAA4AAAADAAMAAAAPAA8AAAAFAAcAABAQAAAAAAADAAMAAAAQAAEAAAADAAMAAAAQAAIAAAADAAMAAAAQAAMAAAADAAMAAAAQAAQAAAADAAMAAAAQAAUAAAADAAMAAAAQAAYAAAADAAMAAAAQAAcAAAADAAMAAAAQAAgAAAADAAMAAAAQAAkAAAADAAMAAAAQAAoAAAADAAMAAAAQAAsAAAADAAMAAAAQAAwAAAADAAMAAAAQAA0AAAADAAMAAAAQAA4AAAADAAMAAAAQAA8AAAADAAMAAAARAAAAAAADAAMAAAARAAEAAAADAAMAAAARAAIAAAADAAMAAAARAAMAAAADAAMAAAARAAQAAAADAAMAAAARAAUAAAADAAMAAAARAAYAAAADAAMAAAARAAcAAAADAAMAAAARAAgAAAADAAMAAAARAAkAAAADAAMAAAARAAoAAAADAAMAAAARAAsAAAADAAMAAAARAAwAAAADAAMAAAARAA0AAAADAAMAAAARAA4AAAADAAMAAAARAA8AAAADAAMAAAASAAAAAAADAAMAAAASAAEAAAADAAMAAAASAAIAAAADAAMAAAASAAMAAAAHAAcAAAASAAQAAAADAAMAAAASAAUAAAADAAMAAAASAAYAAAADAAMAAAASAAcAAAADAAMAAAASAAgAAAADAAMAAAASAAkAAAADAAMAAAASAAoAAAADAAMAAAASAAsAAAADAAMAAAASAAwAAAADAAMAAAASAA0AAAADAAMAAAASAA4AAAADAAMAAAASAA8AAAADAAMAAAATAAAAAAADAAMAAAATAAEAAAADAAMAAAATAAIAAAADAAMAAAATAAMAAAADAAMAAAATAAQAAAADAAMAAAATAAUAAAADAAMAAAATAAYAAAADAAMAAAATAAcAAAADAAMAAAATAAgAAAADAAMAAAATAAkAAAADAAMAAAATAAoAAAADAAMAAAATAAsAAAADAAMAAAATAAwAAAADAAMAAAATAA0AAAADAAMAAAATAA4AAAADAAMAAAATAA8AAAADAAMAAAARAP//AAADAAMAAAASAP//AAADAAMAAAATAP//AAADAAMAAAAUAP//AAARAAkAAAAUAAAAAAADAAMAAAAUAAEAAAADAAMAAAAUAAIAAAAHAAcAACAUAAMAAAADAAMAAAAVAAAAAAADAAMAAAAVAAEAAAADAAMAAAAVAAIAAAADAAMAAAAVAAMAAAAFAAcAAAAUAAQAAAADAAMAAAAUAAUAAAADAAMAAAAUAAYAAAADAAMAAAAUAAcAAAADAAMAAAAUAAgAAAADAAMAAAAUAAkAAAADAAMAAAAVAAQAAAADAAMAAAAVAAUAAAADAAMAAAAVAAYAAAADAAMAAAAVAAcAAAADAAMAAAAVAAgAAAADAAMAAAAVAAkAAAADAAMAAAAWAAIAAAADAAMAAAAWAAMAAAADAAMAAAAWAAQAAAADAAMAAAAWAAUAAAADAAMAAAAWAAYAAAADAAMAAAAWAAcAAAADAAMAAAAWAAgAAAADAAMAAAAWAAkAAAADAAMAAAAXAAIAAAARAAkAAAAXAAMAAAARAAkAAAAXAAQAAAARAAkAAAAXAAUAAAARAAkAAAAXAAYAAAAFAAcAAAAXAAcAAAADAAMAAAAXAAgAAAAHAAcAAAAXAAkAAAADAAMAAAAWAP//AAADAAMAAAAWAAAAAAAFAAcAABAWAAEAAAADAAMAAAAXAP//AAARAAkAAAAXAAAAAAARAAkAAAAXAAEAAAARAAkAAAAYAP//AAARAAkAAAAYAAAAAAARAAkAAAAYAAEAAAADAAMAAAAYAAIAAAADAAMAAAAAABAAAAADAAMAAAAAABEAAAADAAMAAAAAABIAAAADAAMAAAABABAAAAADAAMAAAABABEAAAADAAMAAAABABIAAAADAAMAAAACABAAAAADAAMAAAACABEAAAADAAMAAAACABIAAAADAAMAAAADABAAAAADAAMAAAADABEAAAADAAMAAAADABIAAAADAAMAAAAEABAAAAADAAMAAAAEABEAAAADAAMAAAAEABIAAAADAAMAAAAFABAAAAADAAMAAAAFABEAAAADAAMAAAAFABIAAAADAAMAAAAGABAAAAADAAMAAAAGABEAAAADAAMAAAAGABIAAAADAAMAAAAHABAAAAADAAMAAAAHABEAAAADAAMAAAAHABIAAAADAAMAAAAIABAAAAADAAMAAAAIABEAAAADAAMAAAAIABIAAAADAAMAAAAJABAAAAADAAMAAAAJABEAAAADAAMAAAAJABIAAAADAAMAAAAKABAAAAADAAMAAAAKABEAAAADAAMAAAAKABIAAAADAAMAAAALABAAAAADAAMAAAALABEAAAADAAMAAAALABIAAAADAAMAAAAMABAAAAADAAMAAAAMABEAAAADAAMAAAAMABIAAAADAAMAAAANABAAAAADAAMAAAANABEAAAADAAMAAAANABIAAAADAAMAAAAOABAAAAADAAMAAAAOABEAAAADAAMAAAAOABIAAAADAAMAAAAPABAAAAADAAMAAAAPABEAAAADAAMAAAAPABIAAAADAAMAAAAQABAAAAADAAMAAAAQABEAAAADAAMAAAAQABIAAAADAAMAAAARABAAAAADAAMAAAARABEAAAADAAMAAAARABIAAAADAAMAAAASABAAAAADAAMAAAASABEAAAADAAMAAAASABIAAAADAAMAAAATABAAAAADAAMAAAATABEAAAADAAMAAAATABIAAAADAAMAAAAUAAoAAAADAAMAAAAUAAsAAAADAAMAAAAUAAwAAAADAAMAAAAUAA0AAAADAAMAAAAUAA4AAAADAAMAAAAUAA8AAAADAAMAAAAUABAAAAADAAMAAAAUABEAAAADAAMAAAAUABIAAAADAAMAAAAVAAoAAAADAAMAAAAVAAsAAAADAAMAAAAVAAwAAAADAAMAAAAVAA0AAAAHAAcAABAVAA4AAAADAAMAAAAVAA8AAAADAAMAAAAVABAAAAADAAMAAAAVABEAAAADAAMAAAAVABIAAAADAAMAAAAWAAoAAAADAAMAAAAWAAsAAAADAAMAAAAWAAwAAAADAAMAAAAWAA0AAAADAAMAAAAWAA4AAAADAAMAAAAWAA8AAAADAAMAAAAWABAAAAADAAMAAAAWABEAAAADAAMAAAAWABIAAAADAAMAAAAXAAoAAAADAAMAAAAXAAsAAAADAAMAAAAXAAwAAAAFAAcAABAXAA0AAAADAAMAAAAXAA4AAAADAAMAAAAXAA8AAAADAAMAAAAXABAAAAADAAMAAAAXABEAAAADAAMAAAAXABIAAAADAAMAAAAYAAUAAAADAAMAAAAYAAYAAAADAAMAAAAYAAcAAAADAAMAAAAYAAgAAAADAAMAAAAYAAkAAAADAAMAAAAYAAoAAAADAAMAAAAYAAsAAAADAAMAAAAYAAwAAAADAAMAAAAYAA0AAAADAAMAAAAYAA4AAAADAAMAAAAYAA8AAAADAAMAAAAYABAAAAADAAMAAAAYABEAAAADAAMAAAAYABIAAAADAAMAAAAZAAUAAAADAAMAAAAZAAYAAAADAAMAAAAZAAcAAAADAAMAAAAZAAgAAAADAAMAAAAZAAkAAAADAAMAAAAZAAoAAAADAAMAAAAZAAsAAAADAAMAAAAZAAwAAAADAAMAAAAZAA0AAAADAAMAAAAZAA4AAAADAAMAAAAZAA8AAAADAAMAAAAZABAAAAADAAMAAAAZABEAAAADAAMAAAAZABIAAAADAAMAAAAaAAUAAAADAAMAAAAaAAYAAAADAAMAAAAaAAcAAAADAAMAAAAaAAgAAAADAAMAAAAaAAkAAAAFAAcAABAaAAoAAAADAAMAAAAaAAsAAAADAAMAAAAaAAwAAAADAAMAAAAaAA0AAAADAAMAAAAaAA4AAAADAAMAAAAaAA8AAAADAAMAAAAaABAAAAADAAMAAAAaABEAAAADAAMAAAAaABIAAAADAAMAAAAbAAUAAAADAAMAAAAbAAYAAAADAAMAAAAbAAcAAAADAAMAAAAbAAgAAAADAAMAAAAbAAkAAAADAAMAAAAbAAoAAAADAAMAAAAbAAsAAAADAAMAAAAbAAwAAAADAAMAAAAbAA0AAAADAAMAAAAbAA4AAAADAAMAAAAbAA8AAAADAAMAAAAbABAAAAADAAMAAAAbABEAAAADAAMAAAAbABIAAAADAAMAAAAcAAUAAAADAAMAAAAcAAYAAAADAAMAAAAcAAcAAAADAAMAAAAcAAgAAAADAAMAAAAcAAkAAAADAAMAAAAcAAoAAAADAAMAAAAcAAsAAAADAAMAAAAcAAwAAAADAAMAAAAcAA0AAAADAAMAAAAcAA4AAAADAAMAAAAcAA8AAAADAAMAAAAcABAAAAADAAMAAAAcABEAAAADAAMAAAAcABIAAAADAAMAAAAGAAgAAAADAAMAAAAHAAgAAAADAAMAAAAHAAkAAAADAAMAAAAIAAkAAAADAAMAAAAJAAkAAAADAAMAAAAVAP//AAADAAMAAAAYAAMAAAADAAMAAAAYAAQAAAADAAMAAAAZAP//AAADAAMAAAAZAAAAAAADAAMAAAAZAAEAAAADAAMAAAAZAAIAAAADAAMAAAAaAP//AAADAAMAAAAaAAEAAAADAAMAAAAaAAIAAAADAAMAAAAbAP//AAADAAMAAAAbAAAAAAADAAMAAAAbAAEAAAADAAMAAAAbAAIAAAADAAMAAAAcAP//AAADAAMAAAAcAAAAAAADAAMAAAAcAAEAAAADAAMAAAAcAAIAAAADAAMAAAAdAP//AAADAAMAAAAdAAAAAAADAAMAAAAdAAEAAAADAAMAAAAdAAIAAAADAAMAAAAZAAMAAAAHAAcAACAZAAQAAAADAAMAAAAaAAMAAAADAAMAAAAaAAQAAAADAAMAAAAbAAMAAAADAAMAAAAbAAQAAAADAAMAAAAcAAMAAAADAAMAAAAcAAQAAAADAAMAAAAdAAMAAAADAAMAAAAdAAQAAAADAAMAAAAdAAUAAAADAAMAAAAdAAYAAAADAAMAAAAdAAcAAAADAAMAAAAdAAgAAAADAAMAAAAdAAkAAAADAAMAAAAdAAoAAAADAAMAAAAdAAsAAAADAAMAAAAdAAwAAAADAAMAAAAdAA0AAAADAAMAAAAdAA4AAAADAAMAAAAdAA8AAAADAAMAAAAeAAEAAAADAAMAAAAeAAIAAAADAAMAAAAeAAMAAAADAAMAAAAeAAQAAAADAAMAAAAeAAUAAAADAAMAAAAeAAYAAAADAAMAAAAeAAcAAAADAAMAAAAeAAgAAAADAAMAAAAeAAkAAAADAAMAAAAeAAoAAAADAAMAAAAeAAsAAAADAAMAAAAeAAwAAAADAAMAAAAeAA0AAAADAAMAAAAeAA4AAAADAAMAAAAeAA8AAAADAAMAAAAdABAAAAADAAMAAAAdABEAAAADAAMAAAAdABIAAAADAAMAAAAeABAAAAADAAMAAAAeABEAAAADAAMAAAAeABIAAAADAAMAAAAeAP//AAADAAMAAAAeAAAAAAADAAMAAAAfABEAAAADAAMAAAAfABIAAAADAAMAAAAfAP//AAADAAMAAAAfAAAAAAADAAMAAAAfAAEAAAADAAMAAAAfAAIAAAADAAMAAAAfAAMAAAADAAMAAAAfAAQAAAADAAMAAAAfAAUAAAADAAMAAAAfAAYAAAADAAMAAAAfAAcAAAADAAMAAAAfAAgAAAADAAMAAAAfAAkAAAADAAMAAAAfAAoAAAADAAMAAAAfAAsAAAADAAMAAAAfAAwAAAADAAMAAAAfAA0AAAADAAMAAAAfAA4AAAADAAMAAAAfAA8AAAADAAMAAAAfABAAAAADAAMAAAAgAP//AAADAAMAAAAgAAAAAAADAAMAAAAgAAEAAAADAAMAAAAgAAIAAAADAAMAAAAgAAMAAAADAAMAAAAgAAQAAAADAAMAAAAgAAUAAAADAAMAAAAgAAYAAAADAAMAAAAgAAcAAAADAAMAAAAgAAgAAAADAAMAAAAgAAkAAAADAAMAAAAgAAoAAAADAAMAAAAgAAsAAAADAAMAAAAgAAwAAAADAAMAAAAgAA0AAAADAAMAAAAgAA4AAAADAAMAAAAgAA8AAAADAAMAAAAgABAAAAADAAMAAAAhAP//AAADAAMAAAAhAAAAAAADAAMAAAAhAAEAAAADAAMAAAAhAAIAAAADAAMAAAAhAAMAAAADAAMAAAAhAAQAAAADAAMAAAAhAAUAAAADAAMAAAAhAAYAAAADAAMAAAAhAAcAAAADAAMAAAAhAAgAAAADAAMAAAAhAAkAAAADAAMAAAAhAAoAAAADAAMAAAAhAAsAAAADAAMAAAAhAAwAAAADAAMAAAAhAA0AAAADAAMAAAAhAA4AAAADAAMAAAAhAA8AAAADAAMAAAAhABAAAAADAAMAAAAiAP//AAADAAMAAAAiAAAAAAADAAMAAAAiAAEAAAADAAMAAAAiAAIAAAADAAMAAAAiAAMAAAADAAMAAAAiAAQAAAADAAMAAAAiAAUAAAADAAMAAAAiAAYAAAADAAMAAAAiAAcAAAADAAMAAAAiAAgAAAADAAMAAAAiAAkAAAADAAMAAAAiAAoAAAADAAMAAAAiAAsAAAADAAMAAAAiAAwAAAADAAMAAAAiAA0AAAADAAMAAAAiAA4AAAADAAMAAAAiAA8AAAADAAMAAAAiABAAAAADAAMAAAAjAP//AAADAAMAAAAjAAAAAAADAAMAAAAjAAEAAAADAAMAAAAjAAIAAAADAAMAAAAjAAMAAAADAAMAAAAjAAQAAAADAAMAAAAjAAUAAAADAAMAAAAjAAYAAAADAAMAAAAjAAcAAAADAAMAAAAjAAgAAAADAAMAAAAjAAkAAAADAAMAAAAjAAoAAAADAAMAAAAjAAsAAAADAAMAAAAjAAwAAAADAAMAAAAjAA0AAAADAAMAAAAjAA4AAAADAAMAAAAjAA8AAAADAAMAAAAjABAAAAADAAMAAAAkAP//AAADAAMAAAAkAAAAAAADAAMAAAAkAAEAAAADAAMAAAAkAAIAAAADAAMAAAAkAAMAAAADAAMAAAAkAAQAAAADAAMAAAAkAAUAAAADAAMAAAAkAAYAAAADAAMAAAAkAAcAAAADAAMAAAAkAAgAAAADAAMAAAAkAAkAAAADAAMAAAAkAAoAAAADAAMAAAAkAAsAAAADAAMAAAAkAAwAAAADAAMAAAAkAA0AAAADAAMAAAAkAA4AAAADAAMAAAAkAA8AAAADAAMAAAAkABAAAAADAAMAAAAlAP//AAADAAMAAAAlAAAAAAADAAMAAAAlAAEAAAADAAMAAAAlAAIAAAADAAMAAAAlAAMAAAADAAMAAAAlAAQAAAADAAMAAAAlAAUAAAADAAMAAAAlAAYAAAADAAMAAAAlAAcAAAADAAMAAAAlAAgAAAADAAMAAAAlAAkAAAADAAMAAAAlAAoAAAADAAMAAAAlAAsAAAADAAMAAAAlAAwAAAADAAMAAAAlAA0AAAADAAMAAAAlAA4AAAADAAMAAAAlAA8AAAADAAMAAAAlABAAAAADAAMAAAAmAP//AAADAAMAAAAmAAAAAAADAAMAAAAmAAEAAAADAAMAAAAmAAIAAAADAAMAAAAmAAMAAAADAAMAAAAmAAQAAAADAAMAAAAmAAUAAAADAAMAAAAmAAYAAAADAAMAAAAmAAcAAAADAAMAAAAmAAgAAAADAAMAAAAmAAkAAAADAAMAAAAmAAoAAAADAAMAAAAmAAsAAAADAAMAAAAmAAwAAAADAAMAAAAmAA0AAAADAAMAAAAmAA4AAAADAAMAAAAmAA8AAAADAAMAAAAmABAAAAADAAMAAAAnAP//AAADAAMAAAAnAAAAAAADAAMAAAAnAAEAAAADAAMAAAAnAAIAAAADAAMAAAAnAAMAAAADAAMAAAAnAAQAAAADAAMAAAAnAAUAAAADAAMAAAAnAAYAAAADAAMAAAAnAAcAAAADAAMAAAAnAAgAAAADAAMAAAAnAAkAAAADAAMAAAAnAAoAAAADAAMAAAAnAAsAAAADAAMAAAAnAAwAAAADAAMAAAAnAA0AAAADAAMAAAAnAA4AAAADAAMAAAAnAA8AAAADAAMAAAAnABAAAAADAAMAAAAoAP//AAADAAMAAAAoAAAAAAADAAMAAAAoAAEAAAADAAMAAAAoAAIAAAADAAMAAAAoAAMAAAADAAMAAAAoAAQAAAADAAMAAAAoAAUAAAADAAMAAAAoAAYAAAADAAMAAAAoAAcAAAADAAMAAAAoAAgAAAADAAMAAAAoAAkAAAADAAMAAAAoAAoAAAADAAMAAAAoAAsAAAADAAMAAAAoAAwAAAADAAMAAAAoAA0AAAADAAMAAAAoAA4AAAADAAMAAAAoAA8AAAADAAMAAAAoABAAAAADAAMAAAApAP//AAADAAMAAAApAAAAAAADAAMAAAApAAEAAAADAAMAAAApAAIAAAADAAMAAAApAAMAAAADAAMAAAApAAQAAAADAAMAAAApAAUAAAADAAMAAAApAAYAAAADAAMAAAApAAcAAAADAAMAAAApAAgAAAADAAMAAAApAAkAAAADAAMAAAApAAoAAAADAAMAAAApAAsAAAADAAMAAAApAAwAAAADAAMAAAApAA0AAAADAAMAAAApAA4AAAADAAMAAAApAA8AAAADAAMAAAApABAAAAADAAMAAAD7////AAADAAMAAAD7/wAAAAADAAMAAAD7/wEAAAADAAMAAAD7/wIAAAADAAMAAAD7/wMAAAADAAMAAAD7/wQAAAADAAMAAAD7/wUAAAADAAMAAAD7/wYAAAADAAMAAAD7/wcAAAADAAMAAAD7/wgAAAADAAMAAAD7/wkAAAADAAMAAAD7/woAAAADAAMAAAD7/wsAAAADAAMAAAD7/wwAAAADAAMAAAD7/w0AAAADAAMAAAD7/w4AAAADAAMAAAD7/w8AAAADAAMAAAD7/xAAAAADAAMAAAD8////AAADAAMAAAD8/wAAAAADAAMAAAD8/wEAAAADAAMAAAD8/wIAAAADAAMAAAD8/wMAAAADAAMAAAD8/wQAAAADAAMAAAD8/wUAAAADAAMAAAD8/wYAAAADAAMAAAD8/wcAAAADAAMAAAD8/wgAAAADAAMAAAD8/wkAAAADAAMAAAD8/woAAAADAAMAAAD8/wsAAAADAAMAAAD8/wwAAAADAAMAAAD8/w0AAAADAAMAAAD8/w4AAAADAAMAAAD8/w8AAAADAAMAAAD8/xAAAAADAAMAAAD9////AAADAAMAAAD9/wAAAAADAAMAAAD9/wEAAAADAAMAAAD9/wIAAAADAAMAAAD9/wMAAAADAAMAAAD9/wQAAAADAAMAAAD9/wUAAAADAAMAAAD9/wYAAAADAAMAAAD9/wcAAAADAAMAAAD9/wgAAAADAAMAAAD9/wkAAAADAAMAAAD9/woAAAADAAMAAAD9/wsAAAADAAMAAAD9/wwAAAADAAMAAAD9/w0AAAADAAMAAAD9/w4AAAADAAMAAAD9/w8AAAADAAMAAAD9/xAAAAADAAMAAAD+////AAADAAMAAAD+/wAAAAADAAMAAAD+/wEAAAADAAMAAAD+/wIAAAADAAMAAAD+/wMAAAADAAMAAAD+/wQAAAADAAMAAAD+/wUAAAADAAMAAAD+/wYAAAADAAMAAAD+/wcAAAADAAMAAAD+/wgAAAADAAMAAAD+/wkAAAADAAMAAAD+/woAAAADAAMAAAD+/wsAAAADAAMAAAD+/wwAAAADAAMAAAD+/w0AAAADAAMAAAD+/w4AAAADAAMAAAD+/w8AAAADAAMAAAD+/xAAAAADAAMAAAAaAAAAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_hfq3o")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 17.0
+offset_right = 129.0
+offset_bottom = 59.0
+theme = ExtResource("4_q7bnw")
+text = "  Back  "
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_top = 66.0
+offset_right = 115.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.858824, 0.2, 0.223529, 0.984314)
+theme_override_fonts/font = ExtResource("3_y22bn")
+theme_override_font_sizes/font_size = 70
+text = "UPGRADES"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 19.0
+offset_right = -23.0
+offset_bottom = 61.0
+grow_horizontal = 0
+theme_override_constants/separation = 80
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(85, 23)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("7_sblvi")
+offset = Vector2(50, 0)
+
+[node name="Score" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("1_rxwj8")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ut8t3")
+text = "100
+"
+script = SubResource("GDScript_o16f8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -241.0
+offset_right = 576.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hq4h5")
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="PlayerHEALTH" type="PanelContainer" parent="PanelContainer/VBox"]
+layout_mode = 2
+theme = ExtResource("6_n3aqh")
+
+[node name="Health" type="HBoxContainer" parent="PanelContainer/VBox/PlayerHEALTH"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+layout_mode = 2
+theme_override_constants/separation = 158
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="HealthLabel" type="Label" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wjx1k")
+text = "Player health"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+layout_mode = 2
+theme_override_constants/separation = 71
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="HealthLevel" type="Label" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+unique_name_in_owner = true
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+
+[node name="HealthMax" type="Label" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = " / 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeHealth" type="Button" parent="PanelContainer/VBox/PlayerHEALTH/Health"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_dim58")
+text = "x15 Upgrade"
+icon = ExtResource("7_sblvi")
+
+[node name="DASH" type="PanelContainer" parent="PanelContainer/VBox"]
+layout_mode = 2
+theme = ExtResource("6_n3aqh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBox/DASH"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBox/DASH/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pewa3")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBox/DASH/HBoxContainer/PanelContainer"]
+position = Vector2(71, 37.715)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("7_0lbga")
+region_rect = Rect2(89, 5, 24, 16)
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "   
+
+    DASH    "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBox/DASH/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 14
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e6kg3")
+
+[node name="Damage" type="HBoxContainer" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="DashDmgLabel" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "Damage"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 155
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="DashDmgLevel" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+unique_name_in_owner = true
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+
+[node name="Max" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = " / 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeDashDmg" type="Button" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_dim58")
+text = "x10 Upgrade"
+icon = ExtResource("7_sblvi")
+
+[node name="Cooldown" type="HBoxContainer" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="CooldownLabel" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "Cooldown"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+layout_mode = 2
+theme_override_constants/separation = 131
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="CooldownLevel" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+unique_name_in_owner = true
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+
+[node name="Max" type="Label" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = " / 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeCooldown" type="Button" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_dim58")
+text = "x10 Upgrade"
+icon = ExtResource("7_sblvi")
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e6kg3")
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/DASH/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hsd2o")
+
+[node name="FIREBALL" type="PanelContainer" parent="PanelContainer/VBox"]
+layout_mode = 2
+theme = ExtResource("6_n3aqh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBox/FIREBALL"]
+layout_mode = 2
+
+[node name="Fireball" type="PanelContainer" parent="PanelContainer/VBox/FIREBALL/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pewa3")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Fireball"]
+position = Vector2(71, 54)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("7_fjueu")
+region_enabled = true
+region_rect = Rect2(89, 5, 24, 16)
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Fireball"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "   
+
+  FIREBALL  "
+
+[node name="Upgrades" type="VBoxContainer" parent="PanelContainer/VBox/FIREBALL/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 14
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e6kg3")
+
+[node name="Damage" type="HBoxContainer" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="DamageLabel" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "Damage"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 155
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="DamageLevel" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+unique_name_in_owner = true
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+
+[node name="DamageMax" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = " / 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeDamage" type="Button" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_dim58")
+text = "x15 Upgrade"
+icon = ExtResource("7_sblvi")
+
+[node name="RelSpeed" type="HBoxContainer" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="RelSpeedLabel" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "Reload speed"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 83
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="RelSpeedLevel" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+unique_name_in_owner = true
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+
+[node name="HealthMax" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = " / 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeRelSpeed" type="Button" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_dim58")
+text = "x15 Upgrade"
+icon = ExtResource("7_sblvi")
+
+[node name="ProjSpeed" type="HBoxContainer" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="ProjSpeedLabel" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "Projectile speed"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="ProjSpeedLevel" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+unique_name_in_owner = true
+modulate = Color(0.127947, 0.615479, 0.21519, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+
+[node name="HealthMax" type="Label" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o43dw")
+theme_override_font_sizes/font_size = 32
+text = " / 4"
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fphj3")
+
+[node name="UpgradeProjSpeed" type="Button" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_dim58")
+text = "x15 Upgrade"
+icon = ExtResource("7_sblvi")
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e6kg3")
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox/FIREBALL/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hsd2o")
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PanelContainer/VBox/PlayerHEALTH/Health/UpgradeHealth" to="." method="_on_upgrade_health_pressed"]
+[connection signal="pressed" from="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Damage/UpgradeDashDmg" to="." method="_on_upgrade_dash_dmg_pressed"]
+[connection signal="pressed" from="PanelContainer/VBox/DASH/HBoxContainer/VBoxContainer/Cooldown/UpgradeCooldown" to="." method="_on_upgrade_cooldown_pressed"]
+[connection signal="pressed" from="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/Damage/UpgradeDamage" to="." method="_on_upgrade_damage_pressed"]
+[connection signal="pressed" from="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/RelSpeed/UpgradeRelSpeed" to="." method="_on_upgrade_rel_speed_pressed"]
+[connection signal="pressed" from="PanelContainer/VBox/FIREBALL/HBoxContainer/Upgrades/ProjSpeed/UpgradeProjSpeed" to="." method="_on_upgrade_proj_speed_pressed"]

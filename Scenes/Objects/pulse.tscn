@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://duurhptxtw1rb"]
+
+[ext_resource type="Script" uid="uid://hgot827c5aeo" path="res://Scripts/pulse.gd" id="1_af3x3"]
+[ext_resource type="Texture2D" uid="uid://bf5qvqjbpjhpx" path="res://Assets/Explosions/Yellow Effect Bullet Impact Explosion 32x32.png" id="1_veqkl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbr3n"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(352, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjm7k"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(384, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1h3g"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(416, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdkaa"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(448, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6npji"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(352, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84dj5"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(384, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muctt"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(416, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qyou"]
+atlas = ExtResource("1_veqkl")
+region = Rect2(448, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1et4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbr3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjm7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1h3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdkaa")
+}],
+"loop": true,
+"name": &"harmless_pulse",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6npji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84dj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muctt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qyou")
+}],
+"loop": true,
+"name": &"killing_pulse",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlj5e"]
+size = Vector2(30.5, 31)
+
+[node name="Pulsing_enemy" type="Node2D"]
+script = ExtResource("1_af3x3")
+
+[node name="Pulse" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.125, 0)
+scale = Vector2(0.929688, 0.96875)
+sprite_frames = SubResource("SpriteFrames_e1et4")
+animation = &"killing_pulse"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.25, -0.5)
+shape = SubResource("RectangleShape2D_mlj5e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

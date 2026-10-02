@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://owei72vs5yo4"]
+
+[ext_resource type="Texture2D" uid="uid://depb6civ550jh" path="res://Assets/Tilesets/MobileControls/tile_0760.png" id="1_dxj1b"]
+[ext_resource type="Texture2D" uid="uid://drb1dxcpqajsh" path="res://Assets/Tilesets/MobileControls/tile_0794.png" id="2_ihuxs"]
+[ext_resource type="Texture2D" uid="uid://dhfpv5q0norpf" path="res://Assets/Tilesets/MobileControls/tile_0758.png" id="3_80yey"]
+[ext_resource type="Texture2D" uid="uid://bo5j4jil0woae" path="res://Assets/Tilesets/MobileControls/tile_0792.png" id="4_nmh6j"]
+[ext_resource type="Texture2D" uid="uid://bfotr2lo1eeyt" path="res://Assets/Tilesets/MobileControls/tile_0757.png" id="5_ar7xk"]
+[ext_resource type="Texture2D" uid="uid://do7q8gwwrvl8b" path="res://Assets/Tilesets/MobileControls/tile_0791.png" id="6_bf8gy"]
+[ext_resource type="Texture2D" uid="uid://cfqvwxqd6q1hw" path="res://Assets/Tilesets/MobileControls/tile_0759.png" id="7_k1r1s"]
+[ext_resource type="Texture2D" uid="uid://djigakjckqa0r" path="res://Assets/Tilesets/MobileControls/tile_0793.png" id="8_w6ber"]
+[ext_resource type="Texture2D" uid="uid://dnfqglx5sdhkp" path="res://Assets/Tilesets/MobileControls/tile_0012.png" id="9_kus43"]
+[ext_resource type="Texture2D" uid="uid://c2sjsp0dbtf5g" path="res://Assets/Tilesets/MobileControls/tile_0046.png" id="10_eb8pc"]
+[ext_resource type="Texture2D" uid="uid://pkokj1rxofvj" path="res://Assets/Tilesets/MobileControls/tile_pause.png" id="11_aictx"]
+[ext_resource type="Texture2D" uid="uid://c18w1lkmhecmv" path="res://Assets/Tilesets/MobileControls/tile_pause_press.png" id="12_thqhv"]
+
+[node name="MobileControls" type="CanvasLayer"]
+
+[node name="ControlLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Left" type="TouchScreenButton" parent="ControlLeft"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(124, 530)
+scale = Vector2(10, 10)
+texture_normal = ExtResource("1_dxj1b")
+texture_pressed = ExtResource("2_ihuxs")
+passby_press = true
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="ControlLeft"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(317, 524)
+scale = Vector2(10, 10)
+texture_normal = ExtResource("3_80yey")
+texture_pressed = ExtResource("4_nmh6j")
+passby_press = true
+action = "move_right"
+
+[node name="AbovePause" type="Control" parent="ControlLeft"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 110.0
+offset_bottom = 117.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ControlLeft/AbovePause"]
+layer = 5
+
+[node name="Esc" type="TouchScreenButton" parent="ControlLeft/AbovePause/CanvasLayer"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(13, 25)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("11_aictx")
+texture_pressed = ExtResource("12_thqhv")
+passby_press = true
+action = "esc"
+
+[node name="ControlRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Jump" type="TouchScreenButton" parent="ControlRight"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-195, 330)
+scale = Vector2(10, 10)
+texture_normal = ExtResource("5_ar7xk")
+texture_pressed = ExtResource("6_bf8gy")
+passby_press = true
+action = "jump"
+
+[node name="Crouch" type="TouchScreenButton" parent="ControlRight"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-262, 499)
+scale = Vector2(10, 10)
+texture_normal = ExtResource("7_k1r1s")
+texture_pressed = ExtResource("8_w6ber")
+passby_press = true
+action = "crouch"
+
+[node name="Attack" type="TouchScreenButton" parent="ControlRight"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-385, 323)
+scale = Vector2(10, 10)
+texture_normal = ExtResource("9_kus43")
+texture_pressed = ExtResource("10_eb8pc")
+passby_press = true
+action = "attack"
+
+[node name="Dash" type="TouchScreenButton" parent="ControlRight"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-438, 502)
+scale = Vector2(10, 10)
+texture_normal = ExtResource("9_kus43")
+texture_pressed = ExtResource("10_eb8pc")
+passby_press = true
+action = "dash"

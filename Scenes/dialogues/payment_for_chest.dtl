@@ -1,0 +1,6 @@
+Would you like to pay 50 silver coins to open this chest?
+- PAY
+	[signal arg="PAY"]
+- DON'T PAY
+	[signal arg="DON'T PAY"]
+[signal arg="signal"]

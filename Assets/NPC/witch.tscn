@@ -1,0 +1,122 @@
+[gd_scene load_steps=23 format=3 uid="uid://c6dnqotp483ey"]
+
+[ext_resource type="Texture2D" uid="uid://cf6rlbsbai0y0" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle1.png" id="1_m22ks"]
+[ext_resource type="Script" uid="uid://3q8hge6ycq4b" path="res://Scripts/witch.gd" id="1_omiib"]
+[ext_resource type="Texture2D" uid="uid://ckxw50c18ajfk" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle2.png" id="2_1haer"]
+[ext_resource type="Texture2D" uid="uid://dib00acxctjbs" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle3.png" id="3_ijtp5"]
+[ext_resource type="Texture2D" uid="uid://bn33dmxystby3" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle4.png" id="4_5jnom"]
+[ext_resource type="Texture2D" uid="uid://cyu33irg11300" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle5.png" id="5_d4gg4"]
+[ext_resource type="Texture2D" uid="uid://cu5kdeb4cmh63" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle6.png" id="6_cadhp"]
+[ext_resource type="Texture2D" uid="uid://cx0r8asej2cpr" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle7.png" id="7_yvpt0"]
+[ext_resource type="Texture2D" uid="uid://crhsry5gphmdl" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle8.png" id="8_gpms0"]
+[ext_resource type="Texture2D" uid="uid://d3en3pthvc1vk" path="res://Assets/NPC/Sprites/Eleonore/Idle/Idle9.png" id="9_fjk6h"]
+[ext_resource type="Texture2D" uid="uid://cst78uuj1rqjw" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow1.png" id="10_00dsm"]
+[ext_resource type="Texture2D" uid="uid://dy74xxg22pwal" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow2.png" id="11_2hp36"]
+[ext_resource type="Texture2D" uid="uid://cncbd1c784o7g" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow3.png" id="12_i23nj"]
+[ext_resource type="Texture2D" uid="uid://bdb2xbmeuy56w" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow4.png" id="13_7v8cg"]
+[ext_resource type="Texture2D" uid="uid://c36c8d78yndyf" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow5.png" id="14_utb17"]
+[ext_resource type="Texture2D" uid="uid://biiu6uj22o44x" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow6.png" id="15_v3r60"]
+[ext_resource type="Texture2D" uid="uid://b1d864j08fomh" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow7.png" id="16_jbsno"]
+[ext_resource type="Texture2D" uid="uid://7mfst6axxve5" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow8.png" id="17_ciotu"]
+[ext_resource type="Texture2D" uid="uid://cxjcbjns7hoyq" path="res://Assets/NPC/Sprites/Eleonore/Idle/Shadow/Shadow9.png" id="18_tid2o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufbb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m22ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1haer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ijtp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5jnom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d4gg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cadhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yvpt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gpms0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fjk6h")
+}],
+"loop": true,
+"name": &"witch",
+"speed": 11.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67n38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_00dsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2hp36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i23nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7v8cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_utb17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v3r60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jbsno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ciotu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tid2o")
+}],
+"loop": true,
+"name": &"shadow",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ulb"]
+size = Vector2(44, 47)
+
+[node name="Witch" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(3, -24)
+scale = Vector2(0.8125, 0.84375)
+sprite_frames = SubResource("SpriteFrames_ufbb2")
+animation = &"witch"
+frame_progress = 0.181244
+script = ExtResource("1_omiib")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(1.14063, 1)
+sprite_frames = SubResource("SpriteFrames_67n38")
+animation = &"shadow"
+autoplay = "shadow"
+
+[node name="Interaction_area" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9, -23.5)
+shape = SubResource("RectangleShape2D_x5ulb")
+
+[connection signal="body_entered" from="Area2D" to="Area2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]
+[connection signal="ready" from="Area2D/AnimatedSprite2D" to="Area2D/AnimatedSprite2D" method="_on_ready"]
+[connection signal="ready" from="Area2D/AnimatedSprite2D2" to="Area2D/AnimatedSprite2D2" method="_on_ready"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://yx4t5mib78tw"]
+
+[ext_resource type="FontFile" uid="uid://dsbbmvsvlakcp" path="res://Assets/UI/fonts/monogram.ttf" id="1_2ypaq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubwwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkyt8"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(0, 40)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_2ypaq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ubwwf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.21
+offset_top = -19.0
+offset_right = 197.21
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Action_Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_2ypaq")
+theme_override_font_sizes/font_size = 32
+text = "Action Name"
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jkyt8")
+
+[node name="Input_label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2ypaq")
+theme_override_font_sizes/font_size = 30
+text = "Input Name"

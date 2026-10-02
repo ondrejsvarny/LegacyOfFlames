@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ue382bgi5631"]
+
+[ext_resource type="Script" uid="uid://c8dpmfn0da70p" path="res://Scripts/paying_for_chest.gd" id="1_4h53v"]
+[ext_resource type="PackedScene" uid="uid://dxwchbx3pqk3u" path="res://Scenes/Objects/chest.tscn" id="2_hntgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d6ww"]
+size = Vector2(70, 53)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4h53v")
+
+[node name="Chest" parent="." instance=ExtResource("2_hntgj")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -26)
+shape = SubResource("RectangleShape2D_8d6ww")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

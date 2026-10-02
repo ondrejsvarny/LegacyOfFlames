@@ -1,0 +1,263 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5jl03e6ro4yp"]
+
+[ext_resource type="Script" uid="uid://cu74mprjiur53" path="res://Scripts/ui.gd" id="1_wyl8w"]
+[ext_resource type="Texture2D" uid="uid://cgy7md4xm05w8" path="res://Assets/Tilesets/coins/single_coin.png" id="2_i0ubq"]
+[ext_resource type="FontFile" uid="uid://dv86c210qs7jq" path="res://Assets/UI/fonts/monogram-extended.ttf" id="2_inaud"]
+[ext_resource type="PackedScene" uid="uid://demqmpcbamx3r" path="res://Scenes/Basic/healthbar.tscn" id="2_kx834"]
+[ext_resource type="Texture2D" uid="uid://gw58gw0a1fw4" path="res://Assets/UI/Icons/TimeIcon.png" id="3_npyw7"]
+[ext_resource type="Texture2D" uid="uid://coeh2jg2posnt" path="res://Assets/Tilesets/coins/single_coin_silver.png" id="4_fekel"]
+[ext_resource type="Texture2D" uid="uid://vuei1wn0ffr4" path="res://Assets/Tilesets/heart/pixil-frame-0.png" id="4_rb0sg"]
+[ext_resource type="Texture2D" uid="uid://cpwm7euxkqvig" path="res://Assets/UI/Bars/attackbarNew.png" id="7_1ft3r"]
+[ext_resource type="PackedScene" uid="uid://b28yj0bs4jhom" path="res://Scenes/Basic/attackbar.tscn" id="8_iwplf"]
+[ext_resource type="Script" uid="uid://cv6v4nf03yc1m" path="res://Scripts/dashbar.gd" id="9_b38v5"]
+[ext_resource type="Texture2D" uid="uid://c6qqm5bo63b5f" path="res://Assets/UI/Bars/dashbarV1.png" id="9_r5pkm"]
+[ext_resource type="StyleBox" uid="uid://blil1grsn8m5m" path="res://Assets/UI/Bars/green_bar.tres" id="10_u7ppq"]
+[ext_resource type="Texture2D" uid="uid://c7sbh0mv72jts" path="res://Assets/UI/potion_ui_box.png" id="13_vl76r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6lwdm"]
+
+[node name="Ui" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_wyl8w")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="DashPotionTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="AttackPotionTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="AbovePause" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.0046875
+anchor_right = 1.0
+anchor_bottom = 0.988889
+offset_left = 1056.0
+offset_bottom = -466.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreAndTime" type="CanvasLayer" parent="AbovePause"]
+layer = 5
+
+[node name="Gold" type="MarginContainer" parent="AbovePause/ScoreAndTime"]
+anchors_preset = -1
+anchor_left = 0.998264
+anchor_top = -0.0169753
+anchor_right = 0.998264
+anchor_bottom = -0.0169753
+offset_left = -230.0
+offset_top = 10.0
+offset_bottom = 113.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="AbovePause/ScoreAndTime/Gold"]
+position = Vector2(181, 45)
+scale = Vector2(3, 3)
+texture = ExtResource("2_i0ubq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbovePause/ScoreAndTime/Gold"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Score" type="Label" parent="AbovePause/ScoreAndTime/Gold/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_inaud")
+theme_override_font_sizes/font_size = 64
+text = "120"
+
+[node name="VSeparator" type="VSeparator" parent="AbovePause/ScoreAndTime/Gold/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6lwdm")
+
+[node name="Silver" type="MarginContainer" parent="AbovePause/ScoreAndTime"]
+anchors_preset = -1
+anchor_left = 0.999132
+anchor_top = 0.0802469
+anchor_right = 0.999132
+anchor_bottom = 0.0802469
+offset_left = -230.0
+offset_top = 10.0
+offset_bottom = 113.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="AbovePause/ScoreAndTime/Silver"]
+position = Vector2(181, 45)
+scale = Vector2(3, 3)
+texture = ExtResource("4_fekel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbovePause/ScoreAndTime/Silver"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ScoreSilver" type="Label" parent="AbovePause/ScoreAndTime/Silver/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_inaud")
+theme_override_font_sizes/font_size = 64
+text = "12"
+
+[node name="VSeparator" type="VSeparator" parent="AbovePause/ScoreAndTime/Silver/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6lwdm")
+
+[node name="Time" type="MarginContainer" parent="AbovePause/ScoreAndTime"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -143.0
+offset_top = 161.0
+offset_right = -23.0
+offset_bottom = 212.0
+grow_horizontal = 0
+
+[node name="TimeLabel" type="Label" parent="AbovePause/ScoreAndTime/Time"]
+unique_name_in_owner = true
+process_mode = 3
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_inaud")
+theme_override_font_sizes/font_size = 64
+text = "24:25"
+
+[node name="Sprite2D" type="Sprite2D" parent="AbovePause/ScoreAndTime/Time/TimeLabel"]
+position = Vector2(-29, 35)
+scale = Vector2(3, 3)
+texture = ExtResource("3_npyw7")
+
+[node name="Healthbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 67.0
+offset_top = -5.0
+offset_right = 437.0
+offset_bottom = 95.0
+
+[node name="HealthBar" parent="Healthbar" instance=ExtResource("2_kx834")]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 39.0
+offset_right = 328.0
+offset_bottom = 67.0
+max_value = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Healthbar"]
+z_index = 2
+position = Vector2(210, 55)
+scale = Vector2(3.65, 3.65)
+texture = ExtResource("4_rb0sg")
+
+[node name="Attack1bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 115.0
+offset_right = 147.0
+offset_bottom = 155.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack1bar"]
+z_index = 2
+position = Vector2(167, 0)
+scale = Vector2(3.65, 3.65)
+texture = ExtResource("7_1ft3r")
+
+[node name="AttackBar" parent="Attack1bar" instance=ExtResource("8_iwplf")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -16.0
+offset_right = 135.0
+offset_bottom = 12.0
+theme_override_styles/fill = ExtResource("10_u7ppq")
+
+[node name="DashBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 229.0
+offset_top = 77.0
+offset_right = 537.0
+offset_bottom = 119.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="DashBar"]
+physics_interpolation_mode = 1
+z_index = 2
+position = Vector2(199.5, 36.5)
+scale = Vector2(3.65, 3.65)
+texture = ExtResource("9_r5pkm")
+
+[node name="DashBar" parent="DashBar" instance=ExtResource("8_iwplf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.666
+anchor_top = -4.166
+anchor_right = 1.12
+anchor_bottom = 1.0
+offset_left = -137.628
+offset_top = 195.472
+offset_right = -177.46
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = ExtResource("10_u7ppq")
+script = ExtResource("9_b38v5")
+
+[node name="PickedUp" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PickedUp"]
+layer = 3
+
+[node name="PickedUpSprite" type="Sprite2D" parent="PickedUp/CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2(460, 82)
+scale = Vector2(3, 3)
+hframes = 3
+vframes = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="PickedUp/CanvasLayer"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(460, 82)
+scale = Vector2(3, 3)
+texture = ExtResource("13_vl76r")
+
+[node name="PickedUpButt" type="Button" parent="PickedUp/CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 425.0
+offset_top = 47.0
+offset_right = 448.0
+offset_bottom = 78.0
+scale = Vector2(2.98527, 2.32797)
+text = "jh"
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="DashPotionTimer" to="." method="_on_dash_potion_timer_timeout"]
+[connection signal="timeout" from="AttackPotionTimer" to="." method="_on_attack_potion_timer_timeout"]
+[connection signal="pressed" from="PickedUp/CanvasLayer/PickedUpButt" to="." method="_on_picked_up_butt_pressed"]

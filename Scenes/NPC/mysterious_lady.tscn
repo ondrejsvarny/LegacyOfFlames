@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://ba4gn4xokmyvc"]
+
+[ext_resource type="Texture2D" uid="uid://bm44d56dk1118" path="res://Assets/NPC/Sprites/Joanna/Idle/Idle1.png" id="1_qndem"]
+[ext_resource type="Texture2D" uid="uid://b835u77t6b87o" path="res://Assets/NPC/Sprites/Joanna/Idle/Idle2.png" id="2_qkfi5"]
+[ext_resource type="Texture2D" uid="uid://b2cshkn2q8car" path="res://Assets/NPC/Sprites/Joanna/Idle/Idle4.png" id="3_06irt"]
+[ext_resource type="Texture2D" uid="uid://7xqqjrpaws00" path="res://Assets/NPC/Sprites/Joanna/Idle/Idle3.png" id="4_supfg"]
+[ext_resource type="Texture2D" uid="uid://d1qnjefykp6gj" path="res://Assets/NPC/Sprites/Joanna/Idle/Idle5.png" id="5_twt7c"]
+[ext_resource type="Texture2D" uid="uid://b2pwwl86reh51" path="res://Assets/NPC/Sprites/Joanna/Idle/Idle6.png" id="6_ui4l6"]
+[ext_resource type="Script" uid="uid://qpfioey776f0" path="res://Scripts/mysterious_lady.gd" id="7_qkfi5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0yqe3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qndem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qkfi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_06irt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_supfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_twt7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ui4l6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qndem"]
+size = Vector2(44.5, 45.5)
+
+[node name="mysterious_lady" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_0yqe3")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+script = ExtResource("7_qkfi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5.75, -2.25)
+shape = SubResource("RectangleShape2D_qndem")
+
+[connection signal="body_entered" from="Area2D" to="Area2D/AnimatedSprite2D" method="_on_area_2d_body_entered"]

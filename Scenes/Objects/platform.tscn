@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnskxuoxa3mh4"]
+
+[ext_resource type="Texture2D" uid="uid://cc4pjid60ce3a" path="res://Assets/Tilesets/tileset.png" id="1_6c3i2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o0vb"]
+size = Vector2(64, 16)
+
+[node name="Platform" type="AnimatableBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 0)
+texture = ExtResource("1_6c3i2")
+region_enabled = true
+region_rect = Rect2(304, 224, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("1_6c3i2")
+region_enabled = true
+region_rect = Rect2(272, 224, 16, 16)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+texture = ExtResource("1_6c3i2")
+region_enabled = true
+region_rect = Rect2(272, 224, 16, 16)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-24, 0)
+texture = ExtResource("1_6c3i2")
+region_enabled = true
+region_rect = Rect2(240, 224, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5o0vb")
+one_way_collision = true
