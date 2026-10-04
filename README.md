@@ -40,6 +40,8 @@ This project was developed as a graduation project at the Secondary Technical Sc
 
 * **Štefan Váraljai**: Animations, interactive objects, boss fights, dialogue system, UI design, and sound effects.
 
+## Screenshots
+
 <img width="936" height="517" alt="image" src="https://github.com/user-attachments/assets/2f2bf5bb-fbd9-4dbc-bfac-07702bd5bcc7" />
 <img width="945" height="531" alt="image" src="https://github.com/user-attachments/assets/ecb90d5d-200a-4aa0-8fb9-355f2dd84cd7" />
 
