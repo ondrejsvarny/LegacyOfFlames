@@ -42,7 +42,10 @@ This project was developed as a graduation project at the Secondary Technical Sc
 
 ## Screenshots
 
-<img width="936" height="517" alt="image" src="https://github.com/user-attachments/assets/2f2bf5bb-fbd9-4dbc-bfac-07702bd5bcc7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/887332c8-1c33-4d01-84c5-6c2bd72c78af" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d62855b1-70a7-4307-8598-e661146832e8" />
 <img width="945" height="531" alt="image" src="https://github.com/user-attachments/assets/ecb90d5d-200a-4aa0-8fb9-355f2dd84cd7" />
+<img width="936" height="517" alt="image" src="https://github.com/user-attachments/assets/2f2bf5bb-fbd9-4dbc-bfac-07702bd5bcc7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cb648fe3-146e-4c9f-884f-dc6b7ab7bcea" />
 
 
